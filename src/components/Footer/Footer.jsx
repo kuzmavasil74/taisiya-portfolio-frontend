@@ -23,7 +23,17 @@ function Footer() {
               taisiyastyle@example.com
             </a>
           </p>
-          <p>Address: 123 Main St, Anytown, USA</p>
+          <p>
+            Address:
+            <a
+              href="https://maps.app.goo.gl/VfztQVPuDGhHL2456"
+              target="_blank"
+              rel="noreferrer"
+              className={styles['map-link']}
+            >
+              Petržílkova 2583/15, 158 00 Praha 13, Чехія
+            </a>
+          </p>
         </div>
       </div>
       <p className={styles.copyright}>
