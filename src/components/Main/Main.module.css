@@ -1,0 +1,51 @@
+.sliderContainer {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.sliderImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.sliderCaption {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+.greeting {
+  font-size: 1.4rem;
+  color: #333;
+  font-weight: bold;
+  padding: 0 20px;
+  line-height: 1.4;
+  max-width: 800px;
+  margin: 20px auto;
+}
+.ctaButton {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.ctaButton:hover,
+.ctaButton:focus {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  outline: none;
+}
+
+.ctaButton:active {
+  background-color: #004494;
+}

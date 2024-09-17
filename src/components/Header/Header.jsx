@@ -7,7 +7,6 @@ function Header() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
-    console.log(`Menu is ${!isMenuOpen ? 'open' : 'closed'}`)
   }
   return (
     <header className={styles.header}>
