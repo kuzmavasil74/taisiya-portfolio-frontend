@@ -110,4 +110,8 @@
   .navItemLink:hover {
     background-color: #555;
   }
+  .navItemLink:active {
+    background-color: #555;
+    color: #f39c12;
+  }
 }
