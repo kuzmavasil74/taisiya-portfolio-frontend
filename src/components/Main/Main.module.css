@@ -1,7 +1,7 @@
 .sliderContainer {
+  position: relative;
   max-width: 100%;
   margin: 0 auto;
-  position: relative;
 }
 
 .sliderImg {
@@ -11,41 +11,37 @@
 }
 
 .sliderCaption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
-  margin-top: 20px;
-  font-size: 1.5rem;
-  color: #333;
+  color: white;
+  width: 100%;
+  padding: 0 10px;
 }
+
 .greeting {
   font-size: 1.4rem;
-  color: #333;
+  margin: 0;
   font-weight: bold;
-  padding: 0 20px;
-  line-height: 1.4;
-  max-width: 800px;
-  margin: 20px auto;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
 }
+
 .ctaButton {
   display: inline-block;
+  margin-top: 10px;
   padding: 10px 20px;
-  margin-bottom: 20px;
   font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
+  color: white;
   background-color: #007bff;
-  border: none;
-  border-radius: 5px;
   text-decoration: none;
-  transition: background-color 0.3s, transform 0.3s;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.ctaButton:hover,
-.ctaButton:focus {
+.ctaButton:hover {
   background-color: #0056b3;
-  transform: scale(1.05);
-  outline: none;
-}
-
-.ctaButton:active {
-  background-color: #004494;
 }

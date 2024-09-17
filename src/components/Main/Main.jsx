@@ -7,8 +7,8 @@ import styles from './Main.module.css'
 function Main() {
   const images = [
     '/images/slideer_img_1.jpg',
-    '/images/slideer_img_2.jpg',
     '/images/slideer_img_5.jpg',
+    '/images/slideer_img_2.jpg',
     '/images/slideer_img_6.jpg',
     '/images/slideer_img_7.jpg',
     '/images/slideer_img_8.jpg',
