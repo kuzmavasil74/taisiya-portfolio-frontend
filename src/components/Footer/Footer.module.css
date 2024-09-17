@@ -29,7 +29,7 @@
 }
 
 .social-media a:hover {
-  color: #f39c12;
+  color: #f39c12; /* Оранжевий колір для підсвічування */
   text-decoration: underline;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .contact-info a:hover {
-  color: #f39c12;
+  color: #f39c12; /* Оранжевий колір для підсвічування */
   text-decoration: underline;
 }
 
@@ -58,4 +58,21 @@
   color: #aaa;
   font-size: 0.8rem;
   margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .social-media,
+  .contact-info {
+    margin-bottom: 20px;
+  }
+
+  .copyright {
+    margin-top: 20px;
+  }
 }
