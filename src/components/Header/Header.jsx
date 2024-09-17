@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Header.module.css'
 
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+    console.log(`Menu is ${!isMenuOpen ? 'open' : 'closed'}`)
+  }
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -10,7 +16,12 @@ function Header() {
           <img src="/images/logo.svg" alt="taisiya_style_logo" width="80px" />
         </Link>
       </div>
-      <nav>
+      <button className={styles.menuButton} onClick={toggleMenu}>
+        <span className={styles.bar}></span>
+        <span className={styles.bar}></span>
+        <span className={styles.bar}></span>
+      </button>
+      <nav className={`${styles.nav} ${isMenuOpen ? styles.active : ''}`}>
         <ul>
           <li>
             <Link to="/about">About</Link>
@@ -26,14 +37,6 @@ function Header() {
           </li>
         </ul>
       </nav>
-      <div className={styles['social-media']}>
-        <a href="https://instagram.com/" target="_blank" rel="noreferrer">
-          Instagram
-        </a>
-        <a href="https://facebook.com/" target="_blank" rel="noreferrer">
-          Facebook
-        </a>
-      </div>
     </header>
   )
 }
