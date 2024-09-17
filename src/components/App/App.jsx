@@ -6,17 +6,23 @@ import ContactForm from '../ContactForm/Contact.jsx'
 import Gallery from '../Gallery/Gallery.jsx'
 import Main from '../Main/Main.jsx'
 import Services from '../Services/Services.jsx'
+import Footer from '../Footer/Footer.jsx'
+import Header from '../Header/Header.jsx'
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/contact" element={<ContactForm />} />
-        <Route path="/gallery" element={<Gallery />} />
-      </Routes>
+      <Header />
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<ContactForm />} />
+          <Route path="/gallery" element={<Gallery />} />
+        </Routes>
+      </div>
+      <Footer />
     </Router>
   )
 }

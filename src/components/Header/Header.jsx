@@ -6,7 +6,9 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Link to="/">TaisiyaStyle</Link>
+        <Link to="/">
+          <img src="/images/logo.svg" alt="taisiya_style_logo" width="80px" />
+        </Link>
       </div>
       <nav>
         <ul>
@@ -25,18 +27,10 @@ function Header() {
         </ul>
       </nav>
       <div className={styles['social-media']}>
-        <a
-          href="https://instagram.com/taisiyastyle"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://instagram.com/" target="_blank" rel="noreferrer">
           Instagram
         </a>
-        <a
-          href="https://facebook.com/taisiyastyle"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://facebook.com/" target="_blank" rel="noreferrer">
           Facebook
         </a>
       </div>
