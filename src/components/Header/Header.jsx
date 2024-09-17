@@ -13,7 +13,12 @@ function Header() {
     <header className={styles.header}>
       <div className={styles.logo}>
         <Link to="/">
-          <img src="/images/logo.svg" alt="taisiya_style_logo" width="80px" />
+          <img
+            className="logo-img"
+            src="/images/logo.svg"
+            alt="taisiya_style_logo"
+            width="80px"
+          />
         </Link>
       </div>
       <button className={styles.menuButton} onClick={toggleMenu}>
@@ -22,18 +27,26 @@ function Header() {
         <span className={styles.bar}></span>
       </button>
       <nav className={`${styles.nav} ${isMenuOpen ? styles.active : ''}`}>
-        <ul>
-          <li>
-            <Link to="/about">About</Link>
+        <ul className={styles.navList}>
+          <li className={styles.navItem}>
+            <Link className={styles.navItemLink} to="/about">
+              About
+            </Link>
           </li>
           <li>
-            <Link to="/services">Services</Link>
+            <Link className={styles.navItemLink} to="/services">
+              Services
+            </Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link className={styles.navItemLink} to="/contact">
+              Contact
+            </Link>
           </li>
           <li>
-            <Link to="/gallery">Gallery</Link>
+            <Link className={styles.navItemLink} to="/gallery">
+              Gallery
+            </Link>
           </li>
         </ul>
       </nav>
