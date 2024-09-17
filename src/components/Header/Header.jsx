@@ -41,7 +41,10 @@ function Header() {
         <span className={styles.bar}></span>
         <span className={styles.bar}></span>
       </button>
-      <nav className={`${styles.nav} ${isMenuOpen ? styles.active : ''}`}>
+      <nav
+        className={`${styles.nav} ${isMenuOpen ? styles.active : ''}`}
+        ref={menuRef}
+      >
         <ul className={styles.navList}>
           <li className={styles.navItem}>
             <Link className={styles.navItemLink} to="/about">
