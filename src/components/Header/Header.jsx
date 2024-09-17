@@ -1,13 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Header.module.css'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
+  const menuRef = useRef(null)
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
+  const handleClickOutside = (e) => {
+    if (menuRef.current && !menuRef.current.contains(e.target)) {
+      setIsMenuOpen(false)
+    }
+  }
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('touchstart', handleClickOutside)
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
+    }
+  }, [isMenuOpen])
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
