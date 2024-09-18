@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import './i18n.js'
 
 import AboutPage from './pages/AboutPage/AboutPage.jsx'
 import ContactFormPage from './pages/ContactFormPage/ContactFormPage.jsx'
@@ -8,11 +9,16 @@ import MainPage from './pages/MainPage/MainPage.jsx'
 import ServicesPage from './pages/ServicesPage/ServicesPage.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import Header from './components/Header/Header.jsx'
-
+import { useTranslation } from 'react-i18next'
 function App() {
+  const { i18 } = useTranslation()
+
+  const changeLanguage = (lang) => {
+    i18.changeLanguage(lang)
+  }
   return (
     <Router>
-      <Header />
+      <Header changeLanguage={changeLanguage} />
       <div className="App">
         <Routes>
           <Route path="/" element={<MainPage />} />

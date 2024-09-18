@@ -1,46 +1,49 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import styles from './GalleryPage.module.css'
 
 const galleryItems = [
   {
     id: 1,
     category: 'Haircuts',
-    beforeImage: '/images/haircut-before.jpg',
-    afterImage: '/images/haircut-after.jpg',
-    description: 'Classic haircut with modern touch.',
+    beforeImage: '/images/gallery/haircut-before.jpg',
+    afterImage: '/images/gallery/haircut-after.jpg',
+    description: 'haircuts',
   },
   {
     id: 2,
     category: 'Coloring',
-    beforeImage: '/images/coloring-before.jpg',
-    afterImage: '/images/coloring-after.jpg',
-    description: 'Bold balayage for a vibrant look.',
+    beforeImage: '/images/gallery/coloring-before.jpg',
+    afterImage: '/images/gallery/coloring-after.jpg',
+    description: 'coloring',
   },
   {
     id: 3,
     category: 'Styling',
-    beforeImage: '/images/styling-before.jpg',
-    afterImage: '/images/styling-after.jpg',
-    description: 'Classic hair styling with a touch of modernity.',
+    beforeImage: '/images/gallery/styling-before.jpg',
+    afterImage: '/images/gallery/styling-after.jpg',
+    description: 'styling',
   },
   {
     id: 4,
     category: 'Hair Care',
-    beforeImage: '/images/haircare-before.jpg',
-    afterImage: '/images/haircare-after.jpg',
-    description: 'Natural hair care with a healthy glow.',
+    beforeImage: '/images/gallery/haircare-before.jpg',
+    afterImage: '/images/gallery/haircare-after.jpg',
+    description: 'hairCare',
   },
 ]
 
 function GalleryPage() {
+  const { t } = useTranslation()
   const [selectedCategory, setSelectedCategory] = useState('All')
   const filteredItems =
     selectedCategory === 'All'
       ? galleryItems
       : galleryItems.filter((item) => item.category === selectedCategory)
+
   return (
     <section className={styles.gallery}>
-      <h2 className={styles.heading}>Gallery</h2>
+      <h2 className={styles.heading}>{t('gallery.heading')}</h2>
       <div className={styles.filters}>
         <button
           className={`${styles.filterButton} ${
@@ -48,7 +51,7 @@ function GalleryPage() {
           }`}
           onClick={() => setSelectedCategory('All')}
         >
-          All
+          {t('gallery.all')}
         </button>
         <button
           className={`${styles.filterButton} ${
@@ -56,7 +59,7 @@ function GalleryPage() {
           }`}
           onClick={() => setSelectedCategory('Haircuts')}
         >
-          Haircuts
+          {t('gallery.haircuts')}
         </button>
         <button
           className={`${styles.filterButton} ${
@@ -64,7 +67,7 @@ function GalleryPage() {
           }`}
           onClick={() => setSelectedCategory('Coloring')}
         >
-          Coloring
+          {t('gallery.coloring')}
         </button>
         <button
           className={`${styles.filterButton} ${
@@ -72,7 +75,7 @@ function GalleryPage() {
           }`}
           onClick={() => setSelectedCategory('Styling')}
         >
-          Styling
+          {t('gallery.styling')}
         </button>
         <button
           className={`${styles.filterButton} ${
@@ -80,7 +83,7 @@ function GalleryPage() {
           }`}
           onClick={() => setSelectedCategory('Hair Care')}
         >
-          Hair Care
+          {t('gallery.hairCare')}
         </button>
       </div>
 
@@ -99,15 +102,17 @@ function GalleryPage() {
                 className={styles.afterImage}
               />
             </div>
-            <p className={styles.description}>{item.description}</p>
+            <p className={styles.description}>
+              {t(`galleryItems.${item.description}`)}
+            </p>
           </div>
         ))}
       </div>
 
       <div className={styles.booking}>
-        <h3 className={styles.subheading}>Book Your Appointment</h3>
+        <h3 className={styles.subheading}>{t('gallery.bookNow')}</h3>
         <a href="#book" className={styles.bookButton}>
-          Book Now!
+          {t('gallery.bookNow')}
         </a>
       </div>
     </section>

@@ -1,88 +1,77 @@
 import React from 'react'
-import styles from './ServicesPage.module.css' // Ensure this file exists
+import { useTranslation } from 'react-i18next'
+import styles from './ServicesPage.module.css'
 
 function ServicesPage() {
+  const { t } = useTranslation()
+
   return (
     <section className={styles.services}>
       <div className={styles.serviceCategory}>
-        <h2 className={styles.heading}>Our Services</h2>
+        <h2 className={styles.heading}>{t('services.heading')}</h2>
 
         <div className={styles.category}>
-          <h3 className={styles.subheading}>Haircuts</h3>
+          <h3 className={styles.subheading}>{t('services.haircuts.title')}</h3>
           <p className={styles.description}>
-            Various haircut styles for any hair type, from classic to modern. We
-            help you find the perfect style that suits you.
+            {t('services.haircuts.description')}
           </p>
           <p className={styles.features}>
-            <strong>Features:</strong> Precise lines, graduated cuts, textured
-            ends.
+            <strong>{t('services.features')}</strong>{' '}
+            {t('services.haircuts.features')}
           </p>
-          <p className={styles.price}>
-            Prices start from 300 CZK. Depends on the length and complexity of
-            the haircut. Contact us for a personalized quote.
-          </p>
+          <p className={styles.price}>{t('services.haircuts.price')}</p>
         </div>
 
         <div className={styles.category}>
-          <h3 className={styles.subheading}>Hair Coloring</h3>
+          <h3 className={styles.subheading}>{t('services.coloring.title')}</h3>
           <p className={styles.description}>
-            From bold highlights to subtle balayage, we offer a range of hair
-            coloring services that will leave your hair looking fresh and
-            vibrant.
+            {t('services.coloring.description')}
           </p>
           <p className={styles.features}>
-            <strong>Features:</strong> Deep shades, ombre, color highlights.
+            <strong>{t('services.features')}</strong>{' '}
+            {t('services.coloring.features')}
           </p>
-          <p className={styles.price}>
-            Prices vary depending on the coloring technique and hair length.
-            Contact us for a detailed consultation.
-          </p>
+          <p className={styles.price}>{t('services.coloring.price')}</p>
         </div>
 
         <div className={styles.category}>
-          <h3 className={styles.subheading}>Styling</h3>
+          <h3 className={styles.subheading}>{t('services.styling.title')}</h3>
           <p className={styles.description}>
-            Various styling options for any event or mood. From everyday looks
-            to special occasion styles that fit any situation.
+            {t('services.styling.description')}
           </p>
           <p className={styles.features}>
-            <strong>Features:</strong> Loose waves, sleek straight styles,
-            evening hairstyles.
+            <strong>{t('services.features')}</strong>{' '}
+            {t('services.styling.features')}
           </p>
-          <p className={styles.price}>
-            Standard styling starts from 500 CZK. Special or evening styles may
-            vary in price.
-          </p>
+          <p className={styles.price}>{t('services.styling.price')}</p>
         </div>
 
         <div className={styles.category}>
-          <h3 className={styles.subheading}>Hair Care</h3>
+          <h3 className={styles.subheading}>{t('services.hairCare.title')}</h3>
           <p className={styles.description}>
-            Comprehensive treatments for hair restoration and strengthening,
-            ensuring your hair looks healthy and shiny.
+            {t('services.hairCare.description')}
           </p>
           <p className={styles.features}>
-            <strong>Features:</strong> Deep conditioning, restorative masks,
-            therapeutic treatments.
+            <strong>{t('services.features')}</strong>{' '}
+            {t('services.hairCare.features')}
           </p>
-          <p className={styles.price}>
-            Prices start from 700 CZK. The cost may vary depending on the
-            products and treatments used.
-          </p>
+          <p className={styles.price}>{t('services.hairCare.price')}</p>
         </div>
 
         <div className={styles.specialOffers}>
-          <h3 className={styles.subheading}>Special Offers</h3>
+          <h3 className={styles.subheading}>
+            {t('services.specialOffers.title')}
+          </h3>
           <p>
-            <strong>Promotions:</strong> 20% discount on any service for
-            first-time clients. Special loyalty programs for regular clients.
+            <strong>{t('services.promotions')}</strong>{' '}
+            {t('services.specialOffers.description')}
           </p>
         </div>
 
         <div className={styles.booking}>
-          <h3 className={styles.subheading}>Book Your Appointment</h3>
+          <h3 className={styles.subheading}>{t('services.booking.title')}</h3>
           <a href="#book" className={styles.bookButton}>
-            Book Your Appointment Today!
+            {t('services.booking.button')}
           </a>
         </div>
       </div>

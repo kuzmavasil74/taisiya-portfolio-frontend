@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "about": "O nás",
+    "services": "Služby",
+    "contact": "Kontakt",
+    "gallery": "Galerie"
+  },
+  "footer": {
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "phone": "Telefon:",
+    "email": "Email:",
+    "copyright": "&copy; 2024 TaisiyaStyle. Všechna práva vyhrazena."
+  },
+  "form": {
+    "name": "Jméno",
+    "email": "Email",
+    "message": "Zpráva",
+    "submit": "Odeslat"
+  },
+  "about": {
+    "photoAlt": "Taisiya - profesionální kadeřnice",
+    "heading": "O Taisiye",
+    "biography": "Jsem kadeřnice s více než 3 lety zkušeností, pomáhám lidem vyjádřit se prostřednictvím jejich stylu. Mým cílem je pomoci klientům cítit se sebevědomě a stylově.",
+    "philosophyTitle": "Moje filozofie:",
+    "philosophy": "každý klient si zaslouží cítit se sebevědomě a skvěle, ať už je to nový účes nebo udržování oblíbeného stylu.",
+    "certificatesTitle": "Certifikáty a úspěchy",
+    "certificate1": "Certifikát z Mezinárodní Akademie Stylu (2022)"
+  },
+  "services": {
+    "heading": "Naše služby",
+    "haircuts": {
+      "title": "Střihy vlasů",
+      "description": "Různé styly střihů pro jakýkoli typ vlasů, od klasických po moderní. Pomůžeme vám najít ideální styl, který vám bude vyhovovat.",
+      "features": "Precizní linie, stupňovité střihy, texturované konce.",
+      "price": "Ceny začínají od 300 Kč. Závisí na délce a složitosti střihu. Kontaktujte nás pro personalizovanou cenovou nabídku."
+    },
+    "coloring": {
+      "title": "Barvení vlasů",
+      "description": "Od výrazných melírů po jemné balayage, nabízíme širokou škálu barvicích služeb, které zanechají vaše vlasy svěží a zářivé.",
+      "features": "Hluboké odstíny, ombré, barevné melíry.",
+      "price": "Ceny se liší v závislosti na technice barvení a délce vlasů. Kontaktujte nás pro podrobnou konzultaci."
+    },
+    "styling": {
+      "title": "Styling",
+      "description": "Různé možnosti stylingu pro jakoukoli událost nebo náladu. Od každodenního vzhledu po speciální účesy pro jakoukoliv příležitost.",
+      "features": "Volné vlny, hladké rovné styly, večerní účesy.",
+      "price": "Standardní styling začíná od 500 Kč. Cena za speciální nebo večerní styly se může lišit."
+    },
+    "hairCare": {
+      "title": "Péče o vlasy",
+      "description": "Komplexní procedury pro obnovu a posílení vlasů, které zajistí, že vaše vlasy budou vypadat zdravě a leskle.",
+      "features": "Hloubkové kondicionování, obnovující masky, terapeutické procedury.",
+      "price": "Ceny začínají od 700 Kč. Cena se může lišit v závislosti na použitých produktech a procedurách."
+    },
+    "specialOffers": {
+      "title": "Speciální nabídky",
+      "description": "20% sleva na jakoukoli službu pro nové klienty. Speciální věrnostní programy pro stálé zákazníky."
+    },
+    "booking": {
+      "title": "Objednejte se",
+      "button": "Objednejte se ještě dnes!"
+    },
+    "features": "Vlastnosti:",
+    "promotions": "Akce:"
+  },
+  "contactForm": {
+    "openingHours": "Otevírací hodiny",
+    "schedule": {
+      "mondayToFriday": "Pondělí - Pátek: 9:00 - 19:00",
+      "saturday": "Sobota: 10:00 - 17:00",
+      "sunday": "Neděle: Zavřeno"
+    },
+    "findUs": "Najděte nás"
+  },
+  "gallery": {
+    "heading": "Galerie",
+    "all": "Vše",
+    "haircuts": "Střihy",
+    "coloring": "Barvení",
+    "styling": "Účesy",
+    "hairCare": "Péče o vlasy",
+    "bookNow": "Rezervujte nyní!"
+  },
+  "galleryItems": {
+    "haircuts": "Klasický střih s moderním nádechem.",
+    "coloring": "Odvážný balayage pro živý vzhled.",
+    "styling": "Klasické úpravy s moderními prvky.",
+    "hairCare": "Přirozená péče o vlasy s zdravým leskem."
+  }
+}

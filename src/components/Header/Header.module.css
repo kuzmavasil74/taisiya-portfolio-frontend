@@ -73,6 +73,24 @@
 .navItemLink:hover {
   text-decoration: underline;
 }
+.languageSwitch {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+.languageButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.flagIcon {
+  width: 24px;
+  height: 16px;
+  display: block;
+}
 
 @media (max-width: 768px) {
   .menuButton {

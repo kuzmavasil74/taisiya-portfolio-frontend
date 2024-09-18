@@ -1,14 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import styles from './Header.module.css'
+import { useTranslation } from 'react-i18next'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuRef = useRef(null)
   const location = useLocation()
+  const { t, i18n } = useTranslation()
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
+
   const handleClickOutside = (e) => {
     if (menuRef.current && !menuRef.current.contains(e.target)) {
       setIsMenuOpen(false)
@@ -25,6 +29,15 @@ function Header() {
       document.removeEventListener('touchstart', handleClickOutside)
     }
   }, [isMenuOpen])
+
+  const handleNavClick = () => {
+    setIsMenuOpen(false)
+  }
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang)
+  }
+
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -37,12 +50,18 @@ function Header() {
           />
         </Link>
       </div>
-      <button className={styles.menuButton} onClick={toggleMenu}>
+      <button
+        className={styles.menuButton}
+        onClick={toggleMenu}
+        aria-expanded={isMenuOpen}
+        aria-controls="navigation"
+      >
         <span className={styles.bar}></span>
         <span className={styles.bar}></span>
         <span className={styles.bar}></span>
       </button>
       <nav
+        id="navigation"
         className={`${styles.nav} ${isMenuOpen ? styles.active : ''}`}
         ref={menuRef}
       >
@@ -54,12 +73,48 @@ function Header() {
                   location.pathname === `/${page}` ? styles.active : ''
                 }`}
                 to={`/${page}`}
+                onClick={handleNavClick}
               >
-                {page.charAt(0).toUpperCase() + page.slice(1)}
+                {t(`nav.${page}`)}
               </Link>
             </li>
           ))}
         </ul>
+        <div className={styles.languageSwitch}>
+          <button
+            onClick={() => changeLanguage('en')}
+            aria-label="Switch to English"
+            className={styles.languageButton}
+          >
+            <img
+              src="/images/flags/en.jpg"
+              alt="English"
+              className={styles.flagIcon}
+            />
+          </button>
+          <button
+            onClick={() => changeLanguage('uk')}
+            aria-label="Switch to Ukrainian"
+            className={styles.languageButton}
+          >
+            <img
+              src="/images/flags/uk.jpg"
+              alt="Ukrainian"
+              className={styles.flagIcon}
+            />
+          </button>
+          <button
+            onClick={() => changeLanguage('cs')}
+            aria-label="Switch to Czech"
+            className={styles.languageButton}
+          >
+            <img
+              src="/images/flags/cs.jpg"
+              alt="Czech"
+              className={styles.flagIcon}
+            />
+          </button>
+        </div>
       </nav>
     </header>
   )

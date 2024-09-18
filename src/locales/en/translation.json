@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "about": "About Us",
+    "services": "Services",
+    "contact": "Contact",
+    "gallery": "Gallery"
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Submit"
+  },
+
+  "about": {
+    "photoAlt": "Taisiya - professional hairdresser",
+    "heading": "About Taisiya",
+    "biography": "I am a hairdresser with over 3 years of experience, helping people express themselves through their style. My passion is to help clients feel confident and stylish.",
+    "philosophyTitle": "My philosophy:",
+    "philosophy": "every client deserves to feel confident and amazing, whether it’s a fresh haircut or maintaining their favorite style.",
+    "certificatesTitle": "Certificates and Achievements",
+    "certificate1": "Certificate from an International Academy of Style (2022)"
+  },
+  "services": {
+    "heading": "Our Services",
+    "haircuts": {
+      "title": "Haircuts",
+      "description": "Various haircut styles for any hair type, from classic to modern. We help you find the perfect style that suits you.",
+      "features": "Precise lines, graduated cuts, textured ends.",
+      "price": "Prices start from 300 CZK. Depends on the length and complexity of the haircut. Contact us for a personalized quote."
+    },
+    "coloring": {
+      "title": "Hair Coloring",
+      "description": "From bold highlights to subtle balayage, we offer a range of hair coloring services that will leave your hair looking fresh and vibrant.",
+      "features": "Deep shades, ombre, color highlights.",
+      "price": "Prices vary depending on the coloring technique and hair length. Contact us for a detailed consultation."
+    },
+    "styling": {
+      "title": "Styling",
+      "description": "Various styling options for any event or mood. From everyday looks to special occasion styles that fit any situation.",
+      "features": "Loose waves, sleek straight styles, evening hairstyles.",
+      "price": "Standard styling starts from 500 CZK. Special or evening styles may vary in price."
+    },
+    "hairCare": {
+      "title": "Hair Care",
+      "description": "Comprehensive treatments for hair restoration and strengthening, ensuring your hair looks healthy and shiny.",
+      "features": "Deep conditioning, restorative masks, therapeutic treatments.",
+      "price": "Prices start from 700 CZK. The cost may vary depending on the products and treatments used."
+    },
+    "specialOffers": {
+      "title": "Special Offers",
+      "description": "20% discount on any service for first-time clients. Special loyalty programs for regular clients."
+    },
+    "booking": {
+      "title": "Book Your Appointment",
+      "button": "Book Your Appointment Today!"
+    },
+    "features": "Features:",
+    "promotions": "Promotions:"
+  },
+  "contactForm": {
+    "openingHours": "Opening Hours",
+    "schedule": {
+      "mondayToFriday": "Monday - Friday: 9:00 AM - 7:00 PM",
+      "saturday": "Saturday: 10:00 AM - 5:00 PM",
+      "sunday": "Sunday: Closed"
+    },
+    "findUs": "Find Us"
+  },
+  "gallery": {
+    "heading": "Gallery",
+    "all": "All",
+    "haircuts": "Haircuts",
+    "coloring": "Coloring",
+    "styling": "Styling",
+    "hairCare": "Hair Care",
+    "bookNow": "Book Now!"
+  },
+  "galleryItems": {
+    "haircuts": "Classic haircut with modern touch.",
+    "coloring": "Bold balayage for a vibrant look.",
+    "styling": "Classic hair styling with a touch of modernity.",
+    "hairCare": "Natural hair care with a healthy glow."
+  },
+  "footer": {
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "phone": "Phone:",
+    "email": "Email:",
+    "copyright": "&copy; 2024 TaisiyaStyle. All rights reserved."
+  }
+}
