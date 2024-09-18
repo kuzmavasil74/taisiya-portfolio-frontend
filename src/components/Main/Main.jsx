@@ -12,19 +12,9 @@ function Main() {
       large: '/images/slideer_img_1_desc.jpg',
     },
     {
-      small: '/images/slideer_img_2_mob.jpg',
-      medium: '/images/slideer_img_2_tablet.jpg',
-      large: '/images/slideer_img_2_desc.jpg',
-    },
-    {
       small: '/images/slideer_img_3_mob.jpg',
       medium: '/images/slideer_img_3_tablet.jpg',
       large: '/images/slideer_img_3_desc.jpg',
-    },
-    {
-      small: '/images/slideer_img_4_mob.jpg',
-      medium: '/images/slideer_img_4_tablet.jpg',
-      large: '/images/slideer_img_4_desc.jpg',
     },
     {
       small: '/images/slideer_img_5_mob.jpg',
