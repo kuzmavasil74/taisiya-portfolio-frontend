@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './GalleryPage.module.css'
 
 const galleryItems = [
@@ -33,19 +33,59 @@ const galleryItems = [
 ]
 
 function GalleryPage() {
+  const [selectedCategory, setSelectedCategory] = useState('All')
+  const filteredItems =
+    selectedCategory === 'All'
+      ? galleryItems
+      : galleryItems.filter((item) => item.category === selectedCategory)
   return (
     <section className={styles.gallery}>
       <h2 className={styles.heading}>Gallery</h2>
       <div className={styles.filters}>
-        <button className={styles.filterButton}>All</button>
-        <button className={styles.filterButton}>Haircuts</button>
-        <button className={styles.filterButton}>Coloring</button>
-        <button className={styles.filterButton}>Styling</button>
-        <button className={styles.filterButton}>Hair Care</button>
+        <button
+          className={`${styles.filterButton} ${
+            selectedCategory === 'All' ? styles.active : ''
+          }`}
+          onClick={() => setSelectedCategory('All')}
+        >
+          All
+        </button>
+        <button
+          className={`${styles.filterButton} ${
+            selectedCategory === 'Haircuts' ? styles.active : ''
+          }`}
+          onClick={() => setSelectedCategory('Haircuts')}
+        >
+          Haircuts
+        </button>
+        <button
+          className={`${styles.filterButton} ${
+            selectedCategory === 'Coloring' ? styles.active : ''
+          }`}
+          onClick={() => setSelectedCategory('Coloring')}
+        >
+          Coloring
+        </button>
+        <button
+          className={`${styles.filterButton} ${
+            selectedCategory === 'Styling' ? styles.active : ''
+          }`}
+          onClick={() => setSelectedCategory('Styling')}
+        >
+          Styling
+        </button>
+        <button
+          className={`${styles.filterButton} ${
+            selectedCategory === 'Hair Care' ? styles.active : ''
+          }`}
+          onClick={() => setSelectedCategory('Hair Care')}
+        >
+          Hair Care
+        </button>
       </div>
 
       <div className={styles.galleryGrid}>
-        {galleryItems.map((item) => (
+        {filteredItems.map((item) => (
           <div key={item.id} className={styles.galleryItem}>
             <div className={styles.imageContainer}>
               <img
