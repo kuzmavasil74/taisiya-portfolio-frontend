@@ -1,0 +1,116 @@
+/* GalleryPage.module.css */
+.gallery {
+  padding: 40px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+.heading {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #333;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filterButton {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filterButton:hover {
+  background-color: #0056b3;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.galleryItem {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 10px;
+}
+
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.beforeImage,
+.afterImage {
+  width: 100%;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.beforeImage {
+  opacity: 1;
+}
+
+.afterImage {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.galleryItem:hover .afterImage {
+  opacity: 1;
+}
+
+.galleryItem:hover .beforeImage {
+  opacity: 0;
+}
+
+.description {
+  font-size: 1em;
+  margin-top: 10px;
+  color: #555;
+  text-align: center;
+}
+
+.booking {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.subheading {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.bookButton {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.bookButton:hover {
+  background-color: #218838;
+}
