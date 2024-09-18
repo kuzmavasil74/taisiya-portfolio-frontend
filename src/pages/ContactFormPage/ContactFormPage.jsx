@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './ContactForm.module.css'
+import styles from './ContactFormPage.module.css'
 
-const ContactForm = () => {
+const ContactFormPage = () => {
   return (
     <div>
       <div className={styles.schedule}>
@@ -25,4 +25,4 @@ const ContactForm = () => {
   )
 }
 
-export default ContactForm
+export default ContactFormPage
