@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import styles from './Header.module.css'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuRef = useRef(null)
+  const location = useLocation()
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
@@ -46,26 +47,18 @@ function Header() {
         ref={menuRef}
       >
         <ul className={styles.navList}>
-          <li className={styles.navItem}>
-            <Link className={styles.navItemLink} to="/about">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link className={styles.navItemLink} to="/services">
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link className={styles.navItemLink} to="/contact">
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link className={styles.navItemLink} to="/gallery">
-              Gallery
-            </Link>
-          </li>
+          {['about', 'services', 'contact', 'gallery'].map((page) => (
+            <li key={page} className={styles.navItem}>
+              <Link
+                className={`${styles.navItemLink} ${
+                  location.pathname === `/${page}` ? styles.active : ''
+                }`}
+                to={`/${page}`}
+              >
+                {page.charAt(0).toUpperCase() + page.slice(1)}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
