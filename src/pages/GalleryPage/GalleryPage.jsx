@@ -1,29 +1,41 @@
 import React from 'react'
-import styles from './GalleryPage.module.css' // Make sure this file exists
+import styles from './GalleryPage.module.css'
 
 const galleryItems = [
   {
     id: 1,
     category: 'Haircuts',
-    beforeImage: '/images/gallery/haircut-before.jpg',
-    afterImage: '/images/gallery/haircut-after.jpg',
+    beforeImage: '/images/haircut-before.jpg',
+    afterImage: '/images/haircut-after.jpg',
     description: 'Classic haircut with modern touch.',
   },
   {
     id: 2,
     category: 'Coloring',
-    beforeImage: '/images/gallery/coloring-before.jpg',
-    afterImage: '/images/gallery/coloring-after.jpg',
+    beforeImage: '/images/coloring-before.jpg',
+    afterImage: '/images/coloring-after.jpg',
     description: 'Bold balayage for a vibrant look.',
   },
-  // Add more items here
+  {
+    id: 3,
+    category: 'Styling',
+    beforeImage: '/images/styling-before.jpg',
+    afterImage: '/images/styling-after.jpg',
+    description: 'Classic hair styling with a touch of modernity.',
+  },
+  {
+    id: 4,
+    category: 'Hair Care',
+    beforeImage: '/images/haircare-before.jpg',
+    afterImage: '/images/haircare-after.jpg',
+    description: 'Natural hair care with a healthy glow.',
+  },
 ]
 
 function GalleryPage() {
   return (
     <section className={styles.gallery}>
       <h2 className={styles.heading}>Gallery</h2>
-
       <div className={styles.filters}>
         <button className={styles.filterButton}>All</button>
         <button className={styles.filterButton}>Haircuts</button>
