@@ -39,17 +39,6 @@ function Footer() {
               taisiyastyle@example.com
             </a>
           </p>
-          <p>
-            Address:
-            <a
-              className={styles['contact-info-link']}
-              href="https://maps.app.goo.gl/VfztQVPuDGhHL2456"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Petržílkova 2583/15, 158 00 Praha 13, Чехія
-            </a>
-          </p>
         </div>
       </div>
       <p className={styles['copyright']}>
