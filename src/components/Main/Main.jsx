@@ -6,15 +6,67 @@ import styles from './Main.module.css'
 
 function Main() {
   const images = [
-    '/images/slideer_img_1.jpg',
-    '/images/slideer_img_5.jpg',
-    '/images/slideer_img_2.jpg',
-    '/images/slideer_img_6.jpg',
-    '/images/slideer_img_7.jpg',
-    '/images/slideer_img_8.jpg',
-    '/images/slideer_img_9.jpg',
+    {
+      small: '/images/slideer_img_1_mob.jpg',
+      medium: '/images/slideer_img_1_tablet.jpg',
+      large: '/images/slideer_img_1_desc.jpg',
+    },
+    {
+      small: '/images/slideer_img_2_mob.jpg',
+      medium: '/images/slideer_img_2_tablet.jpg',
+      large: '/images/slideer_img_2_desc.jpg',
+    },
+    {
+      small: '/images/slideer_img_3_mob.jpg',
+      medium: '/images/slideer_img_3_tablet.jpg',
+      large: '/images/slideer_img_3_desc.jpg',
+    },
+    {
+      small: '/images/slideer_img_4_mob.jpg',
+      medium: '/images/slideer_img_4_tablet.jpg',
+      large: '/images/slideer_img_4_desc.jpg',
+    },
+    {
+      small: '/images/slideer_img_5_mob.jpg',
+      medium: '/images/slideer_img_5_tablet.jpg',
+      large: '/images/slideer_img_5_desc.jpg',
+    },
+    {
+      small: '/images/slideer_img_6_mob.jpg',
+      medium: '/images/slideer_img_6_tablet.jpg',
+      large: '/images/slideer_img_6_desc.jpg',
+    },
+    {
+      small: '/images/slideer_img_7_mob.jpg',
+      medium: '/images/slideer_img_7_tablet.jpg',
+      large: '/images/slideer_img_7_desc.jpg',
+    },
+    {
+      small: '/images/slideer_img_8_mob.jpg',
+      medium: '/images/slideer_img_8_tablet.jpg',
+      large: '/images/slideer_img_8_desc.jpg',
+    },
+    {
+      small: '/images/slideer_img_9_mob.jpg',
+      medium: '/images/slideer_img_9_tablet.jpg',
+      large: '/images/slideer_img_9_desc.jpg',
+    },
+    {
+      small: '/images/slideer_img_10_mob.jpg',
+      medium: '/images/slideer_img_10_tablet.jpg',
+      large: '/images/slideer_img_10_desc.jpg',
+    },
+    {
+      small: '/images/slideer_img_11_mob.jpg',
+      medium: '/images/slideer_img_11_tablet.jpg',
+      large: '/images/slideer_img_11_desc.jpg',
+    },
+    {
+      small: '/images/slideer_img_12_mob.jpg',
+      medium: '/images/slideer_img_12_tablet.jpg',
+      large: '/images/slideer_img_12_desc.jpg',
+    },
   ]
-
   const settings = {
     dots: true,
     infinite: true,
@@ -22,7 +74,7 @@ function Main() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
   }
 
   return (
@@ -32,7 +84,9 @@ function Main() {
           <div key={index}>
             <img
               className={styles.sliderImg}
-              src={image}
+              src={image.small}
+              srcSet={`${image.small} 768w, ${image.medium} 1024w, ${image.large} 1440w`}
+              sizes="(max-width: 768px) 768px, (max-width: 1024px) 1024px, 1440px"
               alt={`Slide ${index}`}
             />
           </div>

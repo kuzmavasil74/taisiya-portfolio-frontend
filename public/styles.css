@@ -1,0 +1,103 @@
+/* Resetting margin, padding, and box-sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set base font and ensure smooth font rendering */
+html {
+  font-size: 100%;
+  line-height: 1.15; /* Correct line height in older browsers */
+  -webkit-font-smoothing: antialiased; /* Smooth fonts on MacOS */
+  -moz-osx-font-smoothing: grayscale; /* Smooth fonts on MacOS */
+}
+
+/* Set a default body style */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Ensure block elements take full width */
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/* Remove list item bullets and spacing */
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Ensure links don't have default underline */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Set consistent button styles */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Set form elements to inherit fonts */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Remove image borders and ensure images are responsive */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove border from embedded objects */
+iframe,
+embed,
+object {
+  border: 0;
+}
+
+/* Reset tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+/* Reset horizontal rules */
+hr {
+  border: none;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Set box-sizing globally to border-box */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
