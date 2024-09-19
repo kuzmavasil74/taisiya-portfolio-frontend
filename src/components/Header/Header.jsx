@@ -90,6 +90,9 @@ function Header() {
         onClick={toggleMenu}
         aria-expanded={isMenuOpen}
         aria-controls="navigation"
+        aria-label={
+          isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'
+        }
       >
         <span className={styles.bar}></span>
         <span className={styles.bar}></span>
