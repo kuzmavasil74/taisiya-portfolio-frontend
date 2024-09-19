@@ -50,6 +50,41 @@ function Header() {
           />
         </Link>
       </div>
+      <div className={styles.mobileLanguageSwitch}>
+        <button
+          onClick={() => changeLanguage('en')}
+          aria-label="Switch to English"
+          className={styles.languageButton}
+        >
+          <img
+            src="/images/flags/en.jpg"
+            alt="English"
+            className={styles.flagIcon}
+          />
+        </button>
+        <button
+          onClick={() => changeLanguage('uk')}
+          aria-label="Switch to Ukrainian"
+          className={styles.languageButton}
+        >
+          <img
+            src="/images/flags/uk.jpg"
+            alt="Ukrainian"
+            className={styles.flagIcon}
+          />
+        </button>
+        <button
+          onClick={() => changeLanguage('cs')}
+          aria-label="Switch to Czech"
+          className={styles.languageButton}
+        >
+          <img
+            src="/images/flags/cs.jpg"
+            alt="Czech"
+            className={styles.flagIcon}
+          />
+        </button>
+      </div>
       <button
         className={styles.menuButton}
         onClick={toggleMenu}

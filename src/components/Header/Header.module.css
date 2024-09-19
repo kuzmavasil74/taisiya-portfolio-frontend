@@ -29,6 +29,9 @@
   padding: 10px;
   z-index: 1000;
 }
+.mobileLanguageSwitch {
+  display: none;
+}
 
 .menuButton .bar {
   display: block;
@@ -137,5 +140,20 @@
   .navItemLink:active {
     background-color: #555;
     color: #f39c12;
+  }
+  .mobileLanguageSwitch {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-right: auto;
+    margin-left: 20px;
+  }
+  .flagIcon {
+    width: 24px;
+    height: 16px;
+    display: block;
+  }
+  .languageSwitch {
+    display: none;
   }
 }
