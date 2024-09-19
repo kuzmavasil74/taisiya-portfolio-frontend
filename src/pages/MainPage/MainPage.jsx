@@ -3,8 +3,10 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import styles from './Main.module.css'
+import { useTranslation } from 'react-i18next'
 
 function Main() {
+  const { t } = useTranslation()
   const images = [
     {
       small: '/images/slider/slideer_img_1_mob.jpg',
@@ -78,16 +80,15 @@ function Main() {
               srcSet={`${image.small} 768w, ${image.medium} 1024w, ${image.large} 1440w`}
               sizes="(max-width: 768px) 768px, (max-width: 1024px) 1024px, 1440px"
               alt={`Slide ${index}`}
+              loading="lazy"
             />
           </div>
         ))}
       </Slider>
       <div className={styles.sliderCaption}>
-        <h2 className={styles.greeting}>
-          Welcome to TaisiyaStyle - where every haircut becomes a masterpiece!
-        </h2>
+        <h2 className={styles.greeting}>{t('main.greeting')}</h2>
         <a href="/services" className={styles.ctaButton}>
-          Explore Our Services
+          {t('main.services')}
         </a>
       </div>
     </div>

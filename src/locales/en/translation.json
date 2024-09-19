@@ -88,5 +88,9 @@
     "phone": "Phone:",
     "email": "Email:",
     "copyright": "&copy; 2024 TaisiyaStyle. All rights reserved."
+  },
+  "main": {
+    "greeting": "Welcome to TaisiyaStyle - where every haircut becomes a masterpiece!",
+    "services": "Explore Our Services"
   }
 }
