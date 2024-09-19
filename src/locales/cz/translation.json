@@ -91,5 +91,15 @@
   "main": {
     "greeting": "Viětajte v TaisiyaStyle - kde všechny střihy budou vlastně vlastně!",
     "services": "Prohlečte si nasé sluzby"
+  },
+  "bookingForm": {
+    "title": "Rezervujte se",
+    "name": "Jméno:",
+    "email": "E-mail:",
+    "phone": "Telefon:",
+    "dateTime": "Datum a čas:",
+    "coments": "Komentáře:",
+    "submitting": "Odesílání...",
+    "submit": "Rezervovat"
   }
 }

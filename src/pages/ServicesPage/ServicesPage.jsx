@@ -5,58 +5,55 @@ import styles from './ServicesPage.module.css'
 function ServicesPage() {
   const { t } = useTranslation()
 
+  const services = [
+    {
+      title: 'haircuts',
+      description: 'description',
+      features: 'features',
+      price: 'price',
+    },
+    {
+      title: 'coloring',
+      description: 'description',
+      features: 'features',
+      price: 'price',
+    },
+    {
+      title: 'styling',
+      description: 'description',
+      features: 'features',
+      price: 'price',
+    },
+    {
+      title: 'hairCare',
+      description: 'description',
+      features: 'features',
+      price: 'price',
+    },
+  ]
+
   return (
     <section className={styles.services}>
       <div className={styles.serviceCategory}>
         <h2 className={styles.heading}>{t('services.heading')}</h2>
 
-        <div className={styles.category}>
-          <h3 className={styles.subheading}>{t('services.haircuts.title')}</h3>
-          <p className={styles.description}>
-            {t('services.haircuts.description')}
-          </p>
-          <p className={styles.features}>
-            <strong>{t('services.features')}</strong>{' '}
-            {t('services.haircuts.features')}
-          </p>
-          <p className={styles.price}>{t('services.haircuts.price')}</p>
-        </div>
-
-        <div className={styles.category}>
-          <h3 className={styles.subheading}>{t('services.coloring.title')}</h3>
-          <p className={styles.description}>
-            {t('services.coloring.description')}
-          </p>
-          <p className={styles.features}>
-            <strong>{t('services.features')}</strong>{' '}
-            {t('services.coloring.features')}
-          </p>
-          <p className={styles.price}>{t('services.coloring.price')}</p>
-        </div>
-
-        <div className={styles.category}>
-          <h3 className={styles.subheading}>{t('services.styling.title')}</h3>
-          <p className={styles.description}>
-            {t('services.styling.description')}
-          </p>
-          <p className={styles.features}>
-            <strong>{t('services.features')}</strong>{' '}
-            {t('services.styling.features')}
-          </p>
-          <p className={styles.price}>{t('services.styling.price')}</p>
-        </div>
-
-        <div className={styles.category}>
-          <h3 className={styles.subheading}>{t('services.hairCare.title')}</h3>
-          <p className={styles.description}>
-            {t('services.hairCare.description')}
-          </p>
-          <p className={styles.features}>
-            <strong>{t('services.features')}</strong>{' '}
-            {t('services.hairCare.features')}
-          </p>
-          <p className={styles.price}>{t('services.hairCare.price')}</p>
-        </div>
+        {services.map((service) => (
+          <div className={styles.category} key={service.title}>
+            <h3 className={styles.subheading}>
+              {t(`services.${service.title}.title`)}
+            </h3>
+            <p className={styles.description}>
+              {t(`services.${service.title}.${service.description}`)}
+            </p>
+            <p className={styles.features}>
+              <strong>{t('services.features')}</strong>{' '}
+              {t(`services.${service.title}.${service.features}`)}
+            </p>
+            <p className={styles.price}>
+              {t(`services.${service.title}.${service.price}`)}
+            </p>
+          </div>
+        ))}
 
         <div className={styles.specialOffers}>
           <h3 className={styles.subheading}>
@@ -70,7 +67,7 @@ function ServicesPage() {
 
         <div className={styles.booking}>
           <h3 className={styles.subheading}>{t('services.booking.title')}</h3>
-          <a href="#book" className={styles.bookButton}>
+          <a href="/booking" className={styles.bookButton}>
             {t('services.booking.button')}
           </a>
         </div>

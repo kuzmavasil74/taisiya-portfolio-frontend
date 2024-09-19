@@ -92,5 +92,15 @@
   "main": {
     "greeting": "Welcome to TaisiyaStyle - where every haircut becomes a masterpiece!",
     "services": "Explore Our Services"
+  },
+  "bookingForm": {
+    "title": "Book Your Appointment",
+    "name": "Name:",
+    "email": "Email:",
+    "phone": "Phone:",
+    "dateTime": "Date and Time:",
+    "coments": "Comments:",
+    "submitting": "Submitting...",
+    "submit": "Book Now"
   }
 }

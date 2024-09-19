@@ -1,0 +1,32 @@
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.bookingForm label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.bookingForm input,
+.bookingForm textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.bookingForm button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+}

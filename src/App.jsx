@@ -9,6 +9,7 @@ import MainPage from './pages/MainPage/MainPage.jsx'
 import ServicesPage from './pages/ServicesPage/ServicesPage.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import Header from './components/Header/Header.jsx'
+import BookingFormPage from './pages/BookingFormPage/BookingFormPage.jsx'
 import { useTranslation } from 'react-i18next'
 function App() {
   const { i18 } = useTranslation()
@@ -26,6 +27,8 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<ContactFormPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/booking" element={<BookingFormPage />} />
+          <Route path="*" element={<MainPage />} />
         </Routes>
       </div>
       <Footer />

@@ -111,7 +111,7 @@ function GalleryPage() {
 
       <div className={styles.booking}>
         <h3 className={styles.subheading}>{t('gallery.bookNow')}</h3>
-        <a href="#book" className={styles.bookButton}>
+        <a href="/booking" className={styles.bookButton}>
           {t('gallery.bookNow')}
         </a>
       </div>
