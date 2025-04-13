@@ -1,11 +1,11 @@
 import React from 'react'
-import styles from './Privacy-Policy.module.css'
+import styles from './PrivacyPolicy.module.css'
 const PrivacyPolicy = () => {
   return (
     <div className="privacy-policy">
       <h1>Privacy Policy</h1>
       <p>
-        At "TaisiyaStyle", we are committed to protecting your privacy. This
+        At TaisiyaStyle, we are committed to protecting your privacy. This
         Privacy Policy outlines how we collect, use, and safeguard your personal
         information when you visit our website or use our services.
       </p>

@@ -3,7 +3,8 @@
     "about": "About Us",
     "services": "Services",
     "contact": "Contact",
-    "gallery": "Gallery"
+    "gallery": "Gallery",
+    "privacy": "Privacy Policy"
   },
   "form": {
     "name": "Name",

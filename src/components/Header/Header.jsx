@@ -104,19 +104,21 @@ function Header() {
         ref={menuRef}
       >
         <ul className={styles.navList}>
-          {['about', 'services', 'contact', 'gallery'].map((page) => (
-            <li key={page} className={styles.navItem}>
-              <Link
-                className={`${styles.navItemLink} ${
-                  location.pathname === `/${page}` ? styles.active : ''
-                }`}
-                to={`/${page}`}
-                onClick={handleNavClick}
-              >
-                {t(`nav.${page}`)}
-              </Link>
-            </li>
-          ))}
+          {['about', 'services', 'contact', 'gallery', 'privacy'].map(
+            (page) => (
+              <li key={page} className={styles.navItem}>
+                <Link
+                  className={`${styles.navItemLink} ${
+                    location.pathname === `/${page}` ? styles.active : ''
+                  }`}
+                  to={`/${page}`}
+                  onClick={handleNavClick}
+                >
+                  {t(`nav.${page}`)}
+                </Link>
+              </li>
+            )
+          )}
         </ul>
         <div className={styles.languageSwitch}>
           <button

@@ -11,7 +11,7 @@ import Footer from './components/Footer/Footer.jsx'
 import Header from './components/Header/Header.jsx'
 import BookingFormPage from './pages/BookingFormPage/BookingFormPage.jsx'
 import { useTranslation } from 'react-i18next'
-import PrivacyPolicy from './pages/privacy-Policy/Privacy-Policy.jsx'
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy.jsx'
 function App() {
   const { i18 } = useTranslation()
 
