@@ -29,7 +29,7 @@ function App() {
           <Route path="/contact" element={<ContactFormPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/booking" element={<BookingFormPage />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<MainPage />} />
         </Routes>
       </div>

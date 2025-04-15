@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './Footer.module.css'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   const { t } = useTranslation()
@@ -41,6 +42,11 @@ function Footer() {
             >
               taisiyastyle@example.com
             </a>
+          </p>
+          <p className={styles['contact-info-item']}>
+            <Link className={styles['contact-info-link']} to="/privacy-policy">
+              {t('footer.privacy-policy')}{' '}
+            </Link>
           </p>
         </div>
       </div>
