@@ -48,6 +48,14 @@ function Footer() {
               {t('footer.privacy-policy')}{' '}
             </Link>
           </p>
+          <p className={styles['contact-info-item']}>
+            <Link
+              className={styles['contact-info-link']}
+              to="/terms-and-conditions"
+            >
+              {t('footer.terms-and-conditions')}{' '}
+            </Link>
+          </p>
         </div>
       </div>
       <p className={styles['copyright']}>{t('footer.copyright')}</p>

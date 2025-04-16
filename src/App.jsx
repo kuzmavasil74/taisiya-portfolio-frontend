@@ -12,6 +12,8 @@ import Header from './components/Header/Header.jsx'
 import BookingFormPage from './pages/BookingFormPage/BookingFormPage.jsx'
 import { useTranslation } from 'react-i18next'
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy.jsx'
+import Terms_and_Conditions from './pages/Terms_and_Conditions/Terms_and_Conditions.jsx'
+
 function App() {
   const { i18 } = useTranslation()
 
@@ -30,6 +32,10 @@ function App() {
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/booking" element={<BookingFormPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route
+            path="/terms-and-conditions"
+            element={<Terms_and_Conditions />}
+          />
           <Route path="*" element={<MainPage />} />
         </Routes>
       </div>
