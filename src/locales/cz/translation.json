@@ -29,38 +29,52 @@
   },
   "services": {
     "heading": "Naše služby",
+
     "haircuts": {
-      "title": "Střihy vlasů",
-      "description": "Různé styly střihů pro jakýkoli typ vlasů, od klasických po moderní. Pomůžeme vám najít ideální styl, který vám bude vyhovovat.",
-      "features": "Precizní linie, stupňovité střihy, texturované konce.",
-      "price": "Ceny začínají od 300 Kč. Závisí na délce a složitosti střihu. Kontaktujte nás pro personalizovanou cenovou nabídku."
+      "title": "Dámské střihy",
+      "description": "Profesionální střihy přizpůsobené vašemu stylu a typu vlasů.",
+      "features": "Dámské střihy, úprava konečků, konzultace.",
+      "price": "Dámské střihy od 300 Kč. Úprava konečků – 300 Kč."
     },
+
+    "menHaircuts": {
+      "title": "Pánské střihy",
+      "description": "Moderní i klasické střihy pro muže každého věku.",
+      "features": "Precizní linie, střih strojkem nebo nůžkami.",
+      "price": "Pánské střihy – 350 Kč."
+    },
+
+    "treatments": {
+      "title": "Ošetření vlasů",
+      "description": "Pokročilé procedury pro regeneraci a posílení vlasů.",
+      "features": "Keratín, botox, peeling pokožky hlavy.",
+      "price": "Keratínové narovnání / horký botox – 1600–2000 Kč (+200 Kč za hustotu).\nVícefázová studená regenerace – 1400–1800 Kč (+200 Kč).\nNanokartizace / studený botox – 1300–1700 Kč (+200 Kč).\nPeeling pokožky hlavy – 400 Kč."
+    },
+
     "coloring": {
       "title": "Barvení vlasů",
-      "description": "Od výrazných melírů po jemné balayage, nabízíme širokou škálu barvicích služeb, které zanechají vaše vlasy svěží a zářivé.",
-      "features": "Hluboké odstíny, ombré, barevné melíry.",
-      "price": "Ceny se liší v závislosti na technice barvení a délce vlasů. Kontaktujte nás pro podrobnou konzultaci."
+      "description": "Melír, balayage, ombré a další profesionální techniky.",
+      "features": "Hluboké odstíny, barevné melíry.",
+      "price": "Ceny podle techniky a délky vlasů. Kontaktujte nás pro konzultaci."
     },
+
     "styling": {
       "title": "Styling",
-      "description": "Různé možnosti stylingu pro jakoukoli událost nebo náladu. Od každodenního vzhledu po speciální účesy pro jakoukoliv příležitost.",
-      "features": "Volné vlny, hladké rovné styly, večerní účesy.",
-      "price": "Standardní styling začíná od 500 Kč. Cena za speciální nebo večerní styly se může lišit."
+      "description": "Účesy pro každodenní i slavnostní příležitosti.",
+      "features": "Volné vlny, rovné styly, slavnostní účesy.",
+      "price": "Styling od 500 Kč. Speciální účesy dle dohody."
     },
-    "hairCare": {
-      "title": "Péče o vlasy",
-      "description": "Komplexní procedury pro obnovu a posílení vlasů, které zajistí, že vaše vlasy budou vypadat zdravě a leskle.",
-      "features": "Hloubkové kondicionování, obnovující masky, terapeutické procedury.",
-      "price": "Ceny začínají od 700 Kč. Cena se může lišit v závislosti na použitých produktech a procedurách."
-    },
+
     "specialOffers": {
       "title": "Speciální nabídky",
-      "description": "20% sleva na jakoukoli službu pro nové klienty. Speciální věrnostní programy pro stálé zákazníky."
+      "description": "20% sleva pro nové klienty. Věrnostní program pro stálé zákazníky."
     },
+
     "booking": {
       "title": "Objednejte se",
       "button": "Objednejte se ještě dnes!"
     },
+
     "features": "Vlastnosti:",
     "promotions": "Akce:"
   },

@@ -13,6 +13,18 @@ function ServicesPage() {
       price: 'price',
     },
     {
+      title: 'menHaircuts',
+      description: 'description',
+      features: 'features',
+      price: 'price',
+    },
+    {
+      title: 'treatments',
+      description: 'description',
+      features: 'features',
+      price: 'price',
+    },
+    {
       title: 'coloring',
       description: 'description',
       features: 'features',
@@ -20,12 +32,6 @@ function ServicesPage() {
     },
     {
       title: 'styling',
-      description: 'description',
-      features: 'features',
-      price: 'price',
-    },
-    {
-      title: 'hairCare',
       description: 'description',
       features: 'features',
       price: 'price',

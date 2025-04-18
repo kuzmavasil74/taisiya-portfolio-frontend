@@ -24,38 +24,52 @@
   },
   "services": {
     "heading": "Our Services",
+
     "haircuts": {
-      "title": "Haircuts",
-      "description": "Various haircut styles for any hair type, from classic to modern. We help you find the perfect style that suits you.",
-      "features": "Precise lines, graduated cuts, textured ends.",
-      "price": "Prices start from 300 CZK. Depends on the length and complexity of the haircut. Contact us for a personalized quote."
+      "title": "Women's Haircuts",
+      "description": "Professional cuts tailored to your style and hair type.",
+      "features": "Women's cuts, trimming ends, consultation.",
+      "price": "Women's haircuts from 300 CZK. Ends trimming – 300 CZK."
     },
+
+    "menHaircuts": {
+      "title": "Men's Haircuts",
+      "description": "Modern and classic haircuts for men of all ages.",
+      "features": "Precise lines, clipper or scissor cuts.",
+      "price": "Men's haircuts – 350 CZK."
+    },
+
+    "treatments": {
+      "title": "Hair Treatments",
+      "description": "Advanced procedures to restore and strengthen your hair.",
+      "features": "Keratin, botox, scalp peeling.",
+      "price": "Keratin straightening / hot botox – 1600–2000 CZK (+200 CZK for thick hair).\nMulti-step cold restoration – 1400–1800 CZK (+200).\nNanoplastics / cold botox – 1300–1700 CZK (+200).\nScalp peeling – 400 CZK."
+    },
+
     "coloring": {
       "title": "Hair Coloring",
-      "description": "From bold highlights to subtle balayage, we offer a range of hair coloring services that will leave your hair looking fresh and vibrant.",
-      "features": "Deep shades, ombre, color highlights.",
-      "price": "Prices vary depending on the coloring technique and hair length. Contact us for a detailed consultation."
+      "description": "Highlights, balayage, ombré and more professional techniques.",
+      "features": "Deep tones, colorful highlights.",
+      "price": "Prices vary by technique and hair length. Contact us for consultation."
     },
+
     "styling": {
       "title": "Styling",
-      "description": "Various styling options for any event or mood. From everyday looks to special occasion styles that fit any situation.",
-      "features": "Loose waves, sleek straight styles, evening hairstyles.",
-      "price": "Standard styling starts from 500 CZK. Special or evening styles may vary in price."
+      "description": "Hairstyles for everyday or special occasions.",
+      "features": "Loose waves, straight styles, festive hairstyles.",
+      "price": "Styling from 500 CZK. Special looks by arrangement."
     },
-    "hairCare": {
-      "title": "Hair Care",
-      "description": "Comprehensive treatments for hair restoration and strengthening, ensuring your hair looks healthy and shiny.",
-      "features": "Deep conditioning, restorative masks, therapeutic treatments.",
-      "price": "Prices start from 700 CZK. The cost may vary depending on the products and treatments used."
-    },
+
     "specialOffers": {
       "title": "Special Offers",
-      "description": "20% discount on any service for first-time clients. Special loyalty programs for regular clients."
+      "description": "20% discount for new clients. Loyalty program for regulars."
     },
+
     "booking": {
-      "title": "Book Your Appointment",
-      "button": "Book Your Appointment Today!"
+      "title": "Make an Appointment",
+      "button": "Book your visit today!"
     },
+
     "features": "Features:",
     "promotions": "Promotions:"
   },
