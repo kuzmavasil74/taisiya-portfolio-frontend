@@ -31,6 +31,76 @@ const galleryItems = [
     afterImage: '/images/gallery/haircare-after.jpg',
     description: 'hairCare',
   },
+  {
+    id: 5,
+    category: 'Male Haircuts',
+    beforeImage: '/images/gallery/male-haircut_6.jpg',
+    afterImage: '/images/gallery/male-haircut_6.jpg',
+    description: 'Male Haircuts',
+  },
+  {
+    id: 6,
+    category: 'Male Haircuts',
+    beforeImage: '/images/gallery/male-haircut_1.jpg',
+    afterImage: '/images/gallery/male-haircut_1.jpg',
+    description: 'Male Haircuts',
+  },
+  {
+    id: 7,
+    category: 'Male Haircuts',
+    beforeImage: '/images/gallery/male-haircut_2.jpg',
+    afterImage: '/images/gallery/male-haircut_2.jpg',
+    description: 'Male Haircuts',
+  },
+  {
+    id: 8,
+    category: 'Male Haircuts',
+    beforeImage: '/images/gallery/male-haircut_3.jpg',
+    afterImage: '/images/gallery/male-haircut_3.jpg',
+    description: 'Male Haircuts',
+  },
+  {
+    id: 9,
+    category: 'Male Haircuts',
+    beforeImage: '/images/gallery/male-haircut_4.jpg',
+    afterImage: '/images/gallery/male-haircut_4.jpg',
+    description: 'Male Haircuts',
+  },
+  {
+    id: 10,
+    category: 'Male Haircuts',
+    beforeImage: '/images/gallery/male-haircut_5.jpg',
+    afterImage: '/images/gallery/male-haircut_5.jpg',
+    description: 'Male Haircuts',
+  },
+  {
+    id: 11,
+    category: 'Cold Botox',
+    beforeImage: '/images/gallery/Hair-Care_1.jpg',
+    afterImage: '/images/gallery/Hair-Care_1.jpg',
+    description: 'Cold Botox',
+  },
+  {
+    id: 12,
+    category: 'Cold Botox',
+    beforeImage: '/images/gallery/Hair-Care_2.jpg',
+    afterImage: '/images/gallery/Hair-Care_2.jpg',
+    description: 'Cold Botox',
+  },
+  {
+    id: 13,
+    category: 'Cold Botox',
+    beforeImage: '/images/gallery/Hair-Care_3.jpg',
+    afterImage: '/images/gallery/Hair-Care_3.jpg',
+    description: 'Cold Botox',
+  },
+  {
+    id: 14,
+    category: 'Cold Botox',
+    beforeImage: '/images/gallery/Hair-Care_4.jpg',
+    afterImage: '/images/gallery/Hair-Care_4.jpg',
+    description: 'Cold Botox',
+  },
 ]
 
 function GalleryPage() {
@@ -84,6 +154,22 @@ function GalleryPage() {
           onClick={() => setSelectedCategory('Hair Care')}
         >
           {t('gallery.hairCare')}
+        </button>
+        <button
+          className={`${styles.filterButton} ${
+            selectedCategory === 'Male Haircuts' ? styles.active : ''
+          }`}
+          onClick={() => setSelectedCategory('Male Haircuts')}
+        >
+          {t('gallery.maleHaircuts')}
+        </button>
+        <button
+          className={`${styles.filterButton} ${
+            selectedCategory === 'Cold Botox' ? styles.active : ''
+          }`}
+          onClick={() => setSelectedCategory('Cold Botox')}
+        >
+          {t('gallery.coldBotox')}
         </button>
       </div>
 
