@@ -9,7 +9,7 @@ function AboutPage() {
     <section className={styles.about}>
       <div className={styles.photoSection}>
         <img
-          src="/images/photoSection.jpg"
+          src="/images/profile_photo.jpg"
           alt={t('about.photoAlt')}
           className={styles.photo}
         />
