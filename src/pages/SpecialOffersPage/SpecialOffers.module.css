@@ -1,12 +1,12 @@
 .specialOffers {
   text-align: center;
-  margin: 2rem 0;
+  margin: 2rem 1rem;
 }
 
 .offersContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1rem;
 }
 .specialOffersTitle {
   color: var(--color-black);
@@ -55,5 +55,11 @@
 @media (max-width: 768px) {
   .offersContainer {
     grid-template-columns: 1fr;
+  }
+  .offerItem h3 {
+    font-size: 1rem;
+  }
+  .offerItem p {
+    font-size: 0.5rem;
   }
 }
