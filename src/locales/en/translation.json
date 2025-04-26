@@ -27,37 +27,50 @@
 
     "haircuts": {
       "title": "Women's Haircuts",
-      "description": "Professional cuts tailored to your style and hair type.",
-      "features": "Women's cuts, trimming ends, consultation.",
-      "price": "Women's haircuts from 300 CZK. Ends trimming – 300 CZK."
+      "description": "Refresh your style with a personalized women's haircut, carefully crafted to highlight your features and suit your hair type. Whether you seek a trendy new look or just a neat trim, we ensure you leave feeling confident and radiant.",
+      "features": "Women's cuts, trimming ends, personalized consultation, styling advice."
     },
 
     "menHaircuts": {
       "title": "Men's Haircuts",
-      "description": "Modern and classic haircuts for men of all ages.",
-      "features": "Precise lines, clipper or scissor cuts.",
-      "price": "Men's haircuts – 350 CZK."
+      "description": "Experience precision and style with our men's haircuts, designed to match your personality and lifestyle. From classic cuts to modern fades, we offer a full range of styles for every man, ensuring a fresh and clean look every time.",
+      "features": "Precise lines, clipper or scissor cuts, beard trimming (optional)."
     },
 
     "treatments": {
       "title": "Hair Treatments",
-      "description": "Advanced procedures to restore and strengthen your hair.",
-      "features": "Keratin, botox, scalp peeling.",
-      "price": "Keratin straightening / hot botox – 1600–2000 CZK (+200 CZK for thick hair).\nMulti-step cold restoration – 1400–1800 CZK (+200).\nNanoplastics / cold botox – 1300–1700 CZK (+200).\nScalp peeling – 400 CZK."
+      "description": "Give your hair the care it deserves with our advanced treatments. We offer solutions for damaged, dry, or thinning hair, restoring strength, hydration, and vibrancy. Trust us to bring your hair back to life.",
+      "features": "Keratin treatment, botox therapy, scalp peeling, deep hydration."
     },
 
-    "coloring": {
-      "title": "Hair Coloring",
-      "description": "Highlights, balayage, ombré and more professional techniques.",
-      "features": "Deep tones, colorful highlights.",
-      "price": "Prices vary by technique and hair length. Contact us for consultation."
+    "keratin": {
+      "title": "Keratin Straightening",
+      "description": "Achieve silky-smooth, frizz-free hair with our professional keratin straightening. This treatment deeply nourishes and restructures hair, offering long-lasting smoothness, shine, and easier everyday maintenance.",
+      "features": "Intensive repair, mirror-like shine, protection against humidity, easier styling."
     },
 
-    "styling": {
-      "title": "Styling",
-      "description": "Hairstyles for everyday or special occasions.",
-      "features": "Loose waves, straight styles, festive hairstyles.",
-      "price": "Styling from 500 CZK. Special looks by arrangement."
+    "hotBotox": {
+      "title": "Hot Hair Botox",
+      "description": "Rejuvenate your hair with our hot botox treatment, delivering intense hydration and rebuilding the hair fiber from within. Ideal for dull, damaged hair needing a smoothing and revitalizing boost.",
+      "features": "Deep nourishment, elasticity, long-lasting shine, strength improvement."
+    },
+
+    "coldRestoration": {
+      "title": "Multi-step Cold Restoration",
+      "description": "Gentle and effective, our multi-step cold restoration heals your hair without using heat. Ideal for sensitive, fragile strands, this treatment rebuilds hair structure, restores natural shine, and leaves your hair feeling incredibly soft.",
+      "features": "Gradual structure recovery, enhanced softness, improved manageability, natural volume."
+    },
+
+    "coldBotox": {
+      "title": "Cold Botox",
+      "description": "Strengthen and protect fragile, weakened hair with our cold botox therapy. This powerful treatment hydrates, restores elasticity, and fortifies your hair against breakage, making it visibly healthier and more resilient.",
+      "features": "Moisture boost, elasticity recovery, hair fiber reinforcement, improved hair density."
+    },
+
+    "polishing": {
+      "title": "Hair Polishing",
+      "description": "Breathe new life into your hair with our polishing service. We remove dry, split ends along the entire length without losing your hair's length, leaving you with incredibly smooth, silky, and well-groomed hair.",
+      "features": "Eliminates split ends, boosts shine, prevents future damage, enhances smoothness."
     },
 
     "booking": {

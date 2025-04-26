@@ -6,36 +6,17 @@ function ServicesPage() {
   const { t } = useTranslation()
 
   const services = [
+    { title: 'haircuts', description: 'description', features: 'features' },
+    { title: 'menHaircuts', description: 'description', features: 'features' },
+    { title: 'keratin', description: 'description', features: 'features' },
+    { title: 'hotBotox', description: 'description', features: 'features' },
     {
-      title: 'haircuts',
+      title: 'coldRestoration',
       description: 'description',
       features: 'features',
-      price: 'price',
     },
-    {
-      title: 'menHaircuts',
-      description: 'description',
-      features: 'features',
-      price: 'price',
-    },
-    {
-      title: 'treatments',
-      description: 'description',
-      features: 'features',
-      price: 'price',
-    },
-    {
-      title: 'coloring',
-      description: 'description',
-      features: 'features',
-      price: 'price',
-    },
-    {
-      title: 'styling',
-      description: 'description',
-      features: 'features',
-      price: 'price',
-    },
+    { title: 'coldBotox', description: 'description', features: 'features' },
+    { title: 'polishing', description: 'description', features: 'features' },
   ]
 
   return (
@@ -54,9 +35,6 @@ function ServicesPage() {
             <p className={styles.features}>
               <strong>{t('services.features')}</strong>{' '}
               {t(`services.${service.title}.${service.features}`)}
-            </p>
-            <p className={styles.price}>
-              {t(`services.${service.title}.${service.price}`)}
             </p>
           </div>
         ))}

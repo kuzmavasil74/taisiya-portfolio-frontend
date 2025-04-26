@@ -28,45 +28,58 @@
     "certificate1": "Certifikát z Mezinárodní Akademie Stylu (2022)"
   },
   "services": {
-    "heading": "Naše služby",
+    "heading": "Naše Služby",
 
     "haircuts": {
       "title": "Dámské střihy",
-      "description": "Profesionální střihy přizpůsobené vašemu stylu a typu vlasů.",
-      "features": "Dámské střihy, úprava konečků, konzultace.",
-      "price": "Dámské střihy od 300 Kč. Úprava konečků – 300 Kč."
+      "description": "Osvěžte svůj vzhled individuálním dámským střihem, který podtrhne vaše rysy a typ vlasů. Ať už chcete nový moderní styl, nebo jen lehké zastřižení, zajistíme, že odejdete sebevědomá a zářivá.",
+      "features": "Dámské střihy, zastřižení konečků, individuální konzultace, stylingové poradenství."
     },
 
     "menHaircuts": {
       "title": "Pánské střihy",
-      "description": "Moderní i klasické střihy pro muže každého věku.",
-      "features": "Precizní linie, střih strojkem nebo nůžkami.",
-      "price": "Pánské střihy – 350 Kč."
+      "description": "Zažijte preciznost a styl s našimi pánskými střihy, navrženými přesně pro váš životní styl. Nabízíme jak klasické střihy, tak moderní úpravy — vždy čerstvý a upravený vzhled.",
+      "features": "Přesné linie, střih strojkem nebo nůžkami, úprava vousů (na přání)."
     },
 
     "treatments": {
-      "title": "Ošetření vlasů",
-      "description": "Pokročilé procedury pro regeneraci a posílení vlasů.",
-      "features": "Keratín, botox, peeling pokožky hlavy.",
-      "price": "Keratínové narovnání / horký botox – 1600–2000 Kč (+200 Kč za hustotu).\nVícefázová studená regenerace – 1400–1800 Kč (+200 Kč).\nNanokartizace / studený botox – 1300–1700 Kč (+200 Kč).\nPeeling pokožky hlavy – 400 Kč."
+      "title": "Péče o vlasy",
+      "description": "Dopřejte svým vlasům špičkovou péči pomocí našich moderních procedur. Navrátíme vlasům sílu, hydrataci a vitalitu. Svěřte své vlasy do rukou odborníků.",
+      "features": "Keratínové ošetření, botox na vlasy, peeling pokožky hlavy, hluboká hydratace."
     },
 
-    "coloring": {
-      "title": "Barvení vlasů",
-      "description": "Melír, balayage, ombré a další profesionální techniky.",
-      "features": "Hluboké odstíny, barevné melíry.",
-      "price": "Ceny podle techniky a délky vlasů. Kontaktujte nás pro konzultaci."
+    "keratin": {
+      "title": "Keratínové narovnání",
+      "description": "Získejte dokonale hladké a lesklé vlasy bez krepatění díky profesionálnímu keratínovému ošetření. Hloubková výživa a obnovu struktury vlasů s dlouhodobým efektem.",
+      "features": "Intenzivní regenerace, zrcadlový lesk, ochrana proti vlhkosti, snadnější styling."
     },
 
-    "styling": {
-      "title": "Styling",
-      "description": "Účesy pro každodenní i slavnostní příležitosti.",
-      "features": "Volné vlny, rovné styly, slavnostní účesy.",
-      "price": "Styling od 500 Kč. Speciální účesy dle dohody."
+    "hotBotox": {
+      "title": "Horký botox na vlasy",
+      "description": "Oživte své vlasy horkým botoxem — hluboká hydratace a rekonstrukce vlasového vlákna. Ideální pro matné a poškozené vlasy, které potřebují obnovit lesk a sílu.",
+      "features": "Hluboká výživa, elasticita, dlouhotrvající lesk, posílení vlasů."
+    },
+
+    "coldRestoration": {
+      "title": "Vícekroková studená regenerace",
+      "description": "Šetrná a účinná obnova vlasů bez tepelné zátěže. Ideální pro citlivé a oslabené vlasy, navrací přirozený lesk a hebkost.",
+      "features": "Postupné obnovení struktury, zvýšená jemnost, snadnější úprava, přirozený objem."
+    },
+
+    "coldBotox": {
+      "title": "Studený botox",
+      "description": "Posilte oslabené a jemné vlasy pomocí studeného botoxu. Procedura hydratuje, obnovuje elasticitu a posiluje vlasové vlákno pro zdravější a odolnější vzhled.",
+      "features": "Hydratace, obnova elasticity, posílení struktury vlasů, vyšší hustota."
+    },
+
+    "polishing": {
+      "title": "Leštění vlasů",
+      "description": "Dodejte vlasům nový život odstraněním roztřepených konečků po celé délce bez ztráty délky. Výsledek? Neskutečně hladké, lesklé a upravené vlasy.",
+      "features": "Odstranění roztřepených konečků, zvýšení lesku, prevence lámavosti, hladký efekt."
     },
 
     "booking": {
-      "title": "Objednejte se",
+      "title": "Rezervujte si termín",
       "button": "Objednejte se ještě dnes!"
     },
 
