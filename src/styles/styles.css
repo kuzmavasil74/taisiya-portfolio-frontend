@@ -22,8 +22,8 @@ body {
     'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #333;
-  background-color: #fff;
+  color: var(--color-black);
+  background-color: var(--color-white);
 }
 
 /* Ensure block elements take full width */
@@ -93,6 +93,20 @@ table {
 hr {
   border: none;
   border-top: 1px solid #e9ecef;
+}
+
+/* Set code font for code blocks */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Define CSS variables for colors */
+:root {
+  --color-light-gray: #f5f5f5;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-burgundy: #800020;
 }
 
 /* Set box-sizing globally to border-box */
