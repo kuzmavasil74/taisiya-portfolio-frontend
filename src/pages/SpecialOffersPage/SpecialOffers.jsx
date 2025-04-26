@@ -6,7 +6,7 @@ const SpecialOffers = () => {
   const { t } = useTranslation()
   return (
     <div className={styles.specialOffers}>
-      <h2>{t('specialOffers.title')}</h2>
+      <h2 className={styles.specialOffersTitle}>{t('specialOffers.title')}</h2>
       <div className={styles.offersContainer}>
         <div className={styles.offerItem}>
           <h3>{t('specialOffers.offer1.title')}</h3>
