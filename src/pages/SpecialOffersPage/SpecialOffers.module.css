@@ -48,7 +48,7 @@
 }
 
 .offerItem p {
-  opacity: 0.6;
+  opacity: 0.7;
   font-size: 1rem;
   margin-top: 0.5rem;
 }
@@ -57,9 +57,9 @@
     grid-template-columns: 1fr;
   }
   .offerItem h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   .offerItem p {
-    font-size: 0.5rem;
+    font-size: 0.9rem;
   }
 }
