@@ -98,13 +98,14 @@
   "gallery": {
     "heading": "Galerie",
     "all": "Vše",
-    "haircuts": "Střihy",
-    "coloring": "Barvení",
-    "styling": "Účesy",
-    "hairCare": "Péče o vlasy",
-    "Male Haircuts": "Pánské účesy",
-    "Cold Botox": "Studený botox",
-    "bookNow": "Rezervujte nyní!"
+    "haircuts": "Dámské střihy",
+    "maleHaircuts": "Pánské střihy",
+    "keratin": "Keratin",
+    "hotBotox": "Horký botox",
+    "coldRestoration": "Studená regenerace",
+    "coldBotox": "Studený botox",
+    "polishing": "Leštění vlasů",
+    "bookNow": "Objednat se!"
   },
   "galleryItems": {
     "haircuts": "Klasický střih s moderním nádechem.",

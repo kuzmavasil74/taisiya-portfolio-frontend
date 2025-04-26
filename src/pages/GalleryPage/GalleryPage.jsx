@@ -11,27 +11,6 @@ const galleryItems = [
     description: 'haircuts',
   },
   {
-    id: 2,
-    category: 'Coloring',
-    beforeImage: '/images/gallery/coloring-before.jpg',
-    afterImage: '/images/gallery/coloring-after.jpg',
-    description: 'coloring',
-  },
-  {
-    id: 3,
-    category: 'Styling',
-    beforeImage: '/images/gallery/styling-before.jpg',
-    afterImage: '/images/gallery/styling-after.jpg',
-    description: 'styling',
-  },
-  {
-    id: 4,
-    category: 'Hair Care',
-    beforeImage: '/images/gallery/haircare-before.jpg',
-    afterImage: '/images/gallery/haircare-after.jpg',
-    description: 'hairCare',
-  },
-  {
     id: 5,
     category: 'Male Haircuts',
     beforeImage: '/images/gallery/male-haircut_6.jpg',
@@ -133,30 +112,6 @@ function GalleryPage() {
         </button>
         <button
           className={`${styles.filterButton} ${
-            selectedCategory === 'Coloring' ? styles.active : ''
-          }`}
-          onClick={() => setSelectedCategory('Coloring')}
-        >
-          {t('gallery.coloring')}
-        </button>
-        <button
-          className={`${styles.filterButton} ${
-            selectedCategory === 'Styling' ? styles.active : ''
-          }`}
-          onClick={() => setSelectedCategory('Styling')}
-        >
-          {t('gallery.styling')}
-        </button>
-        <button
-          className={`${styles.filterButton} ${
-            selectedCategory === 'Hair Care' ? styles.active : ''
-          }`}
-          onClick={() => setSelectedCategory('Hair Care')}
-        >
-          {t('gallery.hairCare')}
-        </button>
-        <button
-          className={`${styles.filterButton} ${
             selectedCategory === 'Male Haircuts' ? styles.active : ''
           }`}
           onClick={() => setSelectedCategory('Male Haircuts')}
@@ -165,11 +120,44 @@ function GalleryPage() {
         </button>
         <button
           className={`${styles.filterButton} ${
+            selectedCategory === 'Keratin' ? styles.active : ''
+          }`}
+          onClick={() => setSelectedCategory('Keratin')}
+        >
+          {t('gallery.keratin')}
+        </button>
+        <button
+          className={`${styles.filterButton} ${
+            selectedCategory === 'HotBotox' ? styles.active : ''
+          }`}
+          onClick={() => setSelectedCategory('HotBotox')}
+        >
+          {t('gallery.hotBotox')}
+        </button>
+        <button
+          className={`${styles.filterButton} ${
+            selectedCategory === 'Cold Restoration' ? styles.active : ''
+          }`}
+          onClick={() => setSelectedCategory('Cold Restoration')}
+        >
+          {t('gallery.coldRestoration')}
+        </button>
+
+        <button
+          className={`${styles.filterButton} ${
             selectedCategory === 'Cold Botox' ? styles.active : ''
           }`}
           onClick={() => setSelectedCategory('Cold Botox')}
         >
           {t('gallery.coldBotox')}
+        </button>
+        <button
+          className={`${styles.filterButton} ${
+            selectedCategory === 'Hair Polishing' ? styles.active : ''
+          }`}
+          onClick={() => setSelectedCategory('Hair Polishing')}
+        >
+          {t('gallery.polishing')}
         </button>
       </div>
 

@@ -93,12 +93,13 @@
   "gallery": {
     "heading": "Gallery",
     "all": "All",
-    "haircuts": "Haircuts",
-    "coloring": "Coloring",
-    "styling": "Styling",
-    "hairCare": "Hair Care",
-    "MaleHaircuts": "Male Haircuts",
-    "Cold Botox": "Cold Botox",
+    "haircuts": "Women's Haircuts",
+    "maleHaircuts": "Male Haircuts",
+    "keratin": "Keratin",
+    "hotBotox": "Hot Botox",
+    "coldRestoration": "Cold Restoration",
+    "coldBotox": "Cold Botox",
+    "polishing": "Hair Polishing",
     "bookNow": "Book Now!"
   },
   "galleryItems": {

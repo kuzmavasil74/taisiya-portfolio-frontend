@@ -97,14 +97,15 @@
   },
   "gallery": {
     "heading": "Галерея",
-    "all": "Всі",
-    "haircuts": "Стрижки",
-    "coloring": "Фарбування",
-    "styling": "Укладки",
-    "hairCare": "Догляд за волоссям",
-    "Male Haircuts": "Чоловічі стрижки",
-    "Cold Botox": "Холодний ботокс",
-    "bookNow": "Записатися!"
+    "all": "Усі",
+    "haircuts": "Жіночі стрижки",
+    "maleHaircuts": "Чоловічі стрижки",
+    "keratin": "Кератин",
+    "hotBotox": "Гарячий ботокс",
+    "coldRestoration": "Холодне відновлення",
+    "coldBotox": "Холодний ботокс",
+    "polishing": "Полірування волосся",
+    "bookNow": "Записатись зараз!"
   },
   "galleryItems": {
     "haircuts": "Класична стрижка з сучасним підходом.",
