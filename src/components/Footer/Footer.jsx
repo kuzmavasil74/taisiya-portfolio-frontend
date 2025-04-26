@@ -31,7 +31,7 @@ function Footer() {
           <p className={styles['contact-info-item']}>
             {t('footer.phone')}{' '}
             <a className={styles['contact-info-link']} href="tel:123456789">
-              123 456 789
+              +420 608 039 692
             </a>
           </p>
           <p className={styles['contact-info-item']}>
