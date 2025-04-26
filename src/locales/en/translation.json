@@ -89,15 +89,17 @@
     "coloring": "Coloring",
     "styling": "Styling",
     "hairCare": "Hair Care",
-    "maleHaircuts": "Male Haircuts",
-    "coldBotox": "Cold Botox",
+    "MaleHaircuts": "Male Haircuts",
+    "Cold Botox": "Cold Botox",
     "bookNow": "Book Now!"
   },
   "galleryItems": {
     "haircuts": "Classic haircut with modern touch.",
     "coloring": "Bold balayage for a vibrant look.",
     "styling": "Classic hair styling with a touch of modernity.",
-    "hairCare": "Natural hair care with a healthy glow."
+    "hairCare": "Natural hair care with a healthy glow.",
+    "Male Haircuts": "Classic haircut for men.",
+    "Cold Botox": "Stylish botox treatment."
   },
   "footer": {
     "instagram": "Instagram",
