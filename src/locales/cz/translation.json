@@ -65,11 +65,6 @@
       "price": "Styling od 500 Kč. Speciální účesy dle dohody."
     },
 
-    "specialOffers": {
-      "title": "Speciální nabídky",
-      "description": "20% sleva pro nové klienty. Věrnostní program pro stálé zákazníky."
-    },
-
     "booking": {
       "title": "Objednejte se",
       "button": "Objednejte se ještě dnes!"
@@ -119,5 +114,20 @@
     "coments": "Komentáře:",
     "submitting": "Odesílání...",
     "submit": "Rezervovat"
+  },
+  "specialOffers": {
+    "title": "Speciální nabídky",
+    "offer1": {
+      "title": "20% sleva pro nové klienty",
+      "description": "Získejte 20% slevu na vaši první návštěvu. Nezmeškejte tuto skvělou nabídku!"
+    },
+    "offer2": {
+      "title": "Program věrnosti pro stálé klienty",
+      "description": "Staňte se pravidelným klientem a získejte slevy na všechny služby!"
+    },
+    "offer3": {
+      "title": "Bonus za doporučení",
+      "description": "Přiveďte přítele a získejte bonus na příští návštěvu!"
+    }
   }
 }

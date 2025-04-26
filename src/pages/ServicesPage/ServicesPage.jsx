@@ -60,17 +60,6 @@ function ServicesPage() {
             </p>
           </div>
         ))}
-
-        <div className={styles.specialOffers}>
-          <h3 className={styles.subheading}>
-            {t('services.specialOffers.title')}
-          </h3>
-          <p>
-            <strong>{t('services.promotions')}</strong>{' '}
-            {t('services.specialOffers.description')}
-          </p>
-        </div>
-
         <div className={styles.booking}>
           <h3 className={styles.subheading}>{t('services.booking.title')}</h3>
           <a href="/booking" className={styles.bookButton}>

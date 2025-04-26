@@ -2,6 +2,7 @@ import React from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import SpecialOffers from '../SpecialOffersPage/SpecialOffers.jsx'
 import styles from './Main.module.css'
 import { useTranslation } from 'react-i18next'
 
@@ -70,28 +71,31 @@ function Main() {
   }
 
   return (
-    <div className={styles.sliderContainer}>
-      <Slider {...settings}>
-        {images.map((image, index) => (
-          <div key={index}>
-            <img
-              className={styles.sliderImg}
-              src={image.small}
-              srcSet={`${image.small} 768w, ${image.medium} 1024w, ${image.large} 1440w`}
-              sizes="(max-width: 768px) 768px, (max-width: 1024px) 1024px, 1440px"
-              alt={`Slide ${index}`}
-              loading="lazy"
-            />
-          </div>
-        ))}
-      </Slider>
-      <div className={styles.sliderCaption}>
-        <h2 className={styles.greeting}>{t('main.greeting')}</h2>
-        <a href="/services" className={styles.ctaButton}>
-          {t('main.services')}
-        </a>
+    <>
+      <div className={styles.sliderContainer}>
+        <Slider {...settings}>
+          {images.map((image, index) => (
+            <div key={index}>
+              <img
+                className={styles.sliderImg}
+                src={image.small}
+                srcSet={`${image.small} 768w, ${image.medium} 1024w, ${image.large} 1440w`}
+                sizes="(max-width: 768px) 768px, (max-width: 1024px) 1024px, 1440px"
+                alt={`Slide ${index}`}
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </Slider>
+        <div className={styles.sliderCaption}>
+          <h2 className={styles.greeting}>{t('main.greeting')}</h2>
+          <a href="/services" className={styles.ctaButton}>
+            {t('main.services')}
+          </a>
+        </div>
       </div>
-    </div>
+      <SpecialOffers />
+    </>
   )
 }
 

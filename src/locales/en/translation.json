@@ -60,11 +60,6 @@
       "price": "Styling from 500 CZK. Special looks by arrangement."
     },
 
-    "specialOffers": {
-      "title": "Special Offers",
-      "description": "20% discount for new clients. Loyalty program for regulars."
-    },
-
     "booking": {
       "title": "Make an Appointment",
       "button": "Book your visit today!"
@@ -123,5 +118,20 @@
     "coments": "Comments:",
     "submitting": "Submitting...",
     "submit": "Book Now"
+  },
+  "specialOffers": {
+    "title": "Special Offers",
+    "offer1": {
+      "title": "20% Discount for New Clients",
+      "description": "Get a 20% discount on your first visit. Don’t miss out on this great offer!"
+    },
+    "offer2": {
+      "title": "Loyalty Program for Regular Clients",
+      "description": "Become a regular client and get discounts on all services!"
+    },
+    "offer3": {
+      "title": "Referral Bonus",
+      "description": "Bring a friend and get a bonus for your next visit!"
+    }
   }
 }
