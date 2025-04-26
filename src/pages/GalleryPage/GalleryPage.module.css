@@ -1,6 +1,6 @@
 .gallery {
   padding: 40px;
-  background-color: #f9f9f9;
+  background-color: var(--color-light-gray);
   font-family: Arial, sans-serif;
 }
 
@@ -8,7 +8,7 @@
   font-size: 2.5em;
   margin-bottom: 30px;
   text-align: center;
-  color: #333;
+  color: var(--color-black);
 }
 
 .filters {
@@ -19,8 +19,8 @@
 }
 
 .filterButton {
-  background: #007bff;
-  color: #fff;
+  background: var(--color-burgundy);
+  color: var(--color-white);
   border: none;
   padding: 10px 20px;
   margin: 5px;
@@ -30,7 +30,7 @@
 }
 
 .filterButton:hover {
-  background-color: #0056b3;
+  background-color: var(--color-burgundy);
 }
 
 .galleryGrid {
@@ -87,7 +87,7 @@
 .description {
   font-size: 1em;
   margin-top: 10px;
-  color: #555;
+  color: var(--color-black);
   text-align: center;
 }
 
@@ -99,14 +99,14 @@
 .subheading {
   font-size: 1.5em;
   margin-bottom: 20px;
-  color: #007bff;
+  color: var(--color-burgundy);
 }
 
 .bookButton {
   display: inline-block;
   padding: 15px 30px;
-  background-color: #28a745;
-  color: #fff;
+  background-color: var(--color-burgundy);
+  color: var(--color-white);
   text-decoration: none;
   border-radius: 50px;
   font-size: 1.1em;
@@ -115,7 +115,7 @@
 }
 
 .bookButton:hover {
-  background-color: #218838;
+  background-color: var(--color-burgundy);
 }
 
 @media (max-width: 768px) {

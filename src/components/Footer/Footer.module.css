@@ -1,6 +1,6 @@
 .footer {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--color-black);
+  color: var(--color-white);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -21,14 +21,14 @@
 }
 
 .social-media-link {
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s, text-decoration 0.3s;
 }
 
 .social-media-link:hover {
-  color: #f39c12;
+  color: var(--color-burgundy);
   text-decoration: underline;
 }
 
@@ -43,18 +43,18 @@
 }
 
 .contact-info-link {
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
   transition: color 0.3s, text-decoration 0.3s;
 }
 
 .contact-info-link:hover {
-  color: #f39c12;
+  color: var(--color-burgundy);
   text-decoration: underline;
 }
 
 .copyright {
-  color: #aaa;
+  color: var(--color-white);
   font-size: 0.8rem;
   margin-top: 10px;
 }
