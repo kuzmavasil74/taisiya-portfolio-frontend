@@ -28,6 +28,9 @@
   font-size: 1.75em;
   margin-bottom: 15px;
   color: var(--color-burgundy);
+  background-color: var(--color-light-gray);
+  border-radius: 8px;
+  text-align: center;
 }
 
 .description {

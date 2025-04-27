@@ -12,6 +12,8 @@
   font-size: 1.5em;
   margin-bottom: 10px;
   color: var(--color-black);
+  background-color: var(--color-white);
+  border-radius: 8px;
 }
 
 .schedule-text {
@@ -30,6 +32,7 @@
   font-size: 1.5em;
   margin-bottom: 10px;
   color: var(--color-black);
+  text-align: center;
 }
 
 .map-iframe {
