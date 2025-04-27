@@ -3,7 +3,8 @@
     "about": "Про нас",
     "services": "Послуги",
     "contact": "Контакти",
-    "gallery": "Галерея"
+    "gallery": "Галерея",
+    "prices": "Ціни"
   },
   "footer": {
     "instagram": "Instagram",
@@ -129,6 +130,7 @@
     "coldBotox": "Холодний ботокс",
     "polishing": "Полірування волосся"
   },
+
   "specialOffers": {
     "title": "Спеціальні пропозиції",
     "offer1": {
@@ -143,5 +145,24 @@
       "title": "Бонуси для друзів",
       "description": "Приведіть друга і отримайте бонуси на наступне відвідування!"
     }
+  },
+  "pricesList": {
+    "title": "Ціни",
+    "service": "Послуга",
+    "price": "Ціна",
+    "haircuts": "Жіноча стрижка",
+    "maleHaircuts": "Чоловіча стрижка",
+    "keratin": "Кератинове вирівнювання/гарячий ботекс",
+    "hotBotox": "Гарячий ботокс",
+    "coldRestoration": "Багатоступеневе холодне відновлення",
+    "coldBotox": "Нанокавітація/холодний ботокс",
+    "polishing": "Полірування волосся",
+    "splitEndsCut": "Стрижка кінчиків",
+    "priceHaircut": "350 крон",
+    "priceKeratin": "1600-2000 крон + 200 за густоту волосся",
+    "priceColdRestoration": "1400-1800 крон + 200 за густоту волосся",
+    "priceColdBotox": "1300-1700 крон + 200 за густоту волосся",
+    "pricePolishing": "400 крон",
+    "priceSplitEndsCut": "300 крон"
   }
 }

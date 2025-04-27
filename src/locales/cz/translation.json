@@ -3,7 +3,8 @@
     "about": "O nás",
     "services": "Služby",
     "contact": "Kontakt",
-    "gallery": "Galerie"
+    "gallery": "Galerie",
+    "prices": "Cenování"
   },
   "footer": {
     "instagram": "Instagram",
@@ -143,5 +144,24 @@
       "title": "Bonus za doporučení",
       "description": "Přiveďte přítele a získejte bonus na příští návštěvu!"
     }
+  },
+  "pricesList": {
+    "title": "Ceny",
+    "service": "Služba",
+    "price": "Cena",
+    "haircuts": "Dámský střih",
+    "maleHaircuts": "Pánský střih",
+    "keratin": "Keratinové ošetření/Hot Botox",
+    "hotBotox": "Hot Botox",
+    "coldRestoration": "Víceúrovňová studená obnova",
+    "coldBotox": "Nanokavitační/Studený Botox",
+    "polishing": "Leštění vlasů",
+    "splitEndsCut": "Střih konečků",
+    "priceHaircut": "350 CZK",
+    "priceKeratin": "1600-2000 CZK + 200 za hustotu vlasů",
+    "priceColdRestoration": "1400-1800 CZK + 200 za hustotu vlasů",
+    "priceColdBotox": "1300-1700 CZK + 200 za hustotu vlasů",
+    "pricePolishing": "400 CZK",
+    "priceSplitEndsCut": "300 CZK"
   }
 }

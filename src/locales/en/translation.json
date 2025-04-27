@@ -4,7 +4,8 @@
     "services": "Services",
     "contact": "Contact",
     "gallery": "Gallery",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "prices": "Prices"
   },
   "form": {
     "name": "Name",
@@ -147,5 +148,25 @@
       "title": "Referral Bonus",
       "description": "Bring a friend and get a bonus for your next visit!"
     }
+  },
+
+  "pricesList": {
+    "title": "Prices",
+    "service": "Service",
+    "price": "Price",
+    "haircuts": "Women's Haircut",
+    "maleHaircuts": "Men's Haircut",
+    "keratin": "Keratin Treatment/Hot Botox",
+    "hotBotox": "Hot Botox",
+    "coldRestoration": "Multi-step Cold Restoration",
+    "coldBotox": "Nanocavitation/Cold Botox",
+    "polishing": "Hair Polishing",
+    "splitEndsCut": "Split Ends Cut",
+    "priceHaircut": "350 CZK",
+    "priceKeratin": "1600-2000 CZK + 200 for hair density",
+    "priceColdRestoration": "1400-1800 CZK + 200 for hair density",
+    "priceColdBotox": "1300-1700 CZK + 200 for hair density",
+    "pricePolishing": "400 CZK",
+    "priceSplitEndsCut": "300 CZK"
   }
 }

@@ -11,9 +11,11 @@
 }
 
 .logo {
-  flex: 1;
+  /* flex: 1; */
   display: flex;
   justify-content: flex-start;
+  align-items: center;
+  margin-right: 100px;
 }
 
 .logo-img {
@@ -44,8 +46,9 @@
 
 .nav {
   display: flex;
-  flex: 3;
+  flex: 6;
   justify-content: space-between;
+  align-items: center;
 }
 
 .navList {
@@ -80,7 +83,7 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-left: 10px;
+  margin-left: 100px;
 }
 
 .languageButton {

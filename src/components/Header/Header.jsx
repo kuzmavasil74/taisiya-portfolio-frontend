@@ -104,7 +104,7 @@ function Header() {
         ref={menuRef}
       >
         <ul className={styles.navList}>
-          {['about', 'services', 'contact', 'gallery'].map((page) => (
+          {['about', 'services', 'contact', 'gallery', 'prices'].map((page) => (
             <li key={page} className={styles.navItem}>
               <Link
                 className={`${styles.navItemLink} ${
