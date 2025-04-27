@@ -66,6 +66,16 @@
     text-align: center;
   }
   .contact-info {
-    margin-top: 10px;
+    margin-top: 5px;
+  }
+  .social-media-link {
+    font-size: 14px;
+  }
+  .contact-info-link {
+    font-size: 14px;
+  }
+  .contact-info-item {
+    margin: 0 auto;
+    font-size: 14px;
   }
 }
