@@ -125,13 +125,13 @@
   },
   "bookingForm": {
     "title": "Book Your Appointment",
-    "name": "Name:",
-    "email": "Email:",
-    "phone": "Phone:",
-    "dateTime": "Date and Time:",
-    "coments": "Comments:",
-    "submitting": "Submitting...",
-    "submit": "Book Now"
+    "haircuts": "Women's Haircut",
+    "maleHaircuts": "Male Haircut",
+    "keratin": "Keratin",
+    "hotBotox": "Hot Botox",
+    "coldRestoration": "Cold Restoration",
+    "coldBotox": "Cold Botox",
+    "polishing": "Hair Polishing"
   },
   "specialOffers": {
     "title": "Special Offers",

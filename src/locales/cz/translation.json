@@ -121,13 +121,13 @@
   },
   "bookingForm": {
     "title": "Rezervujte se",
-    "name": "Jméno:",
-    "email": "E-mail:",
-    "phone": "Telefon:",
-    "dateTime": "Datum a čas:",
-    "coments": "Komentáře:",
-    "submitting": "Odesílání...",
-    "submit": "Rezervovat"
+    "haircuts": "Dámské střih",
+    "maleHaircuts": "Pánské střih",
+    "keratin": "Keratin",
+    "hotBotox": "Horký botox",
+    "coldRestoration": "Studená regenerace",
+    "coldBotox": "Studený botox",
+    "polishing": "Leštění vlasů"
   },
   "specialOffers": {
     "title": "Speciální nabídky",

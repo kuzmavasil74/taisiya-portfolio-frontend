@@ -1,3 +1,4 @@
+/* Загальний контейнер для кнопок */
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -8,4 +9,50 @@
   font-size: 2rem;
   margin-bottom: 20px;
   text-align: center;
+}
+
+/* Контейнер для кнопок з відступами між ними */
+.buttonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Стилі для кожної кнопки */
+.button {
+  padding: 12px 25px;
+  background-color: var(--color-burgundy);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50px;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  cursor: pointer;
+}
+.button:hover {
+  color: var(--color-black);
+  background-color: var(--color-light-gray);
+  transform: scale(1.05);
+}
+.button:active {
+  transform: scale(0.98);
+}
+@media (min-width: 600px) {
+  .button {
+    font-size: 1.1em;
+    max-width: 350px;
+    padding: 15px 30px;
+  }
+}
+@media (min-width: 1024px) {
+  .button {
+    max-width: 400px;
+    font-size: 1.2em;
+    padding: 20px 40px;
+  }
 }
