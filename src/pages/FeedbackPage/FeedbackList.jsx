@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
+import FeedbackItem from './FeedbackItem'
 import styles from './FeedbackList.module.css'
 
 const FeedbackList = () => {
@@ -9,51 +10,57 @@ const FeedbackList = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  const fetchFeedbacks = async () => {
-    try {
-      const response = await axios.get('https://your-backend-api.com/feedbacks')
-      setLoading(false)
-    } catch (err) {
-      setError('Не вдалося завантажити відгуки')
-      setLoading(false)
-    }
-  }
+  const fakeFeedbacks = [
+    {
+      name: 'Анна',
+      rating: 5,
+      text: 'Дуже задоволена якістю обслуговування!',
+    },
+    {
+      name: 'Олег',
+      rating: 4,
+      text: 'Гарна атмосфера і професіоналізм!',
+    },
+    {
+      name: 'Марія',
+      rating: 5,
+      text: 'Відмінна стрижка, обов’язково прийду ще!',
+    },
+  ]
+  // useEffect(() => {
+  //   const fetchFeedbacks = async () => {
+  //     try {
+  //       const { data } = await axios.get(
+  //         'https://your-backend-api.com/feedbacks'
+  //       )
+  //       setFeedbacks(data)
+  //     } catch (err) {
+  //       setError(t('feedback.error'))
+  //     } finally {
+  //       setLoading(false)
+  //     }
+  //   }
 
+  //   fetchFeedbacks()
+  // }, [t]) // if you have a backend
   useEffect(() => {
-    fetchFeedbacks()
-  }, [])
+    setFeedbacks(fakeFeedbacks)
+    setLoading(false)
+  }, []) // if you haven't a backend
 
-  if (loading) {
-    return <p>{t('loading')}</p>
-  }
-
-  if (error) {
-    return <p>{error}</p>
-  }
+  if (loading) return <p className={styles.loading}>{t('loading')}</p>
+  if (error) return <p className={styles.error}>{error}</p>
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{t('feedback.title')}</h1>
-      <p className={styles.text}>{t('feedback.text')}</p>
-
-      <div className={styles.feedbackList}>
+      <div className={styles.list}>
         {feedbacks.map((feedback, index) => (
-          <div className={styles.feedbackCard} key={index}>
-            <h3 className={styles.feedbackName}>{feedback.name}</h3>
-            <div className={styles.stars}>
-              {Array.from({ length: 5 }, (_, i) => (
-                <span
-                  key={i}
-                  className={
-                    i < feedback.rating ? styles.filledStar : styles.emptyStar
-                  }
-                >
-                  ★
-                </span>
-              ))}
-            </div>
-            <p className={styles.feedbackText}>{feedback.text}</p>
-          </div>
+          <FeedbackItem
+            key={feedback._id || feedback.name}
+            feedback={feedback}
+          /> // if you haven't a backend
+          // <FeedbackItem key={feedback._id} feedback={feedback} /> // if you have a backend
         ))}
       </div>
     </div>

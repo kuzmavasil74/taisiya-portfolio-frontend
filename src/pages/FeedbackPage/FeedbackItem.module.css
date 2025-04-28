@@ -1,0 +1,32 @@
+.card {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.stars {
+  margin-bottom: 1rem;
+}
+
+.starFilled {
+  color: gold;
+  font-size: 1.5rem;
+}
+
+.starEmpty {
+  color: #ccc;
+  font-size: 1.5rem;
+}
+
+.text {
+  font-size: 1rem;
+  color: #555;
+}
