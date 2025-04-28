@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import SpecialOffers from '../SpecialOffersPage/SpecialOffers.jsx'
 import styles from './Main.module.css'
 import { useTranslation } from 'react-i18next'
+import FeedbackList from '../FeedbackPage/FeedbackList'
 
 function Main() {
   const { t } = useTranslation()
@@ -95,6 +96,7 @@ function Main() {
         </div>
       </div>
       <SpecialOffers />
+      <FeedbackList />
     </>
   )
 }

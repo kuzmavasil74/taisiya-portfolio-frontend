@@ -164,5 +164,12 @@
     "priceColdBotox": "1300-1700 CZK + 200 za hustotu vlasů",
     "pricePolishing": "400 CZK",
     "priceSplitEndsCut": "300 CZK"
+  },
+  "feedback": {
+    "title": "Zpětné vazby",
+    "name": "Jmeno",
+    "email": "Email",
+    "message": "Zprava",
+    "send": "Odeslat"
   }
 }

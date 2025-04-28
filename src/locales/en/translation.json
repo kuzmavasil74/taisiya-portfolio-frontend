@@ -169,5 +169,12 @@
     "priceColdBotox": "1300-1700 CZK + 200 for hair density",
     "pricePolishing": "400 CZK",
     "priceSplitEndsCut": "300 CZK"
+  },
+  "feedback": {
+    "title": "Feedback",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send"
   }
 }

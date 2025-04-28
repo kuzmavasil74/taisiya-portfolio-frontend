@@ -165,5 +165,12 @@
     "priceColdBotox": "1300-1700 крон + 200 за густоту волосся",
     "pricePolishing": "400 крон",
     "priceSplitEndsCut": "300 крон"
+  },
+  "feedback": {
+    "title": "Відгуки",
+    "name": "Ім'я",
+    "email": "Електронна пошта",
+    "message": "Повідомлення",
+    "send": "Відправити"
   }
 }
