@@ -15,6 +15,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy.jsx'
 import Terms_and_Conditions from './pages/Terms_and_Conditions/Terms_and_Conditions.jsx'
 import PricesList from './pages/PricesListPage/PricesList.jsx'
 import FeedbackList from './pages/FeedbackPage/FeedbackList.jsx'
+import LoginPage from './pages/admin/LoginPage.jsx'
 
 function App() {
   const { i18 } = useTranslation()
@@ -40,6 +41,7 @@ function App() {
             path="/terms-and-conditions"
             element={<Terms_and_Conditions />}
           />
+          <Route path="/admin" element={<LoginPage />} />
           <Route path="*" element={<MainPage />} />
         </Routes>
       </div>
