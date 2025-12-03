@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import axios from 'axios'
+// import axios from 'axios'
 import FeedbackItem from './FeedbackItem'
 import styles from './FeedbackList.module.css'
 
@@ -49,13 +49,16 @@ const FeedbackList = () => {
   }, []) // if you haven't a backend
 
   if (loading) return <p className={styles.loading}>{t('loading')}</p>
-  if (error) return <p className={styles.error}>{error}</p>
+  if (error) {
+    setError(t('feedback.error'))
+    return <p className={styles.error}>{error}</p>
+  }
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{t('feedback.title')}</h1>
       <div className={styles.list}>
-        {feedbacks.map((feedback, index) => (
+        {feedbacks.map((feedback) => (
           <FeedbackItem
             key={feedback._id || feedback.name}
             feedback={feedback}
