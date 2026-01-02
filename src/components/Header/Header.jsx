@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import styles from './Header.module.css'
 import { useTranslation } from 'react-i18next'
 
@@ -7,7 +7,12 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuRef = useRef(null)
   const location = useLocation()
+  const navigate = useNavigate()
   const { t, i18n } = useTranslation()
+  const token = localStorage.getItem('token')
+  const user = JSON.parse(localStorage.getItem('user'))
+  const isAuth = !!token
+  const isAdmin = user?.role === 'admin'
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -37,6 +42,14 @@ function Header() {
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang)
   }
+  const navPage = [
+    'about',
+    'services',
+    'contact',
+    'gallery',
+    'prices',
+    'feedback',
+  ]
 
   return (
     <header className={styles.header}>
@@ -104,14 +117,7 @@ function Header() {
         ref={menuRef}
       >
         <ul className={styles.navList}>
-          {[
-            'about',
-            'services',
-            'contact',
-            'gallery',
-            'prices',
-            'feedback',
-          ].map((page) => (
+          {navPage.map((page) => (
             <li key={page} className={styles.navItem}>
               <Link
                 className={`${styles.navItemLink} ${
@@ -124,6 +130,56 @@ function Header() {
               </Link>
             </li>
           ))}
+
+          {!isAuth && (
+            <li className={styles.navItem}>
+              <Link
+                className={styles.navItemLink}
+                to="/login"
+                onClick={handleNavClick}
+              >
+                {t('nav.login')}
+              </Link>
+            </li>
+          )}
+
+          {isAuth && (
+            <li className={styles.navItem}>
+              <Link
+                className={styles.navItemLink}
+                to="/dashboard"
+                onClick={handleNavClick}
+              >
+                {t('nav.dashboard')}
+              </Link>
+            </li>
+          )}
+
+          {isAdmin && (
+            <li className={styles.navItem}>
+              <Link
+                className={styles.navItemLink}
+                to="/admin-panel"
+                onClick={handleNavClick}
+              >
+                {t('nav.admin')}
+              </Link>
+            </li>
+          )}
+          {isAuth && (
+            <li className={styles.navItem}>
+              <button
+                className={styles.logoutButton}
+                onClick={() => {
+                  localStorage.clear()
+                  handleNavClick()
+                  navigate('/')
+                }}
+              >
+                {t('nav.logout')}
+              </button>
+            </li>
+          )}
         </ul>
         <div className={styles.languageSwitch}>
           <button

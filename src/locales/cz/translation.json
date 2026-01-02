@@ -5,7 +5,11 @@
     "contact": "Kontakt",
     "gallery": "Galerie",
     "prices": "Cenování",
-    "feedback": "Zpětná vazba"
+    "feedback": "Zpětná vazba",
+    "login": "Prihlasit se",
+    "dashboard": "Panel administrace",
+    "admin": "Admin panel",
+    "logout": "Odhlasit se"
   },
   "footer": {
     "instagram": "Instagram",
@@ -171,5 +175,29 @@
     "email": "Email",
     "message": "Zprava",
     "send": "Odeslat"
+  },
+  "adminPanel": {
+    "title": "Admin Panel",
+    "description": "Velkommen til admin panel! Her kan du administere din hjemmeside's indhold og indstillinger."
+  },
+  "loginPage": {
+    "login": "Přihlásit se",
+    "email": "E-mail",
+    "password": "Heslo",
+    "enterEmail": "Zadejte e-mail",
+    "enterValidEmail": "Zadejte platnou e-mailovou adresu",
+    "enterPassword": "Zadejte heslo",
+    "invalidEmailOrPassword": "Neplatná e-mailová adresa nebo heslo",
+    "loading": "Nahrávam...",
+    "serverUnavailable": "Server je nedostupný"
+  },
+  "dashboard": {
+    "title": "Administrace",
+    "welcome": "Vitajte",
+    "role": "Role",
+    "role-names": {
+      "admin": "Admin",
+      "user": "Uživatel"
+    }
   }
 }

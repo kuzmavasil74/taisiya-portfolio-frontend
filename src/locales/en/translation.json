@@ -6,7 +6,12 @@
     "gallery": "Gallery",
     "privacy": "Privacy Policy",
     "prices": "Prices",
-    "feedback": "Feedback"
+    "feedback": "Feedback",
+
+    "login": "Login",
+    "dashboard": "Dashboard",
+    "admin": "Admin panel",
+    "logout": "Logout"
   },
   "form": {
     "name": "Name",
@@ -176,5 +181,31 @@
     "email": "Email",
     "message": "Message",
     "send": "Send"
+  },
+  "adminPanel": {
+    "title": "Admin Panel",
+    "description": "Welcome to the admin panel! Here you can manage your website's content and settings."
+  },
+
+  "loginPage": {
+    "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "enterEmail": "Enter email",
+    "enterValidEmail": "Enter valid email",
+    "enterPassword": "Enter password",
+    "invalidEmailOrPassword": "Invalid email or password",
+    "loading": "Loading...",
+    "serverUnavailable": "Server is not available. Try later."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome",
+    "logout": "Logout",
+    "role": "Role",
+    "role-names": {
+      "admin": "Admin",
+      "user": "User"
+    }
   }
 }

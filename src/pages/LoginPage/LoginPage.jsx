@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import styles from './LoginPage.module.css'
 
 const LoginPage = () => {
+  const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -11,17 +14,16 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // Базова валідація
     if (!email) {
-      setError('Enter email')
+      setError(t('loginPage.enterEmail'))
       return
     }
     if (!email.includes('@')) {
-      setError('Enter valid email')
+      setError(t('loginPage.enterValidEmail'))
       return
     }
     if (!password) {
-      setError('Enter password')
+      setError(t('loginPage.enterPassword'))
       return
     }
 
@@ -37,46 +39,49 @@ const LoginPage = () => {
 
       const data = await response.json()
 
-      if (data.token) {
-        // Зберігаємо токен, якщо сервер повертає
+      if (response.ok && data.token) {
         localStorage.setItem('token', data.token)
-        navigate('/dashboard') // редірект після успішного логіну
+        localStorage.setItem('user', JSON.stringify(data.user))
+
+        if (data.user.role === 'admin') {
+          navigate('/admin-panel')
+        } else {
+          navigate('/dashboard')
+        }
       } else {
-        setError(data.message || 'Invalid email or password')
+        setError(data.message || t('loginPage.invalidEmailOrPassword'))
       }
     } catch (err) {
-      setError('Server is not available. Try later.')
+      setError(t('loginPage.serverUnavailable'))
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
-
+    <div className={styles.loginContainer}>
+      <h2 className={styles.title}>{t('loginPage.login')}</h2>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <input
           type="email"
-          placeholder="Email"
+          placeholder={t('loginPage.email')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className={styles.input}
         />
-
         <input
           type="password"
-          placeholder="Password"
+          placeholder={t('loginPage.password')}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className={styles.input}
         />
-
-        {error && <div style={{ color: 'red' }}>{error}</div>}
-
-        <button type="submit" disabled={loading}>
-          {loading ? 'Loading...' : 'Login'}
+        {error && <div className={styles.error}>{error}</div>}
+        <button type="submit" disabled={loading} className={styles.button}>
+          {loading ? t('loginPage.loading') : t('loginPage.login')}
         </button>
       </form>
-    </>
+    </div>
   )
 }
 

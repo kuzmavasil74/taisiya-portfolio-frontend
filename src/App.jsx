@@ -15,7 +15,12 @@ import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy.jsx'
 import Terms_and_Conditions from './pages/Terms_and_Conditions/Terms_and_Conditions.jsx'
 import PricesList from './pages/PricesListPage/PricesList.jsx'
 import FeedbackList from './pages/FeedbackPage/FeedbackList.jsx'
-import LoginPage from './pages/admin/LoginPage.jsx'
+import LoginPage from './pages/LoginPage/LoginPage'
+import Dashboard from './pages/Dashboard/Dashboard'
+import AdminPanel from './pages/AdminPanel/AdminPanel'
+import PrivateRoute from './pages/PrivateRoute/PrivateRoute'
+import AdminRoute from './pages/AdminRoute/AdminRoute'
+import ForbiddenPage from './pages/ForbiddenPage/ForbiddenPage.jsx'
 
 function App() {
   const { i18 } = useTranslation()
@@ -23,6 +28,7 @@ function App() {
   const changeLanguage = (lang) => {
     i18.changeLanguage(lang)
   }
+
   return (
     <Router>
       <Header changeLanguage={changeLanguage} />
@@ -41,7 +47,24 @@ function App() {
             path="/terms-and-conditions"
             element={<Terms_and_Conditions />}
           />
-          <Route path="/admin" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin-panel"
+            element={
+              <AdminRoute>
+                <AdminPanel />
+              </AdminRoute>
+            }
+          />
+          <Route path="/forbidden" element={<ForbiddenPage />} />
           <Route path="*" element={<MainPage />} />
         </Routes>
       </div>
