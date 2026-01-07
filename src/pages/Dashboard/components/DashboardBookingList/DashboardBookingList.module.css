@@ -1,0 +1,89 @@
+.container {
+  padding: 24px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  min-height: 80vh;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.noBookings {
+  font-size: 16px;
+  color: #666;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skeletonCard {
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: pulseCard 1.5s infinite;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@keyframes pulseCard {
+  0% {
+    background-color: #f5f5f5;
+  }
+  50% {
+    background-color: #eaeaea;
+  }
+  100% {
+    background-color: #f5f5f5;
+  }
+}
+
+.skeletonTitle {
+  height: 20px;
+  width: 50%;
+  background-color: #ddd;
+  border-radius: 6px;
+}
+
+.skeletonText {
+  height: 14px;
+  width: 80%;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.skeletonButton {
+  height: 28px;
+  width: 30%;
+  background-color: #ccc;
+  border-radius: 6px;
+  margin-top: 8px;
+}
