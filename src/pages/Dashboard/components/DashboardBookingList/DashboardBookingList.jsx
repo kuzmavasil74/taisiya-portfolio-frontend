@@ -11,6 +11,10 @@ const DashboardBookingList = () => {
 
   const token = localStorage.getItem('token')
 
+  const upcomingBookings = bookings.filter(
+    (b) => new Date(b.date) >= new Date()
+  )
+
   // 🔹 FETCH BOOKINGS
   useEffect(() => {
     const fetchBookings = async () => {
@@ -55,7 +59,7 @@ const DashboardBookingList = () => {
             </li>
           ))}
         </ul>
-      ) : bookings.length === 0 ? (
+      ) : upcomingBookings.length === 0 ? (
         <p>{t('dashboard.noBookings')}</p>
       ) : (
         <ul className={styles.list}>
