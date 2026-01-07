@@ -208,5 +208,14 @@
       "role": "Role",
       "notFound": "Uživatelské údaje nebyly nalezeny"
     }
+  },
+  "admin-panel": {
+    "profile-name": "Jméno profilu",
+    "customer-name": "Jméno klienta",
+    "error": "Chyba",
+    "upcomingBookings": "Budoucié rezervace",
+    "noBookings": "Nebyly nalezeny žiadne rezervace",
+    "archiveBookings": "Archivované rezervace",
+    "delete": "Smazat"
   }
 }

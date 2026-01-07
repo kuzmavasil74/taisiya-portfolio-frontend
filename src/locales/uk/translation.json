@@ -210,5 +210,14 @@
       "role": "Роль",
       "notFound": "Дані користувача не знайдено"
     }
+  },
+  "admin-panel": {
+    "profile-name": "Ім'я профілю",
+    "customer-name": "Ім'я клієнта",
+    "error": "Помилка",
+    "upcomingBookings": "Поточні бронювання",
+    "noBookings": "Немає бронювань",
+    "archiveBookings": "Архів бронювань",
+    "delete": "Видалити"
   }
 }

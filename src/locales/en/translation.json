@@ -217,5 +217,14 @@
       "role": "Role",
       "notFound": "User data not found"
     }
+  },
+  "admin-panel": {
+    "profile-name": "Profile Name",
+    "customer-name": "Customer Name",
+    "error": "Error",
+    "upcomingBookings": "Upcoming Bookings",
+    "noBookings": "No bookings found",
+    "archiveBookings": "Archive Bookings",
+    "delete": "Delete"
   }
 }
