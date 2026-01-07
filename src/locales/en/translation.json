@@ -13,6 +13,7 @@
     "admin": "Admin panel",
     "logout": "Logout"
   },
+
   "form": {
     "name": "Name",
     "email": "Email",
@@ -206,6 +207,15 @@
     "role-names": {
       "admin": "Admin",
       "user": "User"
+    },
+    "bookingsTitle": "Bookings",
+    "noBookings": "No bookings found",
+    "profile": {
+      "title": "Profile",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "notFound": "User data not found"
     }
   }
 }

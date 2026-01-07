@@ -198,6 +198,15 @@
     "role-names": {
       "admin": "Admin",
       "user": "Uživatel"
+    },
+    "bookingsTitle": "Rezervace",
+    "noBookings": "Nebyly nalezeny žiadne rezervace",
+    "profile": {
+      "title": "Profil",
+      "name": "Jméno",
+      "email": "E-mail",
+      "role": "Role",
+      "notFound": "Uživatelské údaje nebyly nalezeny"
     }
   }
 }

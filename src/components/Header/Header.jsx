@@ -134,7 +134,9 @@ function Header() {
           {!isAuth && (
             <li className={styles.navItem}>
               <Link
-                className={styles.navItemLink}
+                className={`${styles.navItemLink} ${
+                  location.pathname === '/login' ? styles.active : ''
+                }`}
                 to="/login"
                 onClick={handleNavClick}
               >
@@ -143,10 +145,12 @@ function Header() {
             </li>
           )}
 
-          {isAuth && (
+          {isAuth && !isAdmin && (
             <li className={styles.navItem}>
               <Link
-                className={styles.navItemLink}
+                className={`${styles.navItemLink} ${
+                  location.pathname === '/dashboard' ? styles.active : ''
+                }`}
                 to="/dashboard"
                 onClick={handleNavClick}
               >
@@ -158,7 +162,9 @@ function Header() {
           {isAdmin && (
             <li className={styles.navItem}>
               <Link
-                className={styles.navItemLink}
+                className={`${styles.navItemLink} ${
+                  location.pathname === '/admin-panel' ? styles.active : ''
+                }`}
                 to="/admin-panel"
                 onClick={handleNavClick}
               >
@@ -166,6 +172,7 @@ function Header() {
               </Link>
             </li>
           )}
+
           {isAuth && (
             <li className={styles.navItem}>
               <button
@@ -181,6 +188,7 @@ function Header() {
             </li>
           )}
         </ul>
+
         <div className={styles.languageSwitch}>
           <button
             onClick={() => changeLanguage('en')}

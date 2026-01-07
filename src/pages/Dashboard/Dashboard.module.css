@@ -1,21 +1,26 @@
 .container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f4f4f4;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  min-height: 100vh;
 }
 
-.title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #222;
+.sidebar {
+  width: 240px;
+  border-right: 1px solid #ccc;
 }
 
-.text {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 0.5rem;
+.dashboardContent {
+  flex: 1;
+  padding: 24px;
+}
+
+.nav a {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: #333;
+}
+
+.nav a.active {
+  font-weight: bold;
+  color: #007bff;
 }

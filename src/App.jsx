@@ -21,7 +21,8 @@ import AdminPanel from './pages/AdminPanel/AdminPanel'
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute'
 import AdminRoute from './pages/AdminRoute/AdminRoute'
 import ForbiddenPage from './pages/ForbiddenPage/ForbiddenPage.jsx'
-
+import DashboardBookingList from './pages/Dashboard/components/DashboardBookingList/DashboardBookingList.jsx'
+import DashboardProfile from './pages/Dashboard/components/DashboardProfile/DashboardProfile.jsx'
 function App() {
   const { i18 } = useTranslation()
 
@@ -55,7 +56,11 @@ function App() {
                 <Dashboard />
               </PrivateRoute>
             }
-          />
+          >
+            <Route index element={<DashboardProfile />} />
+            <Route path="profile" element={<DashboardProfile />} />
+            <Route path="bookings" element={<DashboardBookingList />} />
+          </Route>
           <Route
             path="/admin-panel"
             element={
