@@ -23,6 +23,21 @@
   flex-direction: column;
   gap: 15px;
 }
+.profileNamesRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.profileName {
+  color: var(--color-blue);
+  font-weight: 500;
+}
+
+.customerName {
+  color: var(--color-red);
+  font-weight: 500;
+}
 
 .card {
   background-color: #fff;

@@ -91,14 +91,14 @@ const AdminPanel = () => {
         <ul className={styles.list}>
           {upcomingBookings.map((b) => (
             <li key={b._id} className={styles.card}>
-              <p>
-                <strong>
+              <div className={styles.profileNamesRov}>
+                <p className={styles.profileName}>
                   {t('admin-panel.profile-name')}:{b.userId.name}
-                </strong>
-              </p>
-              <p>
-                {t('admin-panel.customer-name')}:{b.name}
-              </p>
+                </p>
+                <p className={styles.customerName}>
+                  {t('admin-panel.customer-name')}:{b.name}
+                </p>
+              </div>
               <p>{new Date(b.date).toLocaleString()}</p>
               <p>{b.service}</p>
               <button

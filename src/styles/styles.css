@@ -106,6 +106,8 @@ code {
   --color-black: #000000;
   --color-white: #ffffff;
   --color-burgundy: #800020;
+  --color-blue: #1e90ff;
+  --color-red: #ff6347;
 }
 
 /* Set box-sizing globally to border-box */
