@@ -226,5 +226,34 @@
     "noBookings": "No bookings found",
     "archiveBookings": "Archive Bookings",
     "delete": "Delete"
+  },
+  "stats": {
+    "totalUsers": "Total Users",
+    "newUsersToday": "New Users Today",
+    "totalBookings": "Total Bookings",
+    "revenueToday": "Revenue Today",
+    "bookingsStatus": "Bookings Status",
+    "topServices": "Top Services",
+    "bookingsLast7Days": "Bookings Last 7 Days"
+  },
+  "bookingsStatus": {
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "canceled": "Canceled",
+    "completed": "Completed"
+  },
+  "bookings": {
+    "upcoming": "Upcoming",
+    "archive": "Archive",
+    "loading": "Loading...",
+    "empty": "No bookings",
+    "delete": "Delete",
+    "prev": "Prev",
+    "next": "Next",
+    "confirmDelete": "Are you sure you want to delete booking {{name}}?",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "fetchError": "Failed to fetch bookings",
+    "deleteError": "Failed to delete booking"
   }
 }

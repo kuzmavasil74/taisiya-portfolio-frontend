@@ -219,5 +219,35 @@
     "noBookings": "Немає бронювань",
     "archiveBookings": "Архів бронювань",
     "delete": "Видалити"
+  },
+
+  "stats": {
+    "totalUsers": "Загальна кількість користувачів",
+    "newUsersToday": "Нові користувачі сьогодні",
+    "totalBookings": "Загальна кількість бронювань",
+    "revenueToday": "Дохід сьогодні",
+    "bookingsStatus": "Статуси бронювань",
+    "topServices": "Топ послуг",
+    "bookingsLast7Days": "Бронювання за останні 7 днів"
+  },
+  "bookingsStatus": {
+    "pending": "Очікує підтвердження",
+    "confirmed": "Підтверджено",
+    "canceled": "Скасовано",
+    "completed": "Завершено"
+  },
+  "bookings": {
+    "upcoming": "Актуальні",
+    "archive": "Архівні",
+    "loading": "Завантаження...",
+    "empty": "Немає замовлень",
+    "delete": "Видалити",
+    "prev": "Попередня",
+    "next": "Наступна",
+    "confirmDelete": "Ви впевнені, що хочете видалити замовлення {{name}}?",
+    "confirm": "Підтвердити",
+    "cancel": "Відмінити",
+    "fetchError": "Не вдалося отримати замовлення",
+    "deleteError": "Не вдалося видалити замовлення"
   }
 }

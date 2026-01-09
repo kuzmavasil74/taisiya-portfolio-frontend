@@ -23,6 +23,9 @@ import AdminRoute from './pages/AdminRoute/AdminRoute'
 import ForbiddenPage from './pages/ForbiddenPage/ForbiddenPage.jsx'
 import DashboardBookingList from './pages/Dashboard/components/DashboardBookingList/DashboardBookingList.jsx'
 import DashboardProfile from './pages/Dashboard/components/DashboardProfile/DashboardProfile.jsx'
+import AdminUsersList from './pages/AdminPanel/components/AdminUsersList/AdminUsersList.jsx'
+import AdminBookingList from './pages/AdminPanel/components/AdminBookingList/AdminBookingList.jsx'
+import AdminStats from './pages/AdminPanel/components/AdminStats/AdminStats.jsx'
 function App() {
   const { i18 } = useTranslation()
 
@@ -68,7 +71,14 @@ function App() {
                 <AdminPanel />
               </AdminRoute>
             }
-          />
+          >
+            <Route index element={<AdminUsersList />} />
+            <Route path="users" element={<AdminUsersList />}>
+              <Route path=":userId" element={<AdminBookingList />} />
+            </Route>
+            <Route path="bookings" element={<AdminBookingList />} />
+            <Route path="statistics" element={<AdminStats />} />
+          </Route>
           <Route path="/forbidden" element={<ForbiddenPage />} />
           <Route path="*" element={<MainPage />} />
         </Routes>

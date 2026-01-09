@@ -1,118 +1,26 @@
-/* AdminPanel.module.css */
-
 .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
 }
 
-.title {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
+.sidebar {
+  width: 240px;
+  border-right: 1px solid #ccc;
+}
+
+.adminPanelContent {
+  flex: 1;
+  padding: 24px;
+}
+
+.nav a {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
   color: #333;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 5px;
 }
 
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 30px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-.profileNamesRow {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.profileName {
-  color: var(--color-blue);
-  font-weight: 500;
-}
-
-.customerName {
-  color: var(--color-red);
-  font-weight: 500;
-}
-
-.card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.archiveCard {
-  background-color: #f9f9f9;
-  border-color: #ccc;
-  color: #666;
-  opacity: 0.8;
-}
-
-.deleteBtn {
-  margin-top: 10px;
-  padding: 6px 12px;
-  background-color: #ff4d4f;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+.nav a.active {
   font-weight: bold;
-  transition: background-color 0.2s;
-}
-
-.deleteBtn:hover {
-  background-color: #e60000;
-}
-
-/* Skeleton loader */
-.skeleton {
-  background-color: #eee;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px 20px;
-  animation: pulse 1.5s infinite;
-}
-
-.skeletonText {
-  height: 14px;
-  background-color: #ddd;
-  margin-bottom: 10px;
-  border-radius: 4px;
-}
-
-@keyframes pulse {
-  0% {
-    background-color: #eee;
-  }
-  50% {
-    background-color: #ddd;
-  }
-  100% {
-    background-color: #eee;
-  }
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .container {
-    padding: 10px;
-  }
-  .card {
-    padding: 10px 15px;
-  }
-  .title {
-    font-size: 1.5rem;
-  }
+  color: #007bff;
 }

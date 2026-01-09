@@ -217,5 +217,34 @@
     "noBookings": "Nebyly nalezeny žiadne rezervace",
     "archiveBookings": "Archivované rezervace",
     "delete": "Smazat"
+  },
+  "stats": {
+    "totalUsers": "Celkový počet uživatelů",
+    "newUsersToday": "Noví uživatelé dnes",
+    "totalBookings": "Celkový počet rezervací",
+    "revenueToday": "Příjem dnes",
+    "bookingsStatus": "Stav rezervací",
+    "topServices": "Nejlepší služby",
+    "bookingsLast7Days": "Rezervace za posledních 7 dní"
+  },
+  "bookingsStatus": {
+    "pending": "Čeká na potvrzení",
+    "confirmed": "Potvrzeno",
+    "canceled": "Zrušeno",
+    "completed": "Dokončeno"
+  },
+  "bookings": {
+    "upcoming": "Aktuální",
+    "archive": "Archiv",
+    "loading": "Načítání...",
+    "empty": "Žádné rezervace",
+    "delete": "Smazat",
+    "prev": "Předchozí",
+    "next": "Další",
+    "confirmDelete": "Opravdu chcete smazat rezervaci {{name}}?",
+    "confirm": "Potvrdit",
+    "cancel": "Zrušit",
+    "fetchError": "Nepodařilo se načíst rezervace",
+    "deleteError": "Nepodařilo se smazat rezervaci"
   }
 }
