@@ -35,53 +35,62 @@
   },
   "services": {
     "heading": "Naše Služby",
+    "duration": "Doba trvání",
 
     "haircuts": {
       "title": "Dámské střihy",
       "description": "Osvěžte svůj vzhled individuálním dámským střihem, který podtrhne vaše rysy a typ vlasů. Ať už chcete nový moderní styl, nebo jen lehké zastřižení, zajistíme, že odejdete sebevědomá a zářivá.",
-      "features": "Dámské střihy, zastřižení konečků, individuální konzultace, stylingové poradenství."
+      "features": "Dámské střihy, zastřižení konečků, individuální konzultace, stylingové poradenství.",
+      "duration": "45"
     },
 
     "menHaircuts": {
       "title": "Pánské střihy",
       "description": "Zažijte preciznost a styl s našimi pánskými střihy, navrženými přesně pro váš životní styl. Nabízíme jak klasické střihy, tak moderní úpravy — vždy čerstvý a upravený vzhled.",
-      "features": "Přesné linie, střih strojkem nebo nůžkami, úprava vousů (na přání)."
+      "features": "Přesné linie, střih strojkem nebo nůžkami, úprava vousů (na přání).",
+      "duration": "30"
     },
 
     "treatments": {
       "title": "Péče o vlasy",
       "description": "Dopřejte svým vlasům špičkovou péči pomocí našich moderních procedur. Navrátíme vlasům sílu, hydrataci a vitalitu. Svěřte své vlasy do rukou odborníků.",
-      "features": "Keratínové ošetření, botox na vlasy, peeling pokožky hlavy, hluboká hydratace."
+      "features": "Keratínové ošetření, botox na vlasy, peeling pokožky hlavy, hluboká hydratace.",
+      "duration": "30"
     },
 
     "keratin": {
       "title": "Keratínové narovnání",
       "description": "Získejte dokonale hladké a lesklé vlasy bez krepatění díky profesionálnímu keratínovému ošetření. Hloubková výživa a obnovu struktury vlasů s dlouhodobým efektem.",
-      "features": "Intenzivní regenerace, zrcadlový lesk, ochrana proti vlhkosti, snadnější styling."
+      "features": "Intenzivní regenerace, zrcadlový lesk, ochrana proti vlhkosti, snadnější styling.",
+      "duration": "45"
     },
 
     "hotBotox": {
       "title": "Horký botox na vlasy",
       "description": "Oživte své vlasy horkým botoxem — hluboká hydratace a rekonstrukce vlasového vlákna. Ideální pro matné a poškozené vlasy, které potřebují obnovit lesk a sílu.",
-      "features": "Hluboká výživa, elasticita, dlouhotrvající lesk, posílení vlasů."
+      "features": "Hluboká výživa, elasticita, dlouhotrvající lesk, posílení vlasů.",
+      "duration": "30"
     },
 
     "coldRestoration": {
       "title": "Vícekroková studená regenerace",
       "description": "Šetrná a účinná obnova vlasů bez tepelné zátěže. Ideální pro citlivé a oslabené vlasy, navrací přirozený lesk a hebkost.",
-      "features": "Postupné obnovení struktury, zvýšená jemnost, snadnější úprava, přirozený objem."
+      "features": "Postupné obnovení struktury, zvýšená jemnost, snadnější úprava, přirozený objem.",
+      "duration": "30"
     },
 
     "coldBotox": {
       "title": "Studený botox",
       "description": "Posilte oslabené a jemné vlasy pomocí studeného botoxu. Procedura hydratuje, obnovuje elasticitu a posiluje vlasové vlákno pro zdravější a odolnější vzhled.",
-      "features": "Hydratace, obnova elasticity, posílení struktury vlasů, vyšší hustota."
+      "features": "Hydratace, obnova elasticity, posílení struktury vlasů, vyšší hustota.",
+      "duration": "30"
     },
 
     "polishing": {
       "title": "Leštění vlasů",
       "description": "Dodejte vlasům nový život odstraněním roztřepených konečků po celé délce bez ztráty délky. Výsledek? Neskutečně hladké, lesklé a upravené vlasy.",
-      "features": "Odstranění roztřepených konečků, zvýšení lesku, prevence lámavosti, hladký efekt."
+      "features": "Odstranění roztřepených konečků, zvýšení lesku, prevence lámavosti, hladký efekt.",
+      "duration": "30"
     },
 
     "booking": {

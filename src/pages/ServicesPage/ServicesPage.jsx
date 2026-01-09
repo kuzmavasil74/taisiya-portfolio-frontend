@@ -6,17 +6,48 @@ function ServicesPage() {
   const { t } = useTranslation()
 
   const services = [
-    { title: 'haircuts', description: 'description', features: 'features' },
-    { title: 'menHaircuts', description: 'description', features: 'features' },
-    { title: 'keratin', description: 'description', features: 'features' },
-    { title: 'hotBotox', description: 'description', features: 'features' },
+    {
+      title: 'haircuts',
+      description: 'description',
+      features: 'features',
+      duration: 'duration',
+    },
+    {
+      title: 'menHaircuts',
+      description: 'description',
+      features: 'features',
+      duration: 'duration',
+    },
+    {
+      title: 'keratin',
+      description: 'description',
+      features: 'features',
+      duration: 'duration',
+    },
+    {
+      title: 'hotBotox',
+      description: 'description',
+      features: 'features',
+      duration: 'duration',
+    },
     {
       title: 'coldRestoration',
       description: 'description',
       features: 'features',
+      duration: 'duration',
     },
-    { title: 'coldBotox', description: 'description', features: 'features' },
-    { title: 'polishing', description: 'description', features: 'features' },
+    {
+      title: 'coldBotox',
+      description: 'description',
+      features: 'features',
+      duration: 'duration',
+    },
+    {
+      title: 'polishing',
+      description: 'description',
+      features: 'features',
+      duration: 'duration',
+    },
   ]
 
   return (
@@ -35,6 +66,10 @@ function ServicesPage() {
             <p className={styles.features}>
               <strong>{t('services.features')}</strong>{' '}
               {t(`services.${service.title}.${service.features}`)}
+            </p>
+            <p className={styles.features}>
+              <strong>{t('services.duration')}</strong>{' '}
+              {t(`services.${service.title}.${service.duration}`)}
             </p>
           </div>
         ))}

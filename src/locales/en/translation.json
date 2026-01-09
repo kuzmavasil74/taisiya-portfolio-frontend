@@ -32,53 +32,62 @@
   },
   "services": {
     "heading": "Our Services",
+    "duration": "Duration",
 
     "haircuts": {
       "title": "Women's Haircuts",
       "description": "Refresh your style with a personalized women's haircut, carefully crafted to highlight your features and suit your hair type. Whether you seek a trendy new look or just a neat trim, we ensure you leave feeling confident and radiant.",
-      "features": "Women's cuts, trimming ends, personalized consultation, styling advice."
+      "features": "Women's cuts, trimming ends, personalized consultation, styling advice.",
+      "duration": "45"
     },
 
     "menHaircuts": {
       "title": "Men's Haircuts",
       "description": "Experience precision and style with our men's haircuts, designed to match your personality and lifestyle. From classic cuts to modern fades, we offer a full range of styles for every man, ensuring a fresh and clean look every time.",
-      "features": "Precise lines, clipper or scissor cuts, beard trimming (optional)."
+      "features": "Precise lines, clipper or scissor cuts, beard trimming (optional).",
+      "duration": "30"
     },
 
     "treatments": {
       "title": "Hair Treatments",
       "description": "Give your hair the care it deserves with our advanced treatments. We offer solutions for damaged, dry, or thinning hair, restoring strength, hydration, and vibrancy. Trust us to bring your hair back to life.",
-      "features": "Keratin treatment, botox therapy, scalp peeling, deep hydration."
+      "features": "Keratin treatment, botox therapy, scalp peeling, deep hydration.",
+      "duration": "120"
     },
 
     "keratin": {
       "title": "Keratin Straightening",
       "description": "Achieve silky-smooth, frizz-free hair with our professional keratin straightening. This treatment deeply nourishes and restructures hair, offering long-lasting smoothness, shine, and easier everyday maintenance.",
-      "features": "Intensive repair, mirror-like shine, protection against humidity, easier styling."
+      "features": "Intensive repair, mirror-like shine, protection against humidity, easier styling.",
+      "duration": "90"
     },
 
     "hotBotox": {
       "title": "Hot Hair Botox",
       "description": "Rejuvenate your hair with our hot botox treatment, delivering intense hydration and rebuilding the hair fiber from within. Ideal for dull, damaged hair needing a smoothing and revitalizing boost.",
-      "features": "Deep nourishment, elasticity, long-lasting shine, strength improvement."
+      "features": "Deep nourishment, elasticity, long-lasting shine, strength improvement.",
+      "duration": "60"
     },
 
     "coldRestoration": {
       "title": "Multi-step Cold Restoration",
       "description": "Gentle and effective, our multi-step cold restoration heals your hair without using heat. Ideal for sensitive, fragile strands, this treatment rebuilds hair structure, restores natural shine, and leaves your hair feeling incredibly soft.",
-      "features": "Gradual structure recovery, enhanced softness, improved manageability, natural volume."
+      "features": "Gradual structure recovery, enhanced softness, improved manageability, natural volume.",
+      "duration": "90"
     },
 
     "coldBotox": {
       "title": "Cold Botox",
       "description": "Strengthen and protect fragile, weakened hair with our cold botox therapy. This powerful treatment hydrates, restores elasticity, and fortifies your hair against breakage, making it visibly healthier and more resilient.",
-      "features": "Moisture boost, elasticity recovery, hair fiber reinforcement, improved hair density."
+      "features": "Moisture boost, elasticity recovery, hair fiber reinforcement, improved hair density.",
+      "duration": "60"
     },
 
     "polishing": {
       "title": "Hair Polishing",
       "description": "Breathe new life into your hair with our polishing service. We remove dry, split ends along the entire length without losing your hair's length, leaving you with incredibly smooth, silky, and well-groomed hair.",
-      "features": "Eliminates split ends, boosts shine, prevents future damage, enhances smoothness."
+      "features": "Eliminates split ends, boosts shine, prevents future damage, enhances smoothness.",
+      "duration": "30"
     },
 
     "booking": {
