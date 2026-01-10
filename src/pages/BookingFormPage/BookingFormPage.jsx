@@ -4,10 +4,11 @@ import { useTranslation } from 'react-i18next'
 import axios from 'axios'
 import bookingFormSchema from '../../validation/bookingFormSchema/bookingFormSchema.jsx'
 
-function BookingFormPage({ userId }) {
+const SLOT_INTERVAL = 30 // хвилин
+
+function BookingFormPage() {
   const { t } = useTranslation()
 
-  // Послуги з тривалістю
   const services = [
     { title: 'haircuts', label: 'Women Haircut', duration: 60 },
     { title: 'menHaircuts', label: 'Men Haircut', duration: 30 },
@@ -18,11 +19,10 @@ function BookingFormPage({ userId }) {
     { title: 'polishing', label: 'Hair Polishing', duration: 30 },
   ]
 
-  // State
   const [selectedService, setSelectedService] = useState(null)
   const [selectedDate, setSelectedDate] = useState('')
   const [availableSlots, setAvailableSlots] = useState([])
-  const [selectedTime, setSelectedTime] = useState('')
+  const [selectedSlots, setSelectedSlots] = useState([])
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [telegram, setTelegram] = useState('')
@@ -30,23 +30,59 @@ function BookingFormPage({ userId }) {
   const [loadingSlots, setLoadingSlots] = useState(false)
   const [errors, setErrors] = useState({})
 
-  // Завантаження доступних слотів
+  // Завантаження слотів
   useEffect(() => {
-    if (selectedService && selectedDate) {
+    if (selectedDate) {
       setLoadingSlots(true)
       axios
         .get('http://localhost:2000/bookings/available-slots', {
-          params: { service: selectedService.title, date: selectedDate },
+          params: { date: selectedDate },
         })
         .then((res) => setAvailableSlots(res.data))
         .catch((err) => console.error(err))
         .finally(() => setLoadingSlots(false))
-    } else {
-      setAvailableSlots([])
-    }
-  }, [selectedService, selectedDate])
+    } else setAvailableSlots([])
+  }, [selectedDate])
 
-  // Функція валідації окремого поля
+  // Тоггл вибору слота
+  const toggleSlot = (time) => {
+    if (selectedSlots.includes(time)) {
+      setSelectedSlots(selectedSlots.filter((t) => t !== time))
+    } else {
+      setSelectedSlots([...selectedSlots, time])
+    }
+  }
+
+  // Функція для групування суміжних слотів
+  const getSelectedBlocks = (slots) => {
+    if (!slots.length) return []
+
+    const sorted = [...slots].sort()
+    const blocks = []
+    let block = [sorted[0]]
+
+    for (let i = 1; i < sorted.length; i++) {
+      const [prevHour, prevMin] = block[block.length - 1].split(':').map(Number)
+      const [currHour, currMin] = sorted[i].split(':').map(Number)
+
+      const prevTime = prevHour * 60 + prevMin
+      const currTime = currHour * 60 + currMin
+
+      if (currTime - prevTime === SLOT_INTERVAL) {
+        block.push(sorted[i])
+      } else {
+        blocks.push([...block])
+        block = [sorted[i]]
+      }
+    }
+
+    blocks.push(block)
+    return blocks
+  }
+
+  const selectedBlocks = getSelectedBlocks(selectedSlots)
+
+  // Валідація поля
   const validateField = async (field, value) => {
     const formValues = {
       name,
@@ -55,7 +91,6 @@ function BookingFormPage({ userId }) {
       service: selectedService?.title,
       date: selectedDate,
     }
-
     try {
       await bookingFormSchema.validateAt(field, {
         ...formValues,
@@ -71,8 +106,8 @@ function BookingFormPage({ userId }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (!selectedService || !selectedDate || !selectedTime) {
-      setSubmitMessage('Please select service, date, and time.')
+    if (!selectedService || !selectedDate || selectedSlots.length === 0) {
+      setSubmitMessage('Please select service, date, and slots.')
       return
     }
 
@@ -80,11 +115,11 @@ function BookingFormPage({ userId }) {
       name,
       phone,
       telegram,
-      service: selectedService?.title,
+      service: selectedService.title,
       date: selectedDate,
     }
 
-    // 1️⃣ Валідація фронта
+    // Фронт-валидація
     try {
       await bookingFormSchema.validate(formValues, { abortEarly: false })
       setErrors({})
@@ -94,33 +129,38 @@ function BookingFormPage({ userId }) {
         newErrors[e.path] = e.message
       })
       setErrors(newErrors)
-      return // не відправляємо axios
+      return
     }
 
-    // 2️⃣ Відправка на бекенд
+    // Обчислюємо початок та тривалість одного блоку
+    const sortedSlots = selectedSlots.sort()
+    const firstSlot = sortedSlots[0]
+    const lastSlot = sortedSlots[sortedSlots.length - 1]
+    const duration = sortedSlots.length * SLOT_INTERVAL
+    const bookingDate = `${selectedDate}T${firstSlot}:00`
+
     try {
       await axios.post('http://localhost:2000/bookings', {
         service: selectedService.title,
-        date: `${selectedDate}T${selectedTime}:00`,
-        duration: selectedService.duration,
+        date: bookingDate,
+        duration,
         name,
         phone,
         telegram,
       })
       setSubmitMessage('Booking confirmed!')
+
       // Очистка форми
       setSelectedService(null)
       setSelectedDate('')
-      setSelectedTime('')
+      setSelectedSlots([])
       setName('')
       setPhone('')
       setTelegram('')
       setAvailableSlots([])
     } catch (error) {
       console.error(error)
-      setSubmitMessage(
-        error.response?.data?.message || 'Booking failed. Please try again.'
-      )
+      setSubmitMessage(error.response?.data?.message || 'Booking failed.')
     }
   }
 
@@ -147,47 +187,49 @@ function BookingFormPage({ userId }) {
       </div>
 
       {/* Вибір дати */}
-      {selectedService && (
-        <div className={styles.section}>
-          <h3>Select Date</h3>
-          <input
-            type="date"
-            value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-            onBlur={(e) => validateField('date', e.target.value)}
-          />
-          {errors.date && <p className={styles.error}>{errors.date}</p>}
-        </div>
-      )}
+      <div className={styles.section}>
+        <h3>Select Date</h3>
+        <input
+          type="date"
+          value={selectedDate}
+          onChange={(e) => setSelectedDate(e.target.value)}
+          onBlur={(e) => validateField('date', e.target.value)}
+        />
+        {errors.date && <p className={styles.error}>{errors.date}</p>}
+      </div>
 
-      {/* Вибір часу */}
+      {/* Вибір слотів */}
       {selectedDate && (
         <div className={styles.section}>
-          <h3>Select Time</h3>
+          <h3>Select Slots</h3>
           {loadingSlots ? (
-            <p>Loading available slots...</p>
-          ) : availableSlots.length > 0 ? (
-            <div className={styles.buttonContainer}>
-              {availableSlots.map((slot) => (
-                <button
-                  key={slot}
-                  className={`${styles.button} ${
-                    selectedTime === slot ? styles.selected : ''
-                  }`}
-                  onClick={() => setSelectedTime(slot)}
-                >
-                  {slot}
-                </button>
-              ))}
-            </div>
+            <p>Loading...</p>
           ) : (
-            <p>No available slots for this date.</p>
+            <div className={styles.buttonContainer}>
+              {availableSlots.map((slot) => {
+                const isInBlock = selectedBlocks.some((block) =>
+                  block.includes(slot.time)
+                )
+                return (
+                  <button
+                    key={slot.time}
+                    disabled={!slot.available}
+                    className={`${slot.available ? styles.free : styles.busy} ${
+                      isInBlock ? styles.selectedBlock : ''
+                    }`}
+                    onClick={() => toggleSlot(slot.time)}
+                  >
+                    {slot.time}
+                  </button>
+                )
+              })}
+            </div>
           )}
         </div>
       )}
 
-      {/* Форма контактів */}
-      {selectedTime && (
+      {/* Форма контакту */}
+      {selectedSlots.length > 0 && (
         <form className={styles.section} onSubmit={handleSubmit}>
           <h3>Contact Information</h3>
           <input
