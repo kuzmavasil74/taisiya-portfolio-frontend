@@ -9,7 +9,7 @@ function BookingFormPage({ userId }) {
 
   // Послуги з тривалістю
   const services = [
-    { title: 'haircuts', label: 'Women Haircut', duration: 45 },
+    { title: 'haircuts', label: 'Women Haircut', duration: 60 },
     { title: 'menHaircuts', label: 'Men Haircut', duration: 30 },
     { title: 'keratin', label: 'Keratin Straightening', duration: 90 },
     { title: 'hotBotox', label: 'Hot Hair Botox', duration: 60 },
