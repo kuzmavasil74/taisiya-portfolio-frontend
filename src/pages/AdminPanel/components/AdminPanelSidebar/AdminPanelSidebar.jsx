@@ -22,6 +22,12 @@ const AdminPanelSidebar = () => {
       >
         Statistics
       </NavLink>
+      <NavLink
+        to="table"
+        className={({ isActive }) => (isActive ? 'active' : '')}
+      >
+        Bookings confirmation
+      </NavLink>
     </nav>
   )
 }

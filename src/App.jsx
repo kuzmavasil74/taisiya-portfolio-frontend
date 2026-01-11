@@ -26,6 +26,7 @@ import DashboardProfile from './pages/Dashboard/components/DashboardProfile/Dash
 import AdminUsersList from './pages/AdminPanel/components/AdminUsersList/AdminUsersList.jsx'
 import AdminBookingList from './pages/AdminPanel/components/AdminBookingList/AdminBookingList.jsx'
 import AdminStats from './pages/AdminPanel/components/AdminStats/AdminStats.jsx'
+import BookingTable from './pages/AdminPanel/components/BookingsTable/BookingsTable.jsx'
 function App() {
   const { i18 } = useTranslation()
 
@@ -78,6 +79,7 @@ function App() {
             </Route>
             <Route path="bookings" element={<AdminBookingList />} />
             <Route path="statistics" element={<AdminStats />} />
+            <Route path="table" element={<BookingTable />} />
           </Route>
           <Route path="/forbidden" element={<ForbiddenPage />} />
           <Route path="*" element={<MainPage />} />

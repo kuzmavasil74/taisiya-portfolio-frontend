@@ -3,14 +3,18 @@ import { useTranslation } from 'react-i18next'
 import styles from './BookingsTable.module.css'
 
 const BookingsTable = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   const [bookings, setBookings] = useState([])
   const [loading, setLoading] = useState(true)
+
+  // Фільтри та сортування
   const [filterService, setFilterService] = useState('')
   const [filterDate, setFilterDate] = useState('')
   const [sortField, setSortField] = useState('date')
   const [sortOrder, setSortOrder] = useState('asc')
+
+  // Модальне вікно
   const [editBooking, setEditBooking] = useState(null)
   const [modalOpen, setModalOpen] = useState(false)
   const [formData, setFormData] = useState({
@@ -21,25 +25,35 @@ const BookingsTable = () => {
     phone: '',
   })
 
-  const getStatusClass = (status) => {
-    if (status === 'pending') return 'pending'
-    if (status === 'confirmed') return 'confirmed'
-    if (status === 'canceled') return 'canceled'
-    return ''
-  }
+  // Для відслідковування, який статус змінюється
+  const [updatingId, setUpdatingId] = useState(null)
 
   useEffect(() => {
     const fetchBookings = async () => {
+      setLoading(true)
       try {
-        const res = await fetch('/api/bookings')
+        const token = localStorage.getItem('token')
+        if (!token) throw new Error('No token found. Please login.')
+
+        const res = await fetch('http://localhost:2000/bookings/all', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        })
+
+        if (!res.ok) throw new Error(`Error ${res.status}`)
+
         const data = await res.json()
         setBookings(data)
       } catch (err) {
-        console.error(err)
+        console.error('Error fetching bookings:', err.message)
       } finally {
         setLoading(false)
       }
     }
+
     fetchBookings()
   }, [])
 
@@ -52,10 +66,12 @@ const BookingsTable = () => {
   const sortedBookings = filteredBookings.sort((a, b) => {
     let valA = a[sortField]
     let valB = b[sortField]
+
     if (sortField === 'date') {
       valA = new Date(valA).getTime()
       valB = new Date(valB).getTime()
     }
+
     if (valA < valB) return sortOrder === 'asc' ? -1 : 1
     if (valA > valB) return sortOrder === 'asc' ? 1 : -1
     return 0
@@ -63,16 +79,28 @@ const BookingsTable = () => {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await fetch(`/api/bookings/${id}/status`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+      setUpdatingId(id)
+      const token = localStorage.getItem('token')
+      console.log(`${id} ${newStatus}`)
+      console.log('token', token)
+      const res = await fetch(`http://localhost:2000/bookings/${id}`, {
+        method: 'PUT', // або PATCH
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+
         body: JSON.stringify({ status: newStatus }),
       })
+
+      const data = await res.json()
       setBookings((prev) =>
-        prev.map((b) => (b._id === id ? { ...b, status: newStatus } : b))
+        prev.map((b) => (b._id === id ? { ...b, status: data.status } : b))
       )
     } catch (err) {
       console.error(err)
+    } finally {
+      setUpdatingId(null)
     }
   }
 
@@ -94,11 +122,18 @@ const BookingsTable = () => {
 
   const handleSave = async () => {
     try {
-      const res = await fetch(`/api/bookings/${editBooking._id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
+      const token = localStorage.getItem('token')
+      const res = await fetch(
+        `http://localhost:2000/bookings/${editBooking._id}`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(formData),
+        }
+      )
       const updated = await res.json()
       setBookings((prev) =>
         prev.map((b) => (b._id === updated._id ? updated : b))
@@ -115,109 +150,111 @@ const BookingsTable = () => {
     setEditBooking(null)
   }
 
-  if (loading) return <p>{t('loading')}</p>
-  if (bookings.length === 0) return <p>{t('noBookings')}</p>
+  if (loading) return <p>{t('bookingTable.loading')}</p>
+  if (bookings.length === 0) return <p>{t('bookingTable.noBookings')}</p>
 
   return (
     <div className={styles.container}>
-      {/* Мова */}
-      <div style={{ marginBottom: '16px' }}>
-        <button onClick={() => i18n.changeLanguage('ua')}>UA</button>
-        <button
-          onClick={() => i18n.changeLanguage('en')}
-          style={{ marginLeft: '8px' }}
-        >
-          EN
-        </button>
-      </div>
-
       {/* Фільтри */}
       <div className={styles.filters}>
         <label>
-          {t('filterService')}:
+          {t('bookingTable.filterByService')}{' '}
           <select
             value={filterService}
             onChange={(e) => setFilterService(e.target.value)}
           >
-            <option value="">{t('all')}</option>
-            <option value="Haircut">{t('haircut')}</option>
-            <option value="Coloring">{t('coloring')}</option>
+            <option value="">{t('bookingTable.all')}</option>
+            <option value="Haircut">{t('bookingTable.haircut')}</option>
+            <option value="menHaircuts">{t('bookingTable.menhaircuts')}</option>
+            <option value="keratin">{t('bookingTable.keratin')}</option>
+            <option value="hotBotox">{t('bookingTable.hotbotox')}</option>
+            <option value="coldRestoration">
+              {t('bookingTable.coldrestoration')}
+            </option>
+            <option value="coldBotox">{t('bookingTable.coldbotox')}</option>
+            <option value="polishing">{t('bookingTable.polishing')}</option>
           </select>
         </label>
+
         <label>
-          {t('filterDate')}:
+          {t('bookingTable.filterByDate')}{' '}
           <input
             type="date"
             value={filterDate}
             onChange={(e) => setFilterDate(e.target.value)}
           />
         </label>
+
         <label>
-          {t('sortBy')}:
+          {t('bookingTable.sortBy')}{' '}
           <select
             value={sortField}
             onChange={(e) => setSortField(e.target.value)}
           >
-            <option value="date">{t('date')}</option>
-            <option value="service">{t('service')}</option>
+            <option value="date">{t('bookingTable.date')}</option>
+            <option value="service">{t('bookingTable.service')}</option>
           </select>
         </label>
-        <select
-          value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value)}
-        >
-          <option value="asc">{t('asc')}</option>
-          <option value="desc">{t('desc')}</option>
-        </select>
+
+        <label>
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+          >
+            <option value="asc">{t('bookingTable.asc')}</option>
+            <option value="desc">{t('bookingTable.desc')}</option>
+          </select>
+        </label>
       </div>
 
       {/* Таблиця */}
       <table>
         <thead>
           <tr>
-            <th>{t('service')}</th>
-            <th>{t('date')}</th>
-            <th>{t('duration')}</th>
-            <th>{t('name')}</th>
-            <th>{t('phone')}</th>
-            <th>{t('status')}</th>
-            <th>{t('actions')}</th>
+            <th>{t('bookingTable.service')}</th>
+            <th>{t('bookingTable.date')}</th>
+            <th>{t('bookingTable.duration')}</th>
+            <th>{t('bookingTable.name')}</th>
+            <th>{t('bookingTable.phone')}</th>
+            <th>{t('bookingTable.status')}</th>
+            <th>{t('bookingTable.actions')}</th>
           </tr>
         </thead>
         <tbody>
-          {sortedBookings.map((b) => (
-            <tr key={b._id}>
-              <td>{b.service}</td>
-              <td>{new Date(b.date).toLocaleString()}</td>
-              <td>{b.duration || '-'}</td>
-              <td>{b.name}</td>
-              <td>{b.phone}</td>
-              <td
-                className={`${styles.status} ${
-                  styles[getStatusClass(b.status)]
-                }`}
-              >
-                {b.status}
+          {sortedBookings.map((booking) => (
+            <tr key={booking._id}>
+              <td>{t(`bookingTable.${booking.service}`) || booking.service}</td>
+              <td>{new Date(booking.date).toLocaleString()}</td>
+              <td>{booking.duration || '-'}</td>
+              <td>{booking.name}</td>
+              <td>{booking.phone}</td>
+              <td className={`${styles.status} ${styles[booking.status]}`}>
+                {t(`bookingTable.${booking.status}`)}
               </td>
               <td>
                 <button
-                  onClick={() => handleStatusChange(b._id, 'confirmed')}
-                  disabled={b.status === 'confirmed'}
+                  className={styles.confirmBtn}
+                  onClick={() => handleStatusChange(booking._id, 'confirmed')}
+                  disabled={
+                    booking.status === 'confirmed' || updatingId === booking._id
+                  }
                 >
-                  {t('confirm')}
+                  {t('bookingTable.confirm')}
                 </button>
                 <button
-                  onClick={() => handleStatusChange(b._id, 'canceled')}
-                  disabled={b.status === 'canceled'}
-                  style={{ marginLeft: '8px' }}
+                  className={styles.cancelBtn}
+                  onClick={() => handleStatusChange(booking._id, 'canceled')}
+                  disabled={
+                    booking.status === 'canceled' || updatingId === booking._id
+                  }
                 >
-                  {t('cancel')}
+                  {t('bookingTable.cancel')}
                 </button>
                 <button
-                  onClick={() => handleEdit(b)}
-                  style={{ marginLeft: '8px' }}
+                  className={styles.editBtn}
+                  onClick={() => handleEdit(booking)}
                 >
-                  {t('edit')}
+                  {t('bookingTable.edit')}
                 </button>
               </td>
             </tr>
@@ -225,17 +262,17 @@ const BookingsTable = () => {
         </tbody>
       </table>
 
-      {/* Модальне вікно */}
+      {/* Модальне вікно редагування */}
       {modalOpen && (
         <div className={styles.confirmModal}>
           <div className={styles.confirmContent}>
-            <h3>{t('editBooking')}</h3>
+            <h3>{t('bookingTable.editBooking')}</h3>
             <div
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '10px',
-                marginTop: '12px',
+                gap: 10,
+                marginTop: 12,
               }}
             >
               <input
@@ -243,7 +280,7 @@ const BookingsTable = () => {
                 name="service"
                 value={formData.service}
                 onChange={handleFormChange}
-                placeholder={t('service')}
+                placeholder={t('bookingTable.service')}
               />
               <input
                 type="datetime-local"
@@ -256,29 +293,29 @@ const BookingsTable = () => {
                 name="duration"
                 value={formData.duration}
                 onChange={handleFormChange}
-                placeholder={t('duration')}
+                placeholder={t('bookingTable.duration')}
               />
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleFormChange}
-                placeholder={t('name')}
+                placeholder={t('bookingTable.name')}
               />
               <input
                 type="text"
                 name="phone"
                 value={formData.phone}
                 onChange={handleFormChange}
-                placeholder={t('phone')}
+                placeholder={t('bookingTable.phone')}
               />
             </div>
             <div className={styles.confirmBtns}>
               <button className={styles.confirmBtn} onClick={handleSave}>
-                {t('save')}
+                {t('bookingTable.save')}
               </button>
               <button className={styles.cancelBtn} onClick={handleCloseModal}>
-                {t('cancel')}
+                {t('bookingTable.cancel')}
               </button>
             </div>
           </div>
