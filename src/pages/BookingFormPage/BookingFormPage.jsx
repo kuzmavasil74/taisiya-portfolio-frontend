@@ -3,6 +3,8 @@ import styles from './BookingFormPage.module.css'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
 import bookingFormSchema from '../../validation/bookingFormSchema/bookingFormSchema.jsx'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 const SLOT_INTERVAL = 30 // хвилин
 
@@ -10,17 +12,17 @@ function BookingFormPage() {
   const { t } = useTranslation()
 
   const services = [
-    { title: 'haircuts', label: 'Women Haircut', duration: 60 },
-    { title: 'menHaircuts', label: 'Men Haircut', duration: 30 },
-    { title: 'keratin', label: 'Keratin Straightening', duration: 90 },
-    { title: 'hotBotox', label: 'Hot Hair Botox', duration: 60 },
-    { title: 'coldRestoration', label: 'Cold Restoration', duration: 90 },
-    { title: 'coldBotox', label: 'Cold Botox', duration: 60 },
-    { title: 'polishing', label: 'Hair Polishing', duration: 30 },
+    { title: 'haircuts', duration: 60 },
+    { title: 'menHaircuts', duration: 30 },
+    { title: 'keratin', duration: 90 },
+    { title: 'hotBotox', duration: 60 },
+    { title: 'coldRestoration', duration: 90 },
+    { title: 'coldBotox', duration: 60 },
+    { title: 'polishing', duration: 30 },
   ]
 
   const [selectedService, setSelectedService] = useState(null)
-  const [selectedDate, setSelectedDate] = useState('')
+  const [selectedDate, setSelectedDate] = useState(null)
   const [availableSlots, setAvailableSlots] = useState([])
   const [selectedSlots, setSelectedSlots] = useState([])
   const [name, setName] = useState('')
@@ -34,9 +36,10 @@ function BookingFormPage() {
   useEffect(() => {
     if (selectedDate) {
       setLoadingSlots(true)
+      const dateStr = selectedDate.toISOString().split('T')[0] // форматуємо в YYYY-MM-DD
       axios
         .get('http://localhost:2000/bookings/available-slots', {
-          params: { date: selectedDate },
+          params: { date: dateStr },
         })
         .then((res) => setAvailableSlots(res.data))
         .catch((err) => console.error(err))
@@ -51,6 +54,20 @@ function BookingFormPage() {
     } else {
       setSelectedSlots([...selectedSlots, time])
     }
+  }
+
+  // Функція для блокування минулих днів та вихідних
+  const isDateSelectable = (date) => {
+    const today = new Date()
+    today.setHours(0, 0, 0, 0) // обнуляємо час
+
+    const d = new Date(date)
+    d.setHours(0, 0, 0, 0)
+
+    const day = d.getDay()
+    if (d < today) return false // минулі дні
+    if (day === 0 || day === 6) return false // неділя або субота
+    return true
   }
 
   // Функція для групування суміжних слотів
@@ -135,9 +152,10 @@ function BookingFormPage() {
     // Обчислюємо початок та тривалість одного блоку
     const sortedSlots = selectedSlots.sort()
     const firstSlot = sortedSlots[0]
-    const lastSlot = sortedSlots[sortedSlots.length - 1]
     const duration = sortedSlots.length * SLOT_INTERVAL
-    const bookingDate = `${selectedDate}T${firstSlot}:00`
+    const bookingDate = `${
+      selectedDate.toISOString().split('T')[0]
+    }T${firstSlot}:00`
 
     try {
       await axios.post('http://localhost:2000/bookings', {
@@ -152,7 +170,7 @@ function BookingFormPage() {
 
       // Очистка форми
       setSelectedService(null)
-      setSelectedDate('')
+      setSelectedDate(null)
       setSelectedSlots([])
       setName('')
       setPhone('')
@@ -180,7 +198,7 @@ function BookingFormPage() {
               }`}
               onClick={() => setSelectedService(service)}
             >
-              {service.label} ({service.duration} min)
+              {t(`bookingTable.${service.title}`)} ({service.duration} min)
             </button>
           ))}
         </div>
@@ -189,13 +207,13 @@ function BookingFormPage() {
       {/* Вибір дати */}
       <div className={styles.section}>
         <h3>Select Date</h3>
-        <input
-          type="date"
-          value={selectedDate}
-          onChange={(e) => setSelectedDate(e.target.value)}
-          onBlur={(e) => validateField('date', e.target.value)}
+        <DatePicker
+          selected={selectedDate}
+          onChange={(date) => setSelectedDate(date)}
+          filterDate={isDateSelectable}
+          placeholderText="Select a date"
+          dateFormat="yyyy-MM-dd"
         />
-        {errors.date && <p className={styles.error}>{errors.date}</p>}
       </div>
 
       {/* Вибір слотів */}

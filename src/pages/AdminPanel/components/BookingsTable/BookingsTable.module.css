@@ -166,3 +166,32 @@ button + button {
   font-weight: 600;
   border-radius: 8px;
 }
+.selectedSlot {
+  border: 2px solid #4caf50;
+  background-color: #d4edda;
+}
+/* Активні доступні дні */
+.react-datepicker__day {
+  background-color: #e0f7fa; /* світло-блакитний фон */
+  color: #00796b; /* темно-бірюзовий текст */
+  border-radius: 50%; /* круглі дні */
+  transition: background-color 0.2s;
+}
+
+/* При наведенні */
+.react-datepicker__day:hover {
+  background-color: #4db6ac; /* яскравіший бірюзовий фон */
+  color: #ffffff; /* білий текст */
+}
+
+/* Сірі заблоковані дні */
+.react-datepicker__day--disabled {
+  color: #ccc;
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+/* Поточна дата */
+.react-datepicker__day--today {
+  border: 1px solid #00796b;
+}

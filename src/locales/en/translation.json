@@ -325,6 +325,8 @@
     "coldBotox": "Cold Botox",
     "polishing": "Polishing",
     "haircuts": "Haircuts",
-    "actions": "Actions"
+    "actions": "Actions",
+    "editBooking": "Edit booking",
+    "minutes": "minutes"
   }
 }
