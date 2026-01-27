@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './BookingsTable.module.css'
-
+import API_URL from '../../../utills/config.js'
 const BookingsTable = () => {
   const { t, i18n } = useTranslation()
 
@@ -31,7 +31,7 @@ const BookingsTable = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const res = await fetch('/api/bookings')
+        const res = await fetch(`${API_URL}/bookings`)
         const data = await res.json()
         setBookings(data)
       } catch (err) {
@@ -63,7 +63,7 @@ const BookingsTable = () => {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await fetch(`/api/bookings/${id}/status`, {
+      await fetch(`${API_URL}/bookings/${id}/status`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),
@@ -94,7 +94,7 @@ const BookingsTable = () => {
 
   const handleSave = async () => {
     try {
-      const res = await fetch(`/api/bookings/${editBooking._id}`, {
+      const res = await fetch(`${API_URL}/bookings/${editBooking._id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
