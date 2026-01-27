@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './DashboardBookingList.module.css'
 import { useTranslation } from 'react-i18next'
+import API_URL from '../../../../utills/config.js'
 
 const DashboardBookingList = () => {
   const { t } = useTranslation()
@@ -17,12 +18,9 @@ const DashboardBookingList = () => {
       try {
         if (!token) throw new Error('No token')
 
-        const res = await fetch(
-          'http://taisiya-portfolio-backend.onrender.com/bookings/all',
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        )
+        const res = await fetch(`${API_URL}/bookings/all`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
 
         if (!res.ok) {
           const data = await res.json()

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import styles from './AdminBookingList.module.css'
+import API_URL from '../../../../utills/config.js'
 
 const AdminBookingList = () => {
   const { t } = useTranslation()
@@ -34,8 +35,8 @@ const AdminBookingList = () => {
         setError(null)
 
         const url = userId
-          ? `http://ltaisiya-portfolio-backend.onrender.com/bookings?userId=${userId}&status=${tab}&page=${page}&limit=6`
-          : `http://taisiya-portfolio-backend.onrender.com/bookings?status=${tab}&page=${page}&limit=6`
+          ? `${API_URL}/bookings?userId=${userId}&status=${tab}&page=${page}&limit=6`
+          : `${API_URL}/bookings?status=${tab}&page=${page}&limit=6`
 
         const res = await fetch(url, {
           headers: { Authorization: `Bearer ${token}` },
@@ -61,13 +62,10 @@ const AdminBookingList = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(
-        `http://taisiya-portfolio-backend.onrender.com/bookings/${id}`,
-        {
-          method: 'DELETE',
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
+      const res = await fetch(`${API_URL}/bookings/${id}`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` },
+      })
 
       if (!res.ok) throw new Error(t('bookings.deleteError'))
 

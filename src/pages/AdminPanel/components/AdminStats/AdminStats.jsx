@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import AdminStatsCharts from './AdminStatsCharts/AdminStatsCharts.jsx'
 import styles from './AdminStats.module.css'
 import { useTranslation } from 'react-i18next'
+import API_URL from '../../../../utills/config.js'
 
 const AdminStats = () => {
   const { t } = useTranslation()
@@ -14,12 +15,9 @@ const AdminStats = () => {
       try {
         setLoading(true)
         const token = localStorage.getItem('token')
-        const res = await fetch(
-          'http://taisiya-portfolio-backend.onrender.com/admin/stats',
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        )
+        const res = await fetch(`${API_URL}/admin/stats`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
 
         if (!res.ok) {
           const data = await res.json()

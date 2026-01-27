@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './BookingsTable.module.css'
+import  API_URL  from '../../../../utills/config.js'
 
 const BookingsTable = () => {
   const { t } = useTranslation()
@@ -35,16 +36,13 @@ const BookingsTable = () => {
         const token = localStorage.getItem('token')
         if (!token) throw new Error('No token found. Please login.')
 
-        const res = await fetch(
-          'http://taisiya-portfolio-backend.onrender.com/bookings/all',
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
+        const res = await fetch(`${API_URL}/bookings/all`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        })
 
         if (!res.ok) throw new Error(`Error ${res.status}`)
 
@@ -86,18 +84,15 @@ const BookingsTable = () => {
       const token = localStorage.getItem('token')
       console.log(`${id} ${newStatus}`)
       console.log('token', token)
-      const res = await fetch(
-        `http://taisiya-portfolio-backend.onrender.com/bookings/${id}`,
-        {
-          method: 'PUT', // або PATCH
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
+      const res = await fetch(`${API_URL}/bookings/${id}`, {
+        method: 'PUT', // або PATCH
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
 
-          body: JSON.stringify({ status: newStatus }),
-        }
-      )
+        body: JSON.stringify({ status: newStatus }),
+      })
 
       const data = await res.json()
       setBookings((prev) =>
@@ -129,17 +124,14 @@ const BookingsTable = () => {
   const handleSave = async () => {
     try {
       const token = localStorage.getItem('token')
-      const res = await fetch(
-        `http://taisiya-portfolio-backend.onrender.com/bookings/${editBooking._id}`,
-        {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(formData),
-        }
-      )
+      const res = await fetch(`${API_URL}/bookings/${editBooking._id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(formData),
+      })
       const updated = await res.json()
       setBookings((prev) =>
         prev.map((b) => (b._id === updated._id ? updated : b))

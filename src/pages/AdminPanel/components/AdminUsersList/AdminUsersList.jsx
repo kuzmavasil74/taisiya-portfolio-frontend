@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import styles from './AdminUsersList.module.css'
+import API_URL from '../../../../utills/config.js'
 
 const AdminUsersList = () => {
   const [users, setUsers] = useState([])
@@ -15,12 +16,9 @@ const AdminUsersList = () => {
     const fetchUsers = async () => {
       try {
         setLoading(true)
-        const res = await fetch(
-          'http://taisiya-portfolio-backend.onrender.com/users',
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        )
+        const res = await fetch(`${API_URL}/users`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
 
         if (!res.ok) {
           const data = await res.json()

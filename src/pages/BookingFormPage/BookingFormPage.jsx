@@ -5,6 +5,7 @@ import axios from 'axios'
 import bookingFormSchema from '../../validation/bookingFormSchema/bookingFormSchema.jsx'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import API_URL from '../../utills/config.js'
 
 const SLOT_INTERVAL = 30 // хвилин
 
@@ -38,12 +39,9 @@ function BookingFormPage() {
       setLoadingSlots(true)
       const dateStr = selectedDate.toISOString().split('T')[0] // форматуємо в YYYY-MM-DD
       axios
-        .get(
-          'http://taisiya-portfolio-backend.onrender.com/bookings/available-slots',
-          {
-            params: { date: dateStr },
-          }
-        )
+        .get(`${API_URL}/bookings/available-slots`, {
+          params: { date: dateStr },
+        })
         .then((res) => setAvailableSlots(res.data))
         .catch((err) => console.error(err))
         .finally(() => setLoadingSlots(false))
@@ -161,17 +159,14 @@ function BookingFormPage() {
     }T${firstSlot}:00`
 
     try {
-      await axios.post(
-        'http://taisiya-portfolio-backend.onrender.com/bookings',
-        {
-          service: selectedService.title,
-          date: bookingDate,
-          duration,
-          name,
-          phone,
-          telegram,
-        }
-      )
+      await axios.post(`${API_URL}/bookings`, {
+        service: selectedService.title,
+        date: bookingDate,
+        duration,
+        name,
+        phone,
+        telegram,
+      })
       setSubmitMessage('Booking confirmed!')
 
       // Очистка форми
