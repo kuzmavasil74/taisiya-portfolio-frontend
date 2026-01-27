@@ -15,9 +15,12 @@ const AdminUsersList = () => {
     const fetchUsers = async () => {
       try {
         setLoading(true)
-        const res = await fetch('http://localhost:2000/users', {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        const res = await fetch(
+          'http://taisiya-portfolio-backend.onrender.com/users',
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
 
         if (!res.ok) {
           const data = await res.json()

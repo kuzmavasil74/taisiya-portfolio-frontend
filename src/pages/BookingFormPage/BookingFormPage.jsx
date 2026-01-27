@@ -38,9 +38,12 @@ function BookingFormPage() {
       setLoadingSlots(true)
       const dateStr = selectedDate.toISOString().split('T')[0] // форматуємо в YYYY-MM-DD
       axios
-        .get('http://localhost:2000/bookings/available-slots', {
-          params: { date: dateStr },
-        })
+        .get(
+          'http://taisiya-portfolio-backend.onrender.com/bookings/available-slots',
+          {
+            params: { date: dateStr },
+          }
+        )
         .then((res) => setAvailableSlots(res.data))
         .catch((err) => console.error(err))
         .finally(() => setLoadingSlots(false))
@@ -158,14 +161,17 @@ function BookingFormPage() {
     }T${firstSlot}:00`
 
     try {
-      await axios.post('http://localhost:2000/bookings', {
-        service: selectedService.title,
-        date: bookingDate,
-        duration,
-        name,
-        phone,
-        telegram,
-      })
+      await axios.post(
+        'http://taisiya-portfolio-backend.onrender.com/bookings',
+        {
+          service: selectedService.title,
+          date: bookingDate,
+          duration,
+          name,
+          phone,
+          telegram,
+        }
+      )
       setSubmitMessage('Booking confirmed!')
 
       // Очистка форми

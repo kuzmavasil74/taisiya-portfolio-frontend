@@ -14,9 +14,12 @@ const AdminStats = () => {
       try {
         setLoading(true)
         const token = localStorage.getItem('token')
-        const res = await fetch('http://localhost:2000/admin/stats', {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        const res = await fetch(
+          'http://taisiya-portfolio-backend.onrender.com/admin/stats',
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
 
         if (!res.ok) {
           const data = await res.json()

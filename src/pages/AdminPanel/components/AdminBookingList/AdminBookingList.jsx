@@ -34,8 +34,8 @@ const AdminBookingList = () => {
         setError(null)
 
         const url = userId
-          ? `http://localhost:2000/bookings?userId=${userId}&status=${tab}&page=${page}&limit=6`
-          : `http://localhost:2000/bookings?status=${tab}&page=${page}&limit=6`
+          ? `http://ltaisiya-portfolio-backend.onrender.com/bookings?userId=${userId}&status=${tab}&page=${page}&limit=6`
+          : `http://taisiya-portfolio-backend.onrender.com/bookings?status=${tab}&page=${page}&limit=6`
 
         const res = await fetch(url, {
           headers: { Authorization: `Bearer ${token}` },
@@ -61,10 +61,13 @@ const AdminBookingList = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:2000/bookings/${id}`, {
-        method: 'DELETE',
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      const res = await fetch(
+        `http://taisiya-portfolio-backend.onrender.com/bookings/${id}`,
+        {
+          method: 'DELETE',
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
 
       if (!res.ok) throw new Error(t('bookings.deleteError'))
 

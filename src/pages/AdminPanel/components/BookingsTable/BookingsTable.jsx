@@ -35,13 +35,16 @@ const BookingsTable = () => {
         const token = localStorage.getItem('token')
         if (!token) throw new Error('No token found. Please login.')
 
-        const res = await fetch('http://localhost:2000/bookings/all', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        })
+        const res = await fetch(
+          'http://taisiya-portfolio-backend.onrender.com/bookings/all',
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
 
         if (!res.ok) throw new Error(`Error ${res.status}`)
 
@@ -83,15 +86,18 @@ const BookingsTable = () => {
       const token = localStorage.getItem('token')
       console.log(`${id} ${newStatus}`)
       console.log('token', token)
-      const res = await fetch(`http://localhost:2000/bookings/${id}`, {
-        method: 'PUT', // або PATCH
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
+      const res = await fetch(
+        `http://taisiya-portfolio-backend.onrender.com/bookings/${id}`,
+        {
+          method: 'PUT', // або PATCH
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
 
-        body: JSON.stringify({ status: newStatus }),
-      })
+          body: JSON.stringify({ status: newStatus }),
+        }
+      )
 
       const data = await res.json()
       setBookings((prev) =>
@@ -124,7 +130,7 @@ const BookingsTable = () => {
     try {
       const token = localStorage.getItem('token')
       const res = await fetch(
-        `http://localhost:2000/bookings/${editBooking._id}`,
+        `http://taisiya-portfolio-backend.onrender.com/bookings/${editBooking._id}`,
         {
           method: 'PATCH',
           headers: {

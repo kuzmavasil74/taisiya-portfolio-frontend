@@ -17,9 +17,12 @@ const DashboardBookingList = () => {
       try {
         if (!token) throw new Error('No token')
 
-        const res = await fetch('http://localhost:2000/bookings/all', {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        const res = await fetch(
+          'http://taisiya-portfolio-backend.onrender.com/bookings/all',
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
 
         if (!res.ok) {
           const data = await res.json()
