@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './BookingsTable.module.css'
-import  API_URL  from '../../../../utills/config.js'
+import API_URL from '../../../../utills/config.js'
 
 const BookingsTable = () => {
   const { t } = useTranslation()
@@ -82,8 +82,8 @@ const BookingsTable = () => {
     try {
       setUpdatingId(id)
       const token = localStorage.getItem('token')
-      console.log(`${id} ${newStatus}`)
-      console.log('token', token)
+      // console.log(`${id} ${newStatus}`)
+      // console.log('token', token)
       const res = await fetch(`${API_URL}/bookings/${id}`, {
         method: 'PUT', // або PATCH
         headers: {
