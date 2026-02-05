@@ -178,7 +178,7 @@ function BookingFormPage() {
       setTelegram('')
       setAvailableSlots([])
     } catch (error) {
-      alert(err.message)
+      alert(error.message)
       setSubmitMessage(error.response?.data?.message || 'Booking failed.')
     }
   }
