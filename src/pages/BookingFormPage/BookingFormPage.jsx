@@ -43,7 +43,7 @@ function BookingFormPage() {
           params: { date: dateStr },
         })
         .then((res) => setAvailableSlots(res.data))
-        .catch((err) => message.error(err.message))
+        .catch((err) => alert(err.message))
         .finally(() => setLoadingSlots(false))
     } else setAvailableSlots([])
   }, [selectedDate])
@@ -178,7 +178,7 @@ function BookingFormPage() {
       setTelegram('')
       setAvailableSlots([])
     } catch (error) {
-      message.error(err.message)
+      alert(err.message)
       setSubmitMessage(error.response?.data?.message || 'Booking failed.')
     }
   }

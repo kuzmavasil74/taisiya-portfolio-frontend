@@ -35,7 +35,7 @@ const BookingsTable = () => {
         const data = await res.json()
         setBookings(data)
       } catch (err) {
-        message.error(err.message)
+        alert(err.message)
       } finally {
         setLoading(false)
       }
@@ -72,7 +72,7 @@ const BookingsTable = () => {
         prev.map((b) => (b._id === id ? { ...b, status: newStatus } : b))
       )
     } catch (err) {
-      message.error(err.message)
+      alert(err.message)
     }
   }
 
@@ -106,7 +106,7 @@ const BookingsTable = () => {
       setModalOpen(false)
       setEditBooking(null)
     } catch (err) {
-      message.error(err.message)
+      alert(err.message)
     }
   }
 
