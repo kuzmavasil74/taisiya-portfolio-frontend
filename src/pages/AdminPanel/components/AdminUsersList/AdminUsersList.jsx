@@ -29,7 +29,6 @@ const AdminUsersList = () => {
         // переконаємось, що data - масив
         const usersArray = Array.isArray(data) ? data : []
         setUsers(usersArray)
-        // console.log(usersArray)
       } catch (err) {
         setError(err.message)
       } finally {

@@ -49,7 +49,7 @@ const BookingsTable = () => {
         const data = await res.json()
         setBookings(data)
       } catch (err) {
-        console.error('Error fetching bookings:', err.message)
+        message.error(err.message)
       } finally {
         setLoading(false)
       }
@@ -82,8 +82,7 @@ const BookingsTable = () => {
     try {
       setUpdatingId(id)
       const token = localStorage.getItem('token')
-      // console.log(`${id} ${newStatus}`)
-      // console.log('token', token)
+
       const res = await fetch(`${API_URL}/bookings/${id}`, {
         method: 'PUT', // або PATCH
         headers: {
@@ -99,7 +98,7 @@ const BookingsTable = () => {
         prev.map((b) => (b._id === id ? { ...b, status: data.status } : b))
       )
     } catch (err) {
-      console.error(err)
+      message.error(err.message)
     } finally {
       setUpdatingId(null)
     }
@@ -139,7 +138,7 @@ const BookingsTable = () => {
       setModalOpen(false)
       setEditBooking(null)
     } catch (err) {
-      console.error(err)
+      message.error(err.message)
     }
   }
 
