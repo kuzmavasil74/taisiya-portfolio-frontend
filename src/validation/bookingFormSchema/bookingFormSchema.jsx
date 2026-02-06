@@ -11,7 +11,7 @@ const bookingFormSchema = yup.object().shape({
     .trim()
     .min(9, 'Phone must be at least 9 digits')
     .max(15, 'Phone can be max 15 digits')
-    .matches(/^\d+$/, 'Phone must contain only digits'),
+    .matches(/^\+?\d+$/, 'Phone must contain only digits'),
   telegram: yup.string().trim(),
   service: yup.string().required('Service is required').trim(),
   date: yup.date().required('Date is required'),
