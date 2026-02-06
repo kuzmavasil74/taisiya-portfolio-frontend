@@ -110,6 +110,7 @@ function BookingFormPage() {
       date: selectedDate,
     }
     try {
+      console.log(console.log('phone value:', phone, 'type:', typeof phone))
       await bookingFormSchema.validateAt(field, {
         ...formValues,
         [field]: value,
