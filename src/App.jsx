@@ -36,10 +36,6 @@ function App() {
     i18.changeLanguage(lang)
   }
 
-  useEffect(() => {
-    console.log('API_URL=', API_URL)
-  }, [])
-
   return (
     <Router>
       <Header changeLanguage={changeLanguage} />
