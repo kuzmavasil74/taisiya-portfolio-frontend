@@ -27,12 +27,18 @@ import AdminUsersList from './pages/AdminPanel/components/AdminUsersList/AdminUs
 import AdminBookingList from './pages/AdminPanel/components/AdminBookingList/AdminBookingList.jsx'
 import AdminStats from './pages/AdminPanel/components/AdminStats/AdminStats.jsx'
 import BookingTable from './pages/AdminPanel/components/BookingsTable/BookingsTable.jsx'
+import { useEffect } from 'react'
+import API_URL from './utills/config.js'
 function App() {
   const { i18 } = useTranslation()
 
   const changeLanguage = (lang) => {
     i18.changeLanguage(lang)
   }
+
+  useEffect(() => {
+    console.log('API_URL=', API_URL)
+  }, [])
 
   return (
     <Router>
