@@ -17,6 +17,10 @@
 
 .sliderCaption {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
@@ -36,20 +40,37 @@
   border-radius: 5px;
 }
 
-.ctaButton {
+.bookButton1 {
   display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 1rem;
+  margin-top: 20px;
+  padding: 15px 30px;
+  background-color: var(--color-red);
   color: var(--color-white);
-  background-color: var(--color-burgundy);
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 50px;
+  font-size: 1.1em;
+  font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
-.ctaButton:hover {
-  background-color: var(--color-burgundy);
+.bookButton1:hover {
+  background-color: var(--color-blue);
+}
+.bookButton2 {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 30px;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.bookButton2:hover {
+  background-color: var(--color-blue);
 }
 @media (max-width: 768px) {
   .greeting {
