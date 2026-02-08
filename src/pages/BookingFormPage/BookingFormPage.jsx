@@ -284,8 +284,7 @@ function BookingFormPage() {
 
       {submitMessage && <p className={styles.submitMessage}>{submitMessage}</p>}
 
-      {/* {bookingId && <TelegramReminderButton bookingId={bookingId} />} */}
-      <TelegramReminderButton bookingId={'TEST_BOOKING_ID'} />
+      {bookingId && <TelegramReminderButton bookingId={bookingId} />}
     </div>
   )
 }
