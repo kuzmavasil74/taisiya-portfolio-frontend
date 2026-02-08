@@ -1,3 +1,4 @@
+import styles from './TelegramReminderButton.module.css'
 const TELEGRAM_BOT_USERNAME = 'TaisiStyleBot'
 
 function TelegramReminderButton({ bookingId }) {
@@ -12,7 +13,7 @@ function TelegramReminderButton({ bookingId }) {
       href={telegramLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="telegram-reminder-button"
+      className={styles.telegramReminderButton}
     >
       🔔 Отримувати нагадування в Telegram
     </a>

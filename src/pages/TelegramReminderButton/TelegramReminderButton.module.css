@@ -1,10 +1,26 @@
-.telegram-reminder-button {
-  display: 'inline-block';
-  margin-top: '16px';
-  padding: '12px 20px';
-  background-color: '#229ED9';
-  color: '#fff';
-  border-radius: '8px';
-  text-decoration: 'none';
+.telegramReminderButton {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 20px;
+  background-color: var(--color-burgundy);
+  color: var(--color-white);
+  border-radius: 50px;
+  text-decoration: none;
   font-weight: 600;
+  font-size: 16px;
+  cursor: pointer; /* додає курсор */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* легка тінь */
+  transition: background-color 0.2s ease, transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+.telegramReminderButton:hover {
+  background-color: var(--color-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.telegramReminderButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

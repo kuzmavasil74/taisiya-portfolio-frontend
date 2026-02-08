@@ -3,6 +3,7 @@
   min-height: 100vh;
 }
 
+/* Sidebar */
 .sidebar {
   width: 240px;
   border-right: 1px solid #ccc;
@@ -13,6 +14,7 @@
   padding: 24px;
 }
 
+/* Навігація */
 .nav a {
   display: block;
   padding: 12px;
@@ -23,4 +25,53 @@
 .nav a.active {
   font-weight: bold;
   color: #007bff;
+}
+
+/* Планшети (768px - 1024px) */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .adminPanelContent {
+    padding: 20px;
+  }
+
+  .nav a {
+    padding: 10px;
+  }
+}
+
+/* Мобільні (до 768px) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .nav a {
+    display: inline-block;
+    padding: 10px 12px;
+  }
+
+  .adminPanelContent {
+    padding: 16px;
+  }
+}
+
+/* Дуже маленькі екрани (до 480px) */
+@media (max-width: 480px) {
+  .nav a {
+    padding: 8px 10px;
+    font-size: 0.9em;
+  }
+
+  .adminPanelContent {
+    padding: 12px;
+  }
 }

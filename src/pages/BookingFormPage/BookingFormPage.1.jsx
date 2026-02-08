@@ -4,13 +4,11 @@ import { useTranslation } from 'react-i18next'
 import axios from 'axios'
 import bookingFormSchema from '../../validation/bookingFormSchema/bookingFormSchema.jsx'
 import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
 import API_URL from '../../utills/config.js'
 import TelegramReminderButton from '../TelegramReminderButton/TelegramReminderButton.jsx'
+import { SLOT_INTERVAL } from './BookingFormPage.jsx'
 
-const SLOT_INTERVAL = 30 // хвилин
-
-function BookingFormPage() {
+export function BookingFormPage() {
   const { t } = useTranslation()
 
   const services = [
@@ -284,10 +282,7 @@ function BookingFormPage() {
 
       {submitMessage && <p className={styles.submitMessage}>{submitMessage}</p>}
 
-      {/* {bookingId && <TelegramReminderButton bookingId={bookingId} />} */}
-      <TelegramReminderButton bookingId={'TEST_BOOKING_ID'} />
+      {bookingId && <TelegramReminderButton bookingId={bookingId} />}
     </div>
   )
 }
-
-export default BookingFormPage
