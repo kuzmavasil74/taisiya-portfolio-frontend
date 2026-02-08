@@ -148,13 +148,12 @@
   .mobileLanguageSwitch {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-right: auto;
-    margin-left: 20px;
+    gap: 5px;
+    /* margin-right: 10px; */
   }
   .flagIcon {
-    width: 24px;
-    height: 16px;
+    width: 20px;
+    height: 12px;
     display: block;
   }
   .languageSwitch {

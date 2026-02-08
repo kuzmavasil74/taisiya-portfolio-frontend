@@ -35,9 +35,31 @@
 }
 @media screen and (max-width: 768px) {
   .card {
-    max-width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
   }
+
+  .name {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .stars {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .starFilled {
+    color: gold;
+    font-size: 15px;
+  }
+
+  .starEmpty {
+    font-size: 15px;
+  }
+
   .text {
-    font-size: 0.9rem;
+    font-size: 10px;
   }
 }

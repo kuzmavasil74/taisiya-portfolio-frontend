@@ -53,13 +53,26 @@
   margin-top: 0.5rem;
 }
 @media (max-width: 768px) {
+  .specialOffers {
+    margin: 10px 20px;
+  }
   .offersContainer {
     grid-template-columns: 1fr;
   }
+  .specialOffersTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  offerItem {
+    padding: 15px;
+  }
   .offerItem h3 {
-    font-size: 1.1rem;
+    font-size: 20px;
+    margin-bottom: 10px;
   }
   .offerItem p {
-    font-size: 0.9rem;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
   }
 }
