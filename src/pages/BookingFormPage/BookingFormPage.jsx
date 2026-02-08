@@ -28,10 +28,10 @@ function BookingFormPage() {
   const [selectedSlots, setSelectedSlots] = useState([])
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
-  const [telegram, setTelegram] = useState('')
   const [submitMessage, setSubmitMessage] = useState('')
   const [loadingSlots, setLoadingSlots] = useState(false)
   const [errors, setErrors] = useState({})
+  const [bookingId, setBookingId] = useState(null)
 
   // Завантаження слотів
   useEffect(() => {
@@ -105,7 +105,6 @@ function BookingFormPage() {
     const formValues = {
       name,
       phone,
-      telegram,
       service: selectedService?.title,
       date: selectedDate,
     }
@@ -132,7 +131,6 @@ function BookingFormPage() {
     const formValues = {
       name,
       phone,
-      telegram,
       service: selectedService.title,
       date: selectedDate,
     }
@@ -159,14 +157,17 @@ function BookingFormPage() {
     }T${firstSlot}:00`
 
     try {
-      await axios.post(`${API_URL}/bookings`, {
+      const response = await axios.post(`${API_URL}/bookings`, {
         service: selectedService.title,
         date: bookingDate,
         duration,
         name,
         phone,
-        telegram,
       })
+      console.log(response.data)
+
+      // Зберігаємо bookingId
+      setBookingId(response.data.bookingId) // переконайся, що бекенд повертає bookingId
       setSubmitMessage('Booking confirmed!')
 
       // Очистка форми
@@ -175,7 +176,6 @@ function BookingFormPage() {
       setSelectedSlots([])
       setName('')
       setPhone('')
-      setTelegram('')
       setAvailableSlots([])
     } catch (error) {
       alert(error.message)
@@ -271,15 +271,6 @@ function BookingFormPage() {
           />
           {errors.phone && <p className={styles.error}>{errors.phone}</p>}
 
-          <input
-            type="text"
-            placeholder="Telegram (optional)"
-            value={telegram}
-            onChange={(e) => setTelegram(e.target.value)}
-            onBlur={(e) => validateField('telegram', e.target.value)}
-          />
-          {errors.telegram && <p className={styles.error}>{errors.telegram}</p>}
-
           <button
             type="submit"
             disabled={
@@ -292,6 +283,8 @@ function BookingFormPage() {
       )}
 
       {submitMessage && <p className={styles.submitMessage}>{submitMessage}</p>}
+
+      {bookingId && <TelegramReminderButton bookingId={bookingId} />}
     </div>
   )
 }

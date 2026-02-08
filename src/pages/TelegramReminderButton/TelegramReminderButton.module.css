@@ -1,0 +1,10 @@
+.telegram-reminder-button {
+  display: 'inline-block';
+  margin-top: '16px';
+  padding: '12px 20px';
+  background-color: '#229ED9';
+  color: '#fff';
+  border-radius: '8px';
+  text-decoration: 'none';
+  font-weight: 600;
+}
