@@ -6,6 +6,7 @@ import bookingFormSchema from '../../validation/bookingFormSchema/bookingFormSch
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import API_URL from '../../utills/config.js'
+import TelegramReminderButton from '../TelegramReminderButton/TelegramReminderButton.jsx'
 
 const SLOT_INTERVAL = 30 // хвилин
 

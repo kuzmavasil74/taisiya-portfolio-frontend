@@ -18,3 +18,4 @@ function TelegramReminderButton({ bookingId }) {
     </a>
   )
 }
+export default TelegramReminderButton
