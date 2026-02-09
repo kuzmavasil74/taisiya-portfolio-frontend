@@ -41,7 +41,7 @@
   border-radius: 5px;
 }
 
-.bookButton1 {
+.bookButton {
   display: inline-block;
   margin-top: 20px;
   padding: 15px 30px;
@@ -54,23 +54,7 @@
   transition: background-color 0.3s ease;
 }
 
-.bookButton1:hover {
-  background-color: var(--color-blue);
-}
-.bookButton2 {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 15px 30px;
-  background-color: var(--color-burgundy);
-  color: var(--color-white);
-  text-decoration: none;
-  border-radius: 50px;
-  font-size: 1.1em;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.bookButton2:hover {
+.bookButton:hover {
   background-color: var(--color-blue);
 }
 @media (max-width: 768px) {
@@ -87,7 +71,7 @@
 }
 @media (max-width: 480px) {
   .greeting {
-    font-size: 1em;
+    font-size: 1.2em;
   }
   .sliderContainer {
     height: 180px;
@@ -96,16 +80,11 @@
   .sliderImg {
     height: 180px;
   }
-  .bookButton1 {
+
+  .bookButton {
     margin-top: 10px;
     padding: 5px 10px;
     border-radius: 20px;
-    font-size: 0.3em;
-  }
-  .bookButton2 {
-    margin-top: 10px;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.3em;
+    font-size: 1.2em;
   }
 }

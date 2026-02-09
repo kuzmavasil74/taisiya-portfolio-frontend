@@ -90,16 +90,16 @@ function Main() {
         </Slider>
         <div className={styles.sliderCaption}>
           <h2 className={styles.greeting}>{t('main.greeting')}</h2>
-          <a href="/services" className={styles.bookButton1}>
+          {/* <a href="/services" className={styles.bookButton}>
             {t('main.services')}
-          </a>
-          <a href="/booking" className={styles.bookButton2}>
+          </a> */}
+          <a href="/booking" className={styles.bookButton}>
             {t('services.booking.button')}
           </a>
         </div>
       </div>
       <SpecialOffers />
-      <FeedbackList />
+      {/* <FeedbackList /> */}
     </>
   )
 }
