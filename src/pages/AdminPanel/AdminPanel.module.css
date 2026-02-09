@@ -1,33 +1,64 @@
+/* =====================
+   КОНТЕЙНЕР
+===================== */
 .container {
   display: flex;
   min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #1c1c1e;
+  background-color: #f2f2f7;
+  transition: all 0.3s ease;
 }
 
-/* Sidebar */
+/* =====================
+   SIDEBAR
+===================== */
 .sidebar {
   width: 240px;
-  border-right: 1px solid #ccc;
-}
-
-.adminPanelContent {
-  flex: 1;
-  padding: 24px;
+  border-right: 1px solid #d1d1d6;
+  background-color: #fff;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.04);
+  transition: width 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0 12px 12px 0;
 }
 
 /* Навігація */
 .nav a {
   display: block;
-  padding: 12px;
+  padding: 14px 18px;
   text-decoration: none;
-  color: #333;
+  color: #1c1c1e;
+  font-weight: 500;
+  border-radius: 10px;
+  margin: 4px 12px;
+  transition: all 0.2s ease;
 }
-
+.nav a:hover {
+  background-color: #e5e5ea;
+  transform: translateX(2px);
+}
 .nav a.active {
-  font-weight: bold;
-  color: #007bff;
+  background-color: #007aff;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
 }
 
-/* Планшети (768px - 1024px) */
+/* =====================
+   КОНТЕНТ АДМІН-ПАНЕЛІ
+===================== */
+.adminPanelContent {
+  flex: 1;
+  padding: 24px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  transition: padding 0.3s ease;
+}
+
+/* =====================
+   ПЛАНШЕТИ (768px - 1024px)
+===================== */
 @media (max-width: 1024px) {
   .sidebar {
     width: 200px;
@@ -38,11 +69,13 @@
   }
 
   .nav a {
-    padding: 10px;
+    padding: 12px 16px;
   }
 }
 
-/* Мобільні (до 768px) */
+/* =====================
+   МОБІЛЬНІ (до 768px)
+===================== */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -51,12 +84,14 @@
   .sidebar {
     width: 100%;
     border-right: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #d1d1d6;
+    border-radius: 0 0 12px 12px;
   }
 
   .nav a {
     display: inline-block;
-    padding: 10px 12px;
+    padding: 10px 14px;
+    margin: 4px 6px;
   }
 
   .adminPanelContent {
@@ -64,7 +99,9 @@
   }
 }
 
-/* Дуже маленькі екрани (до 480px) */
+/* =====================
+   ДУЖЕ МАЛІ ЕКРАНИ (до 480px)
+===================== */
 @media (max-width: 480px) {
   .nav a {
     padding: 8px 10px;

@@ -1,65 +1,104 @@
 .card {
-  background-color: #fafafa;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  max-width: 300px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  max-width: 320px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* =====================
+   NAME
+===================== */
 
 .name {
   text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+  color: #1d1d1f;
 }
+
+/* =====================
+   STARS
+===================== */
 
 .stars {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 14px;
+}
+
+.starFilled,
+.starEmpty {
+  font-size: 1.2rem;
 }
 
 .starFilled {
-  color: gold;
-  font-size: 1.5rem;
+  color: #ffb400;
 }
 
 .starEmpty {
-  color: #ccc;
-  font-size: 1.5rem;
+  color: #d1d1d6;
 }
 
+/* =====================
+   TEXT
+===================== */
+
 .text {
-  font-size: 1rem;
-  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #3a3a3c;
+  text-align: center;
 }
-@media screen and (max-width: 768px) {
+
+/* =====================
+   MOBILE
+===================== */
+
+@media (max-width: 768px) {
   .card {
-    border-radius: 10px;
-    padding: 10px;
-    width: 100%;
+    padding: 18px 16px;
+    border-radius: 14px;
   }
 
   .name {
-    font-size: 16px;
-    margin-bottom: 5px;
+    font-size: 1.05rem;
   }
 
-  .stars {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  .starFilled {
-    color: gold;
-    font-size: 15px;
-  }
-
+  .starFilled,
   .starEmpty {
-    font-size: 15px;
+    font-size: 1.1rem;
   }
 
   .text {
-    font-size: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* =====================
+   SMALL MOBILE
+===================== */
+
+@media (max-width: 480px) {
+  .card {
+    padding: 16px 14px;
+  }
+
+  .name {
+    font-size: 1rem;
+  }
+
+  .text {
+    font-size: 0.88rem;
   }
 }

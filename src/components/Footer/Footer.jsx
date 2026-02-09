@@ -2,6 +2,8 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './Footer.module.css'
 import { Link } from 'react-router-dom'
+import { FaInstagram, FaFacebook } from 'react-icons/fa'
+import { MdEmail, MdPhone } from 'react-icons/md'
 
 function Footer() {
   const { t } = useTranslation()
@@ -16,7 +18,7 @@ function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            {t('footer.instagram')}
+            <FaInstagram />
           </a>
           <a
             className={styles['social-media-link']}
@@ -24,40 +26,32 @@ function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            {t('footer.facebook')}
+            <FaFacebook />
+          </a>
+          <a className={styles['social-media-link']} href="tel:+420608039692">
+            <MdPhone />
+          </a>
+          <a
+            className={styles['social-media-link']}
+            href="mailto:taisiyastyle@example.com"
+          >
+            <MdEmail />
           </a>
         </div>
-        <div className={styles['contact-info']}>
-          <p className={styles['contact-info-item']}>
-            {t('footer.phone')}{' '}
-            <a className={styles['contact-info-link']} href="tel:123456789">
-              +420 608 039 692
-            </a>
-          </p>
-          <p className={styles['contact-info-item']}>
-            {t('footer.email')}{' '}
-            <a
-              className={styles['contact-info-link']}
-              href="mailto:taisiyastyle@example.com"
-            >
-              taisiyastyle@example.com
-            </a>
-          </p>
-          <p className={styles['contact-info-item']}>
-            <Link className={styles['contact-info-link']} to="/privacy-policy">
-              {t('footer.privacy-policy')}{' '}
-            </Link>
-          </p>
-          <p className={styles['contact-info-item']}>
-            <Link
-              className={styles['contact-info-link']}
-              to="/terms-and-conditions"
-            >
-              {t('footer.terms-and-conditions')}{' '}
-            </Link>
-          </p>
+
+        <div className={styles['policy-links']}>
+          <Link className={styles['contact-info-link']} to="/privacy-policy">
+            {t('footer.privacy-policy')}
+          </Link>
+          <Link
+            className={styles['contact-info-link']}
+            to="/terms-and-conditions"
+          >
+            {t('footer.terms-and-conditions')}
+          </Link>
         </div>
       </div>
+
       <p className={styles['copyright']}>{t('footer.copyright')}</p>
     </footer>
   )

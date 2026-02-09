@@ -1,25 +1,21 @@
-/* --- Контейнер форми --- */
+/* === Загальні стилі контейнерів === */
 .container {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  font-family: 'Inter', sans-serif;
+  max-width: 100%;
+  padding: 24px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  min-height: 80vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
-/* --- Заголовок --- */
+/* === Заголовки === */
 .title {
   text-align: center;
   font-size: 28px;
   font-weight: 600;
   color: #333;
-  margin-bottom: 25px;
-}
-
-/* --- Секції форми --- */
-.section {
   margin-bottom: 25px;
 }
 
@@ -30,35 +26,47 @@ h3 {
   color: #555;
 }
 
-/* --- Контейнер для кнопок (вибір послуги, часу) --- */
-.buttonContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+/* === Контейнери секцій форми === */
+.section {
+  margin-bottom: 25px;
 }
 
+/* Контейнер кнопок залишаємо flex або grid, але кнопки будуть 100% */
+.buttonContainer {
+  display: flex;
+  flex-direction: column; /* кожна кнопка на окремий рядок */
+  gap: 12px;
+  width: 100%;
+}
+
+/* Кнопки */
 .button {
-  padding: 10px 15px;
+  width: 100%; /* займає всю ширину контейнера */
+  padding: 12px 15px;
   border: 1px solid #ccc;
-  background-color: #f8f8f8;
   border-radius: 8px;
-  cursor: pointer;
+  background-color: #f8f8f8;
+  color: #111;
   font-weight: 500;
-  transition: all 0.2s ease;
+  text-align: left; /* щоб текст був зліва */
+  cursor: pointer;
+  transition: all 0.2s ease, transform 0.15s ease;
 }
 
 .button:hover {
   background-color: #e0e0e0;
 }
 
-/* --- Обрана кнопка послуги --- */
+/* === Обрана послуга === */
 .selected {
   background-color: #4f46e5;
   color: #fff;
   border-color: #4f46e5;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+  transform: translateY(-2px);
 }
 
-/* --- Вільний слот --- */
+/* === Вільний слот === */
 .free {
   background-color: #f8f8f8;
   color: #111;
@@ -69,7 +77,7 @@ h3 {
   background-color: #e0e0e0;
 }
 
-/* --- Зайнятий слот --- */
+/* === Зайнятий слот === */
 .busy {
   background-color: #e11d48;
   color: #fff;
@@ -78,14 +86,29 @@ h3 {
   opacity: 0.8;
 }
 
-/* --- Обраний слот --- */
+/* === Обраний слот === */
 .selectedSlot {
   background-color: #16a34a;
   color: #fff;
   border-color: #15803d;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+  transform: translateY(-2px);
 }
 
-/* --- Поля введення --- */
+/* === Групування обраних слотів (Apple-style) === */
+.selectedBlock {
+  border-radius: 0; /* скидаємо округлення всередині ряду */
+}
+.selectedBlock:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.selectedBlock:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* === Поля введення === */
 input {
   width: 100%;
   padding: 12px 15px;
@@ -102,21 +125,21 @@ input:focus {
   box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
 }
 
-/* --- Повідомлення про помилку --- */
+/* === Повідомлення про помилку === */
 .error {
   font-size: 13px;
   color: #e11d48;
   margin-bottom: 5px;
 }
 
-/* --- Повідомлення після відправки --- */
+/* === Повідомлення після відправки === */
 .submitMessage {
   margin-top: 15px;
   font-weight: 500;
   color: #16a34a;
 }
 
-/* --- Кнопка відправки --- */
+/* === Кнопка відправки === */
 form button[type='submit'] {
   width: 100%;
   padding: 12px;
@@ -138,34 +161,55 @@ form button[type='submit']:disabled {
   background-color: #c7c7d9;
   cursor: not-allowed;
 }
-.free {
-  background-color: #f8f8f8;
-  color: #111;
-  border: 1px solid #ccc;
-}
-.free:hover {
-  background-color: #e0e0e0;
+
+/* === Анімація для кнопок === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.busy {
-  background-color: #e11d48;
-  color: #fff;
-  border: 1px solid #b91c1c;
-  cursor: not-allowed;
-  opacity: 0.8;
+/* === Адаптивність === */
+
+/* Планшети (768px - 1024px) */
+@media (max-width: 1024px) {
+  .buttonContainer {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .button {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
 }
 
-.selectedBlock {
-  background-color: #16a34a;
-  color: #fff;
-  border-color: #15803d;
-  border-radius: 0; /* скидаємо, округлення тільки крайнім нижче */
+/* Мобільні (до 768px) */
+@media (max-width: 768px) {
+  .buttonContainer {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 10px;
+  }
+
+  .button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
 }
-.selectedBlock:first-child {
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-}
-.selectedBlock:last-child {
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
+
+/* Дуже маленькі екрани (до 480px) */
+@media (max-width: 480px) {
+  .buttonContainer {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .button {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
 }
