@@ -136,6 +136,7 @@
   },
   "bookingForm": {
     "title": "Rezervujte se",
+    "loading": "Server se probouzí, první požadavek může trvat až 20 sekund.",
     "haircuts": "Dámské střih",
     "maleHaircuts": "Pánské střih",
     "keratin": "Keratin",

@@ -142,6 +142,7 @@
   },
   "bookingForm": {
     "title": "Book Your Appointment",
+    "loading": "Server is waking up, first request may take up to 20 seconds",
     "haircuts": "Women's Haircut",
     "maleHaircuts": "Male Haircut",
     "keratin": "Keratin",
