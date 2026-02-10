@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react'
 import styles from './BookingFormPage.module.css'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
-import bookingFormSchema from '../../validation/bookingFormSchema/bookingFormSchema.jsx'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import API_URL from '../../utills/config.js'
 import TelegramReminderButton from '../TelegramReminderButton/TelegramReminderButton.jsx'
 
-const SLOT_INTERVAL = 30 // хвилин
+const SLOT_INTERVAL = 30
 
 function BookingFormPage() {
   const { t } = useTranslation()
@@ -31,155 +30,109 @@ function BookingFormPage() {
   const [phone, setPhone] = useState('')
   const [submitMessage, setSubmitMessage] = useState('')
   const [loadingSlots, setLoadingSlots] = useState(false)
-  const [errors, setErrors] = useState({})
   const [bookingId, setBookingId] = useState(null)
 
-  // Завантаження слотів
+  /* === Load slots === */
   useEffect(() => {
-    if (selectedDate) {
-      setLoadingSlots(true)
-      const dateStr = selectedDate.toISOString().split('T')[0] // форматуємо в YYYY-MM-DD
-      axios
-        .get(`${API_URL}/bookings/available-slots`, {
-          params: { date: dateStr },
-        })
-        .then((res) => setAvailableSlots(res.data))
-        .catch((err) => alert(err.message))
-        .finally(() => setLoadingSlots(false))
-    } else setAvailableSlots([])
+    if (!selectedDate) {
+      setAvailableSlots([])
+      setSelectedSlots([])
+      return
+    }
+
+    const dateStr = selectedDate.toISOString().split('T')[0]
+    setLoadingSlots(true)
+
+    axios
+      .get(`${API_URL}/bookings/available-slots`, {
+        params: { date: dateStr },
+      })
+      .then((res) => {
+        setAvailableSlots(res.data)
+        setSelectedSlots([])
+      })
+      .catch((err) => alert(err.message))
+      .finally(() => setLoadingSlots(false))
   }, [selectedDate])
 
-  // Тоггл вибору слота
-  const toggleSlot = (time) => {
-    if (selectedSlots.includes(time)) {
-      setSelectedSlots(selectedSlots.filter((t) => t !== time))
-    } else {
-      setSelectedSlots([...selectedSlots, time])
-    }
+  /* === Slot toggle === */
+  const toggleSlot = (time, isBusy) => {
+    if (isBusy) return
+
+    setSelectedSlots((prev) =>
+      prev.includes(time) ? prev.filter((t) => t !== time) : [...prev, time]
+    )
   }
 
-  // Функція для блокування минулих днів та вихідних
-  const isDateSelectable = (date) => {
-    const today = new Date()
-    today.setHours(0, 0, 0, 0) // обнуляємо час
-
-    const d = new Date(date)
-    d.setHours(0, 0, 0, 0)
-
-    const day = d.getDay()
-    if (d < today) return false // минулі дні
-    if (day === 0 || day === 6) return false // неділя або субота
-    return true
-  }
-
-  // Функція для групування суміжних слотів
+  /* === Group contiguous slots === */
   const getSelectedBlocks = (slots) => {
     if (!slots.length) return []
 
     const sorted = [...slots].sort()
     const blocks = []
-    let block = [sorted[0]]
+    let current = [sorted[0]]
 
     for (let i = 1; i < sorted.length; i++) {
-      const [prevHour, prevMin] = block[block.length - 1].split(':').map(Number)
-      const [currHour, currMin] = sorted[i].split(':').map(Number)
+      const [ph, pm] = current.at(-1).split(':').map(Number)
+      const [ch, cm] = sorted[i].split(':').map(Number)
 
-      const prevTime = prevHour * 60 + prevMin
-      const currTime = currHour * 60 + currMin
-
-      if (currTime - prevTime === SLOT_INTERVAL) {
-        block.push(sorted[i])
+      if (ch * 60 + cm - (ph * 60 + pm) === SLOT_INTERVAL) {
+        current.push(sorted[i])
       } else {
-        blocks.push([...block])
-        block = [sorted[i]]
+        blocks.push(current)
+        current = [sorted[i]]
       }
     }
 
-    blocks.push(block)
+    blocks.push(current)
     return blocks
   }
 
   const selectedBlocks = getSelectedBlocks(selectedSlots)
 
-  // Валідація поля
-  const validateField = async (field, value) => {
-    const formValues = {
-      name,
-      phone,
-      service: selectedService?.title,
-      date: selectedDate,
-    }
-    try {
-      await bookingFormSchema.validateAt(field, {
-        ...formValues,
-        [field]: value,
-      })
-      setErrors((prev) => ({ ...prev, [field]: '' }))
-    } catch (err) {
-      setErrors((prev) => ({ ...prev, [field]: err.message }))
-    }
+  /* === Disable past and weekend dates === */
+  const isDateSelectable = (date) => {
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+
+    const d = new Date(date)
+    d.setHours(0, 0, 0, 0)
+
+    const day = d.getDay()
+    if (d < today) return false
+    if (day === 0 || day === 6) return false
+    return true
   }
 
-  // Відправка форми
+  /* === Submit === */
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!selectedService || !selectedDate || !selectedSlots.length) return
 
-    if (!selectedService || !selectedDate || selectedSlots.length === 0) {
-      setSubmitMessage('Please select service, date, and slots.')
-      return
-    }
-
-    const formValues = {
-      name,
-      phone,
-      service: selectedService.title,
-      date: selectedDate,
-    }
-
-    // Фронт-валидація
-    try {
-      await bookingFormSchema.validate(formValues, { abortEarly: false })
-      setErrors({})
-    } catch (err) {
-      const newErrors = {}
-      err.inner.forEach((e) => {
-        newErrors[e.path] = e.message
-      })
-      setErrors(newErrors)
-      return
-    }
-
-    // Обчислюємо початок та тривалість одного блоку
-    const sortedSlots = selectedSlots.sort()
-    const firstSlot = sortedSlots[0]
-    const duration = sortedSlots.length * SLOT_INTERVAL
-    const bookingDate = `${
-      selectedDate.toISOString().split('T')[0]
-    }T${firstSlot}:00`
+    const sortedSlots = [...selectedSlots].sort()
+    const bookingDate = `${selectedDate.toISOString().split('T')[0]}T${
+      sortedSlots[0]
+    }:00`
 
     try {
-      const response = await axios.post(`${API_URL}/bookings`, {
+      const res = await axios.post(`${API_URL}/bookings`, {
         service: selectedService.title,
         date: bookingDate,
-        duration,
+        duration: selectedSlots.length * SLOT_INTERVAL,
         name,
         phone,
       })
 
-      // Зберігаємо bookingId
-      setBookingId(response.data._id) // переконайся, що бекенд повертає bookingId
+      setBookingId(res.data._id)
       setSubmitMessage('Booking confirmed!')
-
-      // Очистка форми
       setSelectedService(null)
       setSelectedDate(null)
       setSelectedSlots([])
+      setAvailableSlots([])
       setName('')
       setPhone('')
-      setAvailableSlots([])
-    } catch (error) {
-      alert(error.message)
-      setSubmitMessage(error.response?.data?.message || 'Booking failed.')
+    } catch (err) {
+      alert(err.message)
     }
   }
 
@@ -187,17 +140,21 @@ function BookingFormPage() {
     <div className={styles.container}>
       <h2 className={styles.title}>{t('bookingForm.title')}</h2>
 
-      {/* Вибір послуги */}
+      {/* === Services === */}
       <div className={styles.section}>
         <h3>Select Service</h3>
         <div className={styles.buttonContainer}>
           {services.map((service) => (
             <button
               key={service.title}
-              className={`${styles.button} ${
-                selectedService?.title === service.title ? styles.selected : ''
-              }`}
+              type="button"
               onClick={() => setSelectedService(service)}
+              className={[
+                styles.button,
+                selectedService?.title === service.title && styles.selected,
+              ]
+                .filter(Boolean)
+                .join(' ')}
             >
               {t(`bookingTable.${service.title}`)} ({service.duration} min)
             </button>
@@ -205,38 +162,48 @@ function BookingFormPage() {
         </div>
       </div>
 
-      {/* Вибір дати */}
+      {/* === Date === */}
       <div className={styles.section}>
         <h3>Select Date</h3>
         <DatePicker
           selected={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
-          filterDate={isDateSelectable}
-          placeholderText="Select a date"
+          onChange={setSelectedDate}
           dateFormat="yyyy-MM-dd"
+          filterDate={isDateSelectable} // 🔒 блокування минулих та вихідних
+          placeholderText="Select a date"
         />
       </div>
 
-      {/* Вибір слотів */}
+      {/* === Slots === */}
       {selectedDate && (
         <div className={styles.section}>
-          <h3>Select Slots</h3>
+          <h3>Select Time</h3>
+
           {loadingSlots ? (
-            <p>Loading...</p>
+            <p>Loading…</p>
           ) : (
             <div className={styles.buttonContainer}>
               {availableSlots.map((slot) => {
-                const isInBlock = selectedBlocks.some((block) =>
-                  block.includes(slot.time)
+                const isBusy = !slot.available
+                const isSelected = selectedSlots.includes(slot.time)
+                const isInBlock = selectedBlocks.some((b) =>
+                  b.includes(slot.time)
                 )
+
                 return (
                   <button
                     key={slot.time}
-                    disabled={!slot.available}
-                    className={`${slot.available ? styles.free : styles.busy} ${
-                      isInBlock ? styles.selectedBlock : ''
-                    }`}
-                    onClick={() => toggleSlot(slot.time)}
+                    type="button"
+                    disabled={isBusy}
+                    onClick={() => toggleSlot(slot.time, isBusy)}
+                    className={[
+                      styles.button,
+                      isBusy && styles.busy,
+                      isSelected && styles.selectedSlot,
+                      isInBlock && styles.selectedBlock,
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
                   >
                     {slot.time}
                   </button>
@@ -247,43 +214,29 @@ function BookingFormPage() {
         </div>
       )}
 
-      {/* Форма контакту */}
+      {/* === Contact === */}
       {selectedSlots.length > 0 && (
         <form className={styles.section} onSubmit={handleSubmit}>
-          <h3>Contact Information</h3>
+          <h3>Contact</h3>
+
           <input
-            type="text"
-            placeholder="Your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            placeholder="Name"
             required
-            onBlur={(e) => validateField('name', e.target.value)}
           />
-          {errors.name && <p className={styles.error}>{errors.name}</p>}
-
           <input
-            type="tel"
-            placeholder="Phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+            placeholder="Phone"
             required
-            onBlur={(e) => validateField('phone', e.target.value)}
           />
-          {errors.phone && <p className={styles.error}>{errors.phone}</p>}
 
-          <button
-            type="submit"
-            disabled={
-              !name || !phone || Object.values(errors).some((err) => err)
-            }
-          >
-            Book Appointment
-          </button>
+          <button type="submit">Book</button>
         </form>
       )}
 
       {submitMessage && <p className={styles.submitMessage}>{submitMessage}</p>}
-
       {bookingId && <TelegramReminderButton bookingId={bookingId} />}
     </div>
   )

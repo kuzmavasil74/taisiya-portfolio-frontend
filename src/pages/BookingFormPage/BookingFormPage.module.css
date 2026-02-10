@@ -1,215 +1,120 @@
-/* === Загальні стилі контейнерів === */
 .container {
   max-width: 100%;
   padding: 24px;
-  margin: 0 auto;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  min-height: 80vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-sizing: border-box;
+  background: #f9f9f9;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* === Заголовки === */
 .title {
   text-align: center;
-  font-size: 28px;
+  font-size: 26px;
+  margin-bottom: 24px;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 25px;
 }
 
-h3 {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 10px;
-  color: #555;
-}
-
-/* === Контейнери секцій форми === */
 .section {
-  margin-bottom: 25px;
+  margin-bottom: 28px;
 }
 
-/* Контейнер кнопок залишаємо flex або grid, але кнопки будуть 100% */
 .buttonContainer {
   display: flex;
-  flex-direction: column; /* кожна кнопка на окремий рядок */
+  flex-direction: column;
   gap: 12px;
-  width: 100%;
 }
 
-/* Кнопки */
+/* === Base Button === */
 .button {
-  width: 100%; /* займає всю ширину контейнера */
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f8f8f8;
-  color: #111;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #d1d1d6;
+  background: #ffffff;
   font-weight: 500;
-  text-align: left; /* щоб текст був зліва */
   cursor: pointer;
-  transition: all 0.2s ease, transform 0.15s ease;
+  text-align: left;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
 }
 
-.button:hover {
-  background-color: #e0e0e0;
+.button:hover:not(:disabled) {
+  background: #f2f2f7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
 }
 
-/* === Обрана послуга === */
+/* === Selected service === */
 .selected {
-  background-color: #4f46e5;
-  color: #fff;
+  background: #4f46e5;
+  color: #ffffff;
   border-color: #4f46e5;
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
-  transform: translateY(-2px);
 }
 
-/* === Вільний слот === */
-.free {
-  background-color: #f8f8f8;
-  color: #111;
-  border: 1px solid #ccc;
-}
-
-.free:hover {
-  background-color: #e0e0e0;
-}
-
-/* === Зайнятий слот === */
+/* === Busy slot === */
 .busy {
-  background-color: #e11d48;
-  color: #fff;
-  border: 1px solid #b91c1c;
+  background: #f2f2f7;
+  color: #9e9e9e;
+  border-color: #e5e5ea;
   cursor: not-allowed;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
-/* === Обраний слот === */
+.button:disabled {
+  pointer-events: none;
+}
+
+/* === Selected slot === */
 .selectedSlot {
-  background-color: #16a34a;
-  color: #fff;
-  border-color: #15803d;
-  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
-  transform: translateY(-2px);
+  background: var(--color-burgundy);
+  color: #ffffff;
+  border-color: #111827;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* === Групування обраних слотів (Apple-style) === */
+/* === Slot grouping (Apple style) === */
 .selectedBlock {
-  border-radius: 0; /* скидаємо округлення всередині ряду */
-}
-.selectedBlock:first-child {
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-}
-.selectedBlock:last-child {
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-radius: 12px;
 }
 
-/* === Поля введення === */
+.selectedBlock:first-child {
+  border-radius: 12px 0 0 12px;
+}
+
+.selectedBlock:last-child {
+  border-radius: 0 12px 12px 0;
+}
+
+/* === Inputs === */
 input {
   width: 100%;
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  margin-bottom: 8px;
-  transition: all 0.2s ease;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d1d6;
+  margin-bottom: 10px;
+  font-size: 15px;
 }
 
 input:focus {
   outline: none;
   border-color: #4f46e5;
-  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
 }
 
-/* === Повідомлення про помилку === */
-.error {
-  font-size: 13px;
-  color: #e11d48;
-  margin-bottom: 5px;
-}
-
-/* === Повідомлення після відправки === */
-.submitMessage {
-  margin-top: 15px;
-  font-weight: 500;
-  color: #16a34a;
-}
-
-/* === Кнопка відправки === */
-form button[type='submit'] {
-  width: 100%;
-  padding: 12px;
-  background-color: #4f46e5;
-  color: #fff;
-  font-weight: 600;
+/* === Submit === */
+form button {
+  padding: 14px;
+  border-radius: 12px;
+  background: #4f46e5;
+  color: #ffffff;
   border: none;
-  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 16px;
-  transition: all 0.2s ease;
 }
 
-form button[type='submit']:hover:not(:disabled) {
-  background-color: #4338ca;
+form button:hover {
+  background: #4338ca;
 }
 
-form button[type='submit']:disabled {
-  background-color: #c7c7d9;
-  cursor: not-allowed;
-}
-
-/* === Анімація для кнопок === */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* === Адаптивність === */
-
-/* Планшети (768px - 1024px) */
-@media (max-width: 1024px) {
-  .buttonContainer {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  }
-
-  .button {
-    padding: 10px;
-    font-size: 0.95rem;
-  }
-}
-
-/* Мобільні (до 768px) */
-@media (max-width: 768px) {
-  .buttonContainer {
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    gap: 10px;
-  }
-
-  .button {
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-}
-
-/* Дуже маленькі екрани (до 480px) */
-@media (max-width: 480px) {
-  .buttonContainer {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 8px;
-  }
-
-  .button {
-    padding: 8px;
-    font-size: 0.85rem;
-  }
+.submitMessage {
+  margin-top: 16px;
+  color: #16a34a;
+  font-weight: 500;
 }
