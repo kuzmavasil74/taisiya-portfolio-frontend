@@ -56,7 +56,7 @@ function Header() {
       <div className={styles.logo}>
         <Link to="/">
           <img
-            className="logo-img"
+            className={styles.logoImg}
             src="/images/logo.svg"
             alt="taisiya_style_logo"
             width="80px"
