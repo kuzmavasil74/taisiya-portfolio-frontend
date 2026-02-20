@@ -21,6 +21,11 @@
   flex-direction: column;
   gap: 12px;
 }
+.disabledDay {
+  color: #ccc;
+  text-decoration: line-through;
+  pointer-events: none; /* не дає натискати */
+}
 
 /* === Base Button === */
 .button {

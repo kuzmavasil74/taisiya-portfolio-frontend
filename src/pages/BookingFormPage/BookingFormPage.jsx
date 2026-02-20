@@ -48,6 +48,7 @@ function BookingFormPage() {
         params: { date: dateStr },
       })
       .then((res) => {
+        console.log('Slots from backend:', res.data)
         setAvailableSlots(res.data)
         setSelectedSlots([])
       })
@@ -103,7 +104,13 @@ function BookingFormPage() {
     if (day === 0 || day === 2 || day === 4 || day === 6) return false
     return true
   }
-
+  const getDayClassName = (date) => {
+    const day = date.getDay()
+    if (day === 0 || day === 2 || day === 4 || day === 6) {
+      return styles.disabledDay
+    }
+    return ''
+  }
   /* === Submit === */
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -169,6 +176,7 @@ function BookingFormPage() {
           selected={selectedDate}
           onChange={setSelectedDate}
           dateFormat="yyyy-MM-dd"
+          dayClassName={getDayClassName}
           filterDate={isDateSelectable} // 🔒 блокування минулих та вихідних
           placeholderText="Select a date"
         />
@@ -184,7 +192,20 @@ function BookingFormPage() {
           ) : (
             <div className={styles.buttonContainer}>
               {availableSlots.map((slot) => {
+                const [hour, minute] = slot.time.split(':').map(Number)
+                const slotDate = new Date(selectedDate)
+                slotDate.setHours(hour, minute, 0, 0)
+
                 const isBusy = !slot.available
+
+                const MINUTES_AHEAD = 5
+                const now = new Date()
+                const minAvailableTime = new Date(
+                  now.getTime() + MINUTES_AHEAD * 60000
+                )
+                const isPassed = slotDate.getTime() < minAvailableTime.getTime()
+
+                const isDisabled = isBusy || isPassed
                 const isSelected = selectedSlots.includes(slot.time)
                 const isInBlock = selectedBlocks.some((b) =>
                   b.includes(slot.time)
@@ -194,11 +215,11 @@ function BookingFormPage() {
                   <button
                     key={slot.time}
                     type="button"
-                    disabled={isBusy}
-                    onClick={() => toggleSlot(slot.time, isBusy)}
+                    disabled={isDisabled}
+                    onClick={() => toggleSlot(slot.time, isDisabled)}
                     className={[
                       styles.button,
-                      isBusy && styles.busy,
+                      isDisabled && styles.busy,
                       isSelected && styles.selectedSlot,
                       isInBlock && styles.selectedBlock,
                     ]
