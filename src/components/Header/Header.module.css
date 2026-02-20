@@ -164,8 +164,8 @@
   .mobileLanguageSwitch {
     display: flex;
     justify-content: center;
-    gap: 8px;
-    margin-top: 10px;
+    gap: 15px;
+    padding-right: 15px;
   }
 
   .languageSwitch {
@@ -173,8 +173,8 @@
   }
 
   .flagIcon {
-    width: 20px;
-    height: 12px;
+    width: 27px;
+    height: 16px;
   }
 }
 

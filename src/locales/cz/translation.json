@@ -35,67 +35,60 @@
   },
   "services": {
     "heading": "Naše Služby",
-    "duration": "Doba trvání",
+    "duration": "Délka",
 
-    "haircuts": {
+    "womenHaircuts": {
       "title": "Dámské střihy",
-      "description": "Osvěžte svůj vzhled individuálním dámským střihem, který podtrhne vaše rysy a typ vlasů. Ať už chcete nový moderní styl, nebo jen lehké zastřižení, zajistíme, že odejdete sebevědomá a zářivá.",
-      "features": "Dámské střihy, zastřižení konečků, individuální konzultace, stylingové poradenství.",
+      "description": "Oživte svůj vzhled individuálním dámským střihem, který zdůrazní vaše rysy a typ vlasů. Chcete trendy účes nebo jen úpravu konečků — garantujeme vám sebevědomí a lesk.",
+      "features": "Dámské střihy, úprava konečků, individuální konzultace, rady ohledně stylu.",
       "duration": "60"
     },
 
     "menHaircuts": {
       "title": "Pánské střihy",
-      "description": "Zažijte preciznost a styl s našimi pánskými střihy, navrženými přesně pro váš životní styl. Nabízíme jak klasické střihy, tak moderní úpravy — vždy čerstvý a upravený vzhled.",
-      "features": "Přesné linie, střih strojkem nebo nůžkami, úprava vousů (na přání).",
+      "description": "Zažijte přesnost a styl s našimi pánskými střihy, vytvořenými podle vaší osobnosti a životního stylu. Klasika nebo moderní vzhled — zajišťujeme svěží a upravený vzhled.",
+      "features": "Přesné zakončení, stříhání strojkem nebo nůžkami, volitelně úprava vousů.",
       "duration": "30"
     },
 
-    "treatments": {
-      "title": "Péče o vlasy",
-      "description": "Dopřejte svým vlasům špičkovou péči pomocí našich moderních procedur. Navrátíme vlasům sílu, hydrataci a vitalitu. Svěřte své vlasy do rukou odborníků.",
-      "features": "Keratínové ošetření, botox na vlasy, peeling pokožky hlavy, hluboká hydratace.",
-      "duration": "30"
+    "rootColoring": {
+      "title": "Barvení kořenů",
+      "description": "Zvýrazněte svůj styl barvením kořenů vlasů. Ideální pro udržení přirozené nebo obnovené barvy.",
+      "features": "Barvení kořenů, výběr odstínu, péče po barvení.",
+      "duration": "90"
     },
 
-    "keratin": {
-      "title": "Keratínové narovnání",
-      "description": "Získejte dokonale hladké a lesklé vlasy bez krepatění díky profesionálnímu keratínovému ošetření. Hloubková výživa a obnovu struktury vlasů s dlouhodobým efektem.",
-      "features": "Intenzivní regenerace, zrcadlový lesk, ochrana proti vlhkosti, snadnější styling.",
+    "fullColoring": {
+      "title": "Celé barvení vlasů",
+      "description": "Změňte vzhled kompletně s naším celkovým barvením vlasů. Vysoce kvalitní barva a profesionální aplikace zaručují jasnou a sytou barvu.",
+      "features": "Celé barvení, individuální odstín, ochrana struktury vlasů.",
+      "duration": "120"
+    },
+
+    "toning": {
+      "title": "Tónování vlasů",
+      "description": "Vyrovnejte odstín vlasů po barvení nebo melíru. Tónování dodává vlasům lesk a intenzitu barvy.",
+      "features": "Vyrovnání odstínu, zesílení barvy, lesk a zářivost.",
       "duration": "60"
     },
 
-    "hotBotox": {
-      "title": "Horký botox na vlasy",
-      "description": "Oživte své vlasy horkým botoxem — hluboká hydratace a rekonstrukce vlasového vlákna. Ideální pro matné a poškozené vlasy, které potřebují obnovit lesk a sílu.",
-      "features": "Hluboká výživa, elasticita, dlouhotrvající lesk, posílení vlasů.",
-      "duration": "30"
-    },
-
-    "coldRestoration": {
-      "title": "Vícekroková studená regenerace",
-      "description": "Šetrná a účinná obnova vlasů bez tepelné zátěže. Ideální pro citlivé a oslabené vlasy, navrací přirozený lesk a hebkost.",
-      "features": "Postupné obnovení struktury, zvýšená jemnost, snadnější úprava, přirozený objem.",
-      "duration": "30"
-    },
-
-    "coldBotox": {
-      "title": "Studený botox",
-      "description": "Posilte oslabené a jemné vlasy pomocí studeného botoxu. Procedura hydratuje, obnovuje elasticitu a posiluje vlasové vlákno pro zdravější a odolnější vzhled.",
-      "features": "Hydratace, obnova elasticity, posílení struktury vlasů, vyšší hustota.",
-      "duration": "30"
+    "balayage": {
+      "title": "Melíry / Balayage",
+      "description": "Vytvořte přirozené přechody barev technikou balayage. Vlasy vypadají objemně a leskle.",
+      "features": "Přirozené přechody barev, objem, lesk, stylový efekt.",
+      "duration": "150"
     },
 
     "polishing": {
       "title": "Leštění vlasů",
-      "description": "Dodejte vlasům nový život odstraněním roztřepených konečků po celé délce bez ztráty délky. Výsledek? Neskutečně hladké, lesklé a upravené vlasy.",
-      "features": "Odstranění roztřepených konečků, zvýšení lesku, prevence lámavosti, hladký efekt.",
+      "description": "Oživte své vlasy bez ztráty délky! Leštění odstraňuje roztřepené konečky po celé délce, dodává vlasům neuvěřitelnou hladkost a upravený vzhled.",
+      "features": "Odstranění roztřepených konečků, zvýšení lesku, prevence lámavosti, dokonalá hladkost.",
       "duration": "30"
     },
 
     "booking": {
-      "title": "Rezervujte si termín",
-      "button": "Objednejte se ještě dnes!"
+      "title": "Rezervace služby",
+      "button": "Rezervujte nyní!"
     },
 
     "features": "Vlastnosti:",
@@ -104,45 +97,50 @@
   "contactForm": {
     "openingHours": "Otevírací hodiny",
     "schedule": {
-      "mondayToFriday": "Pondělí - Pátek: 9:00 - 19:00",
-      "saturday": "Sobota: 10:00 - 17:00",
-      "sunday": "Neděle: Zavřeno"
+      "mondayToFriday": "Pondělí - Středa - Pátek: 9:00 - 20:00",
+      "utery": "Uterý: Zavřeno",
+      "ctvrtek": "Čtvrtek: Zavřeno",
+      "saturday": "Sobota: Zavřeno",
+      "sunday": "Neděle: Zavřeno",
+      "adress": "Adresa: Kmochova 8, 150 00 Praha 5-Smíchov"
     },
     "findUs": "Najděte nás"
   },
   "gallery": {
     "heading": "Galerie",
-    "all": "Vše",
-    "haircuts": "Dámské střihy",
-    "maleHaircuts": "Pánské střihy",
-    "keratin": "Keratin",
-    "hotBotox": "Horký botox",
-    "coldRestoration": "Studená regenerace",
-    "coldBotox": "Studený botox",
+    "All": "Vše",
+    "womenHaircuts": "Dámské střihy",
+    "menHaircuts": "Pánské střihy",
+    "rootColoring": "Barvení odrostů",
+    "fullColoring": "Celkové barvení",
+    "toning": "Tónování",
+    "balayage": "Balayage",
     "polishing": "Leštění vlasů",
-    "bookNow": "Objednat se!"
+    "bookNow": "Rezervovat nyní"
   },
   "galleryItems": {
-    "haircuts": "Klasický střih s moderním nádechem.",
-    "coloring": "Odvážný balayage pro živý vzhled.",
-    "styling": "Klasické úpravy s moderními prvky.",
-    "hairCare": "Přirozená péče o vlasy s zdravým leskem.",
-    "Male Haircuts": "Pánské účesy",
-    "Cold Botox": "Studený botox"
+    "womenHaircuts": "Různé stylové dámské střihy pro všechny typy vlasů",
+    "menHaircuts": "Klasické a moderní pánské střihy, přesnost a styl",
+    "rootColoring": "Barvení odrostů pro svěží a rovnoměrný odstín",
+    "fullColoring": "Celkové barvení vlasů pro jasný a výrazný výsledek",
+    "toning": "Tónování vlasů pro požadovaný odstín a lesk",
+    "balayage": "Balayage pro přirozený přechod barvy a objem",
+    "polishing": "Odstranění rozštípených konečků pro hladké a upravené vlasy"
   },
   "main": {
     "greeting": "Viětajte v TaisiyaStyle - kde všechny střihy budou vlastně vlastně!",
     "services": "Prohlečte si nasé sluzby"
   },
   "bookingForm": {
-    "title": "Rezervujte se",
-    "loading": "Server se probouzí, první požadavek může trvat až 20 sekund.",
-    "haircuts": "Dámské střih",
-    "maleHaircuts": "Pánské střih",
-    "keratin": "Keratin",
-    "hotBotox": "Horký botox",
-    "coldRestoration": "Studená regenerace",
-    "coldBotox": "Studený botox",
+    "title": "Rezervujte si termín",
+    "loading": "Server se probouzí, první požadavek může trvat až 20 sekund",
+
+    "womenHaircuts": "Dámský střih",
+    "menHaircuts": "Pánský střih",
+    "rootColoring": "Barvení odrostů",
+    "fullColoring": "Celkové barvení",
+    "toning": "Tónování",
+    "balayage": "Balayage",
     "polishing": "Leštění vlasů"
   },
   "specialOffers": {
@@ -164,20 +162,22 @@
     "title": "Ceny",
     "service": "Služba",
     "price": "Cena",
-    "haircuts": "Dámský střih",
-    "maleHaircuts": "Pánský střih",
-    "keratin": "Keratinové ošetření/Hot Botox",
-    "hotBotox": "Hot Botox",
-    "coldRestoration": "Víceúrovňová studená obnova",
-    "coldBotox": "Nanokavitační/Studený Botox",
+
+    "womenHaircuts": "Dámský střih",
+    "menHaircuts": "Pánský střih",
+    "rootColoring": "Barvení odrostů",
+    "fullColoring": "Celkové barvení",
+    "toning": "Tónování",
+    "balayage": "Balayage",
     "polishing": "Leštění vlasů",
-    "splitEndsCut": "Střih konečků",
-    "priceHaircut": "350 CZK",
-    "priceKeratin": "1600-2000 CZK + 200 za hustotu vlasů",
-    "priceColdRestoration": "1400-1800 CZK + 200 za hustotu vlasů",
-    "priceColdBotox": "1300-1700 CZK + 200 za hustotu vlasů",
-    "pricePolishing": "400 CZK",
-    "priceSplitEndsCut": "300 CZK"
+
+    "priceWomenHaircut": "350 CZK",
+    "priceMenHaircut": "250 CZK",
+    "priceRootColoring": "600 CZK",
+    "priceFullColoring": "1200 CZK",
+    "priceToning": "500 CZK",
+    "priceBalayage": "1500 CZK",
+    "pricePolishing": "400 CZK"
   },
   "feedback": {
     "title": "Zpětné vazby",
@@ -267,7 +267,7 @@
     "save": "Uložit",
     "filterByService": "Filtrovat podle služby",
     "filterByDate": "Filtrovat podle data",
-    "sortBy": "Třídit podle",
+    "sortBy": "Řadit podle",
     "asc": "Vzestupně",
     "desc": "Sestupně",
     "date": "Datum",
@@ -279,14 +279,13 @@
     "confirmed": "Potvrzeno",
     "canceled": "Zrušeno",
     "pending": "Čeká",
-    "Haircut": "Střih",
-    "menHaircuts": "Pánské střihy",
-    "keratin": "Keratin",
-    "hotBotox": "Horký botox",
-    "coldRestoration": "Studená regenerace",
-    "coldBotox": "Studený botox",
-    "polishing": "Leštění",
-    "haircuts": "Dámské střihy",
+    "womenHaircuts": "Dámský střih",
+    "menHaircuts": "Pánský střih",
+    "rootColoring": "Barvení odrostů",
+    "fullColoring": "Celkové barvení",
+    "toning": "Tónování",
+    "balayage": "Balayage",
+    "polishing": "Leštění vlasů",
     "actions": "Akce",
     "editBooking": "Upravit rezervaci",
     "minutes": "minut"

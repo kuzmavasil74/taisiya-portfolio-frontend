@@ -163,12 +163,11 @@ const BookingsTable = () => {
             <option value="">{t('bookingTable.all')}</option>
             <option value="Haircut">{t('bookingTable.haircut')}</option>
             <option value="menHaircuts">{t('bookingTable.menhaircuts')}</option>
-            <option value="keratin">{t('bookingTable.keratin')}</option>
-            <option value="hotBotox">{t('bookingTable.hotbotox')}</option>
+
             <option value="coldRestoration">
               {t('bookingTable.coldrestoration')}
             </option>
-            <option value="coldBotox">{t('bookingTable.coldbotox')}</option>
+
             <option value="polishing">{t('bookingTable.polishing')}</option>
           </select>
         </label>
@@ -283,18 +282,9 @@ const BookingsTable = () => {
                 <option value="menHaircuts">
                   {t('bookingTable.menHaircuts')} 30{t('bookingTable.minutes')}
                 </option>
-                <option value="keratin">
-                  {t('bookingTable.keratin')} 90{t('bookingTable.minutes')}
-                </option>
-                <option value="hotBotox">
-                  {t('bookingTable.hotBotox')} 60{t('bookingTable.minutes')}
-                </option>
                 <option value="coldRestoration">
                   {t('bookingTable.coldRestoration')} 90{' '}
                   {t('bookingTable.minutes')}
-                </option>
-                <option value="coldBotox">
-                  {t('bookingTable.coldBotox')} 60{t('bookingTable.minutes')}
                 </option>
                 <option value="polishing">
                   {t('bookingTable.polishing')} 30 {t('bookingTable.minutes')}

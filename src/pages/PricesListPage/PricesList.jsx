@@ -6,14 +6,13 @@ const PricesList = () => {
   const { t } = useTranslation()
 
   const priceItems = [
-    { key: 'haircuts', price: 'priceHaircut' },
-    { key: 'maleHaircuts', price: 'priceHaircut' },
-    { key: 'keratin', price: 'priceKeratin' },
-    { key: 'hotBotox', price: 'priceKeratin' },
-    { key: 'coldRestoration', price: 'priceColdRestoration' },
-    { key: 'coldBotox', price: 'priceColdBotox' },
+    { key: 'womenHaircuts', price: 'priceWomenHaircut' },
+    { key: 'menHaircuts', price: 'priceMenHaircut' },
+    { key: 'rootColoring', price: 'priceRootColoring' },
+    { key: 'fullColoring', price: 'priceFullColoring' },
+    { key: 'toning', price: 'priceToning' },
+    { key: 'balayage', price: 'priceBalayage' },
     { key: 'polishing', price: 'pricePolishing' },
-    { key: 'splitEndsCut', price: 'priceSplitEndsCut' },
   ]
 
   return (

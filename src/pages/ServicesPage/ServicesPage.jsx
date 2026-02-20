@@ -7,7 +7,7 @@ function ServicesPage() {
 
   const services = [
     {
-      title: 'haircuts',
+      title: 'womenHaircuts',
       description: 'description',
       features: 'features',
       duration: 'duration',
@@ -19,25 +19,25 @@ function ServicesPage() {
       duration: 'duration',
     },
     {
-      title: 'keratin',
+      title: 'rootColoring',
       description: 'description',
       features: 'features',
       duration: 'duration',
     },
     {
-      title: 'hotBotox',
+      title: 'fullColoring',
       description: 'description',
       features: 'features',
       duration: 'duration',
     },
     {
-      title: 'coldRestoration',
+      title: 'toning',
       description: 'description',
       features: 'features',
       duration: 'duration',
     },
     {
-      title: 'coldBotox',
+      title: 'balayage',
       description: 'description',
       features: 'features',
       duration: 'duration',

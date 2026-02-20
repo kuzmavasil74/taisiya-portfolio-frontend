@@ -34,65 +34,58 @@
     "heading": "Our Services",
     "duration": "Duration",
 
-    "haircuts": {
+    "womenHaircuts": {
       "title": "Women's Haircuts",
-      "description": "Refresh your style with a personalized women's haircut, carefully crafted to highlight your features and suit your hair type. Whether you seek a trendy new look or just a neat trim, we ensure you leave feeling confident and radiant.",
-      "features": "Women's cuts, trimming ends, personalized consultation, styling advice.",
+      "description": "Refresh your look with a personalized haircut designed to highlight your features and hair type. Whether you want a trendy style or a simple trim — we guarantee confidence and shine.",
+      "features": "Women's haircuts, trimming ends, individual consultation, style advice.",
       "duration": "60"
     },
 
     "menHaircuts": {
       "title": "Men's Haircuts",
-      "description": "Experience precision and style with our men's haircuts, designed to match your personality and lifestyle. From classic cuts to modern fades, we offer a full range of styles for every man, ensuring a fresh and clean look every time.",
-      "features": "Precise lines, clipper or scissor cuts, beard trimming (optional).",
+      "description": "Experience precision and style with our men's haircuts, crafted according to your personality and lifestyle. Classic or modern — we ensure a fresh, neat appearance.",
+      "features": "Precise edging, clipper or scissor haircut, optional beard trim.",
       "duration": "30"
     },
 
-    "treatments": {
-      "title": "Hair Treatments",
-      "description": "Give your hair the care it deserves with our advanced treatments. We offer solutions for damaged, dry, or thinning hair, restoring strength, hydration, and vibrancy. Trust us to bring your hair back to life.",
-      "features": "Keratin treatment, botox therapy, scalp peeling, deep hydration.",
+    "rootColoring": {
+      "title": "Root Coloring",
+      "description": "Enhance your style with root coloring. Perfect for maintaining natural or refreshed hair color.",
+      "features": "Root coloring, shade selection, post-color care.",
+      "duration": "90"
+    },
+
+    "fullColoring": {
+      "title": "Full Hair Coloring",
+      "description": "Transform your look completely with full hair coloring. High-quality dye and professional application guarantee a vibrant, rich color.",
+      "features": "Full hair coloring, custom shade, hair structure protection.",
       "duration": "120"
     },
 
-    "keratin": {
-      "title": "Keratin Straightening",
-      "description": "Achieve silky-smooth, frizz-free hair with our professional keratin straightening. This treatment deeply nourishes and restructures hair, offering long-lasting smoothness, shine, and easier everyday maintenance.",
-      "features": "Intensive repair, mirror-like shine, protection against humidity, easier styling.",
-      "duration": "90"
-    },
-
-    "hotBotox": {
-      "title": "Hot Hair Botox",
-      "description": "Rejuvenate your hair with our hot botox treatment, delivering intense hydration and rebuilding the hair fiber from within. Ideal for dull, damaged hair needing a smoothing and revitalizing boost.",
-      "features": "Deep nourishment, elasticity, long-lasting shine, strength improvement.",
+    "toning": {
+      "title": "Hair Toning",
+      "description": "Balance the hair color after coloring or highlighting. Toning adds shine and intensity to the color.",
+      "features": "Color balance, enhance tone, shine and brightness.",
       "duration": "60"
     },
 
-    "coldRestoration": {
-      "title": "Multi-step Cold Restoration",
-      "description": "Gentle and effective, our multi-step cold restoration heals your hair without using heat. Ideal for sensitive, fragile strands, this treatment rebuilds hair structure, restores natural shine, and leaves your hair feeling incredibly soft.",
-      "features": "Gradual structure recovery, enhanced softness, improved manageability, natural volume.",
-      "duration": "90"
-    },
-
-    "coldBotox": {
-      "title": "Cold Botox",
-      "description": "Strengthen and protect fragile, weakened hair with our cold botox therapy. This powerful treatment hydrates, restores elasticity, and fortifies your hair against breakage, making it visibly healthier and more resilient.",
-      "features": "Moisture boost, elasticity recovery, hair fiber reinforcement, improved hair density.",
-      "duration": "60"
+    "balayage": {
+      "title": "Balayage / Highlights",
+      "description": "Create natural color transitions with balayage. Hair looks voluminous and shiny.",
+      "features": "Natural color transitions, volume, shine, stylish effect.",
+      "duration": "150"
     },
 
     "polishing": {
       "title": "Hair Polishing",
-      "description": "Breathe new life into your hair with our polishing service. We remove dry, split ends along the entire length without losing your hair's length, leaving you with incredibly smooth, silky, and well-groomed hair.",
-      "features": "Eliminates split ends, boosts shine, prevents future damage, enhances smoothness.",
+      "description": "Refresh your hair without losing length! Polishing removes split ends along the entire length, giving hair incredible smoothness and care.",
+      "features": "Split end removal, shine enhancement, breakage prevention, perfect smoothness.",
       "duration": "30"
     },
 
     "booking": {
-      "title": "Make an Appointment",
-      "button": "Book your visit today!"
+      "title": "Book a Service",
+      "button": "Book Now!"
     },
 
     "features": "Features:",
@@ -101,31 +94,35 @@
   "contactForm": {
     "openingHours": "Opening Hours",
     "schedule": {
-      "mondayToFriday": "Monday - Friday: 9:00 AM - 7:00 PM",
-      "saturday": "Saturday: 10:00 AM - 5:00 PM",
-      "sunday": "Sunday: Closed"
+      "mondayToFriday": "Monday -Wednesday - Friday: 9:00 AM - 8:00 PM",
+      "utery": "Tuesday: Closed",
+      "ctvrtek": "Thursday: Closed",
+      "saturday": "Saturday: Closed",
+      "sunday": "Sunday: Closed",
+      "adress": "Address: Kmochova 8, 150 00 Prague 5-Smichov"
     },
     "findUs": "Find Us"
   },
   "gallery": {
     "heading": "Gallery",
-    "all": "All",
-    "haircuts": "Women's Haircuts",
-    "maleHaircuts": "Male Haircuts",
-    "keratin": "Keratin",
-    "hotBotox": "Hot Botox",
-    "coldRestoration": "Cold Restoration",
-    "coldBotox": "Cold Botox",
+    "All": "All",
+    "womenHaircuts": "Women Haircuts",
+    "menHaircuts": "Men Haircuts",
+    "rootColoring": "Root Coloring",
+    "fullColoring": "Full Coloring",
+    "toning": "Toning",
+    "balayage": "Balayage",
     "polishing": "Hair Polishing",
-    "bookNow": "Book Now!"
+    "bookNow": "Book Now"
   },
   "galleryItems": {
-    "haircuts": "Classic haircut with modern touch.",
-    "coloring": "Bold balayage for a vibrant look.",
-    "styling": "Classic hair styling with a touch of modernity.",
-    "hairCare": "Natural hair care with a healthy glow.",
-    "Male Haircuts": "Classic haircut for men.",
-    "Cold Botox": "Stylish botox treatment."
+    "womenHaircuts": "Various stylish women haircuts for all hair types",
+    "menHaircuts": "Classic and modern men haircuts, precision and style",
+    "rootColoring": "Root coloring for a fresh and even tone",
+    "fullColoring": "Full hair coloring for a bright and vivid result",
+    "toning": "Hair toning for the desired shade and shine",
+    "balayage": "Balayage for a natural color transition and volume",
+    "polishing": "Removing split ends for smooth and well-groomed hair"
   },
   "footer": {
     "instagram": "Instagram",
@@ -143,12 +140,13 @@
   "bookingForm": {
     "title": "Book Your Appointment",
     "loading": "Server is waking up, first request may take up to 20 seconds",
-    "haircuts": "Women's Haircut",
-    "maleHaircuts": "Male Haircut",
-    "keratin": "Keratin",
-    "hotBotox": "Hot Botox",
-    "coldRestoration": "Cold Restoration",
-    "coldBotox": "Cold Botox",
+
+    "womenHaircuts": "Women's Haircut",
+    "menHaircuts": "Men's Haircut",
+    "rootColoring": "Root Coloring",
+    "fullColoring": "Full Coloring",
+    "toning": "Toning",
+    "balayage": "Balayage",
     "polishing": "Hair Polishing"
   },
   "specialOffers": {
@@ -171,20 +169,20 @@
     "title": "Prices",
     "service": "Service",
     "price": "Price",
-    "haircuts": "Women's Haircut",
-    "maleHaircuts": "Men's Haircut",
-    "keratin": "Keratin Treatment/Hot Botox",
-    "hotBotox": "Hot Botox",
-    "coldRestoration": "Multi-step Cold Restoration",
-    "coldBotox": "Nanocavitation/Cold Botox",
+    "womenHaircuts": "Women's Haircut",
+    "menHaircuts": "Men's Haircut",
+    "rootColoring": "Root Coloring",
+    "fullColoring": "Full Coloring",
+    "toning": "Toning",
+    "balayage": "Balayage",
     "polishing": "Hair Polishing",
-    "splitEndsCut": "Split Ends Cut",
-    "priceHaircut": "350 CZK",
-    "priceKeratin": "1600-2000 CZK + 200 for hair density",
-    "priceColdRestoration": "1400-1800 CZK + 200 for hair density",
-    "priceColdBotox": "1300-1700 CZK + 200 for hair density",
-    "pricePolishing": "400 CZK",
-    "priceSplitEndsCut": "300 CZK"
+    "priceWomenHaircut": "350 CZK",
+    "priceMenHaircut": "250 CZK",
+    "priceRootColoring": "600 CZK",
+    "priceFullColoring": "1200 CZK",
+    "priceToning": "500 CZK",
+    "priceBalayage": "1500 CZK",
+    "pricePolishing": "400 CZK"
   },
   "feedback": {
     "title": "Feedback",
@@ -290,10 +288,7 @@
     "pending": "Pending",
     "haircut": "Haircut",
     "menHaircuts": "Men haircuts",
-    "keratin": "Keratin",
-    "hotBotox": "Hot Botox",
     "coldRestoration": "Cold Restoration",
-    "coldBotox": "Cold Botox",
     "polishing": "Polishing"
   },
   "bookingTable": {
@@ -318,14 +313,13 @@
     "confirmed": "Confirmed",
     "canceled": "Canceled",
     "pending": "Pending",
-    "Haircut": "Haircut",
-    "menHaircuts": "Men haircuts",
-    "keratin": "Keratin",
-    "hotBotox": "Hot Botox",
-    "coldRestoration": "Cold Restoration",
-    "coldBotox": "Cold Botox",
-    "polishing": "Polishing",
-    "haircuts": "Haircuts",
+    "womenHaircuts": "Women's Haircut",
+    "menHaircuts": "Men's Haircut",
+    "rootColoring": "Root Coloring",
+    "fullColoring": "Full Coloring",
+    "toning": "Toning",
+    "balayage": "Balayage",
+    "polishing": "Hair Polishing",
     "actions": "Actions",
     "editBooking": "Edit booking",
     "minutes": "minutes"

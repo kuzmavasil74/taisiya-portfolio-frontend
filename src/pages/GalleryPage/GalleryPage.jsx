@@ -5,86 +5,70 @@ import styles from './GalleryPage.module.css'
 const galleryItems = [
   {
     id: 1,
-    category: 'Haircuts',
+    category: 'womenHaircuts',
     beforeImage: '/images/gallery/haircut-before.jpg',
     afterImage: '/images/gallery/haircut-after.jpg',
-    description: 'haircuts',
+    description: 'womenHaircuts',
+  },
+  {
+    id: 2,
+    category: 'menHaircuts',
+    beforeImage: '/images/gallery/male-haircut_1.jpg',
+    afterImage: '/images/gallery/male-haircut_1.jpg',
+    description: 'menHaircuts',
+  },
+  {
+    id: 3,
+    category: 'rootColoring',
+    beforeImage: '/images/gallery/root-coloring_1.jpg',
+    afterImage: '/images/gallery/root-coloring_1.jpg',
+    description: 'rootColoring',
+  },
+  {
+    id: 4,
+    category: 'fullColoring',
+    beforeImage: '/images/gallery/full-coloring_1.jpg',
+    afterImage: '/images/gallery/full-coloring_1.jpg',
+    description: 'fullColoring',
   },
   {
     id: 5,
-    category: 'Male Haircuts',
-    beforeImage: '/images/gallery/male-haircut_6.jpg',
-    afterImage: '/images/gallery/male-haircut_6.jpg',
-    description: 'Male Haircuts',
+    category: 'toning',
+    beforeImage: '/images/gallery/toning_1.jpg',
+    afterImage: '/images/gallery/toning_1.jpg',
+    description: 'toning',
   },
   {
     id: 6,
-    category: 'Male Haircuts',
-    beforeImage: '/images/gallery/male-haircut_1.jpg',
-    afterImage: '/images/gallery/male-haircut_1.jpg',
-    description: 'Male Haircuts',
+    category: 'balayage',
+    beforeImage: '/images/gallery/balayage_1.jpg',
+    afterImage: '/images/gallery/balayage_1.jpg',
+    description: 'balayage',
   },
   {
     id: 7,
-    category: 'Male Haircuts',
-    beforeImage: '/images/gallery/male-haircut_2.jpg',
-    afterImage: '/images/gallery/male-haircut_2.jpg',
-    description: 'Male Haircuts',
+    category: 'polishing',
+    beforeImage: '/images/gallery/polishing_1.jpg',
+    afterImage: '/images/gallery/polishing_1.jpg',
+    description: 'polishing',
   },
-  {
-    id: 8,
-    category: 'Male Haircuts',
-    beforeImage: '/images/gallery/male-haircut_3.jpg',
-    afterImage: '/images/gallery/male-haircut_3.jpg',
-    description: 'Male Haircuts',
-  },
-  {
-    id: 9,
-    category: 'Male Haircuts',
-    beforeImage: '/images/gallery/male-haircut_4.jpg',
-    afterImage: '/images/gallery/male-haircut_4.jpg',
-    description: 'Male Haircuts',
-  },
-  {
-    id: 10,
-    category: 'Male Haircuts',
-    beforeImage: '/images/gallery/male-haircut_5.jpg',
-    afterImage: '/images/gallery/male-haircut_5.jpg',
-    description: 'Male Haircuts',
-  },
-  {
-    id: 11,
-    category: 'Cold Botox',
-    beforeImage: '/images/gallery/Hair-Care_1.jpg',
-    afterImage: '/images/gallery/Hair-Care_1.jpg',
-    description: 'Cold Botox',
-  },
-  {
-    id: 12,
-    category: 'Cold Botox',
-    beforeImage: '/images/gallery/Hair-Care_2.jpg',
-    afterImage: '/images/gallery/Hair-Care_2.jpg',
-    description: 'Cold Botox',
-  },
-  {
-    id: 13,
-    category: 'Cold Botox',
-    beforeImage: '/images/gallery/Hair-Care_3.jpg',
-    afterImage: '/images/gallery/Hair-Care_3.jpg',
-    description: 'Cold Botox',
-  },
-  {
-    id: 14,
-    category: 'Cold Botox',
-    beforeImage: '/images/gallery/Hair-Care_4.jpg',
-    afterImage: '/images/gallery/Hair-Care_4.jpg',
-    description: 'Cold Botox',
-  },
+]
+
+const categories = [
+  'All',
+  'womenHaircuts',
+  'menHaircuts',
+  'rootColoring',
+  'fullColoring',
+  'toning',
+  'balayage',
+  'polishing',
 ]
 
 function GalleryPage() {
   const { t } = useTranslation()
   const [selectedCategory, setSelectedCategory] = useState('All')
+
   const filteredItems =
     selectedCategory === 'All'
       ? galleryItems
@@ -93,72 +77,19 @@ function GalleryPage() {
   return (
     <section className={styles.gallery}>
       <h2 className={styles.heading}>{t('gallery.heading')}</h2>
-      <div className={styles.filters}>
-        <button
-          className={`${styles.filterButton} ${
-            selectedCategory === 'All' ? styles.active : ''
-          }`}
-          onClick={() => setSelectedCategory('All')}
-        >
-          {t('gallery.all')}
-        </button>
-        <button
-          className={`${styles.filterButton} ${
-            selectedCategory === 'Haircuts' ? styles.active : ''
-          }`}
-          onClick={() => setSelectedCategory('Haircuts')}
-        >
-          {t('gallery.haircuts')}
-        </button>
-        <button
-          className={`${styles.filterButton} ${
-            selectedCategory === 'Male Haircuts' ? styles.active : ''
-          }`}
-          onClick={() => setSelectedCategory('Male Haircuts')}
-        >
-          {t('gallery.maleHaircuts')}
-        </button>
-        <button
-          className={`${styles.filterButton} ${
-            selectedCategory === 'Keratin' ? styles.active : ''
-          }`}
-          onClick={() => setSelectedCategory('Keratin')}
-        >
-          {t('gallery.keratin')}
-        </button>
-        <button
-          className={`${styles.filterButton} ${
-            selectedCategory === 'HotBotox' ? styles.active : ''
-          }`}
-          onClick={() => setSelectedCategory('HotBotox')}
-        >
-          {t('gallery.hotBotox')}
-        </button>
-        <button
-          className={`${styles.filterButton} ${
-            selectedCategory === 'Cold Restoration' ? styles.active : ''
-          }`}
-          onClick={() => setSelectedCategory('Cold Restoration')}
-        >
-          {t('gallery.coldRestoration')}
-        </button>
 
-        <button
-          className={`${styles.filterButton} ${
-            selectedCategory === 'Cold Botox' ? styles.active : ''
-          }`}
-          onClick={() => setSelectedCategory('Cold Botox')}
-        >
-          {t('gallery.coldBotox')}
-        </button>
-        <button
-          className={`${styles.filterButton} ${
-            selectedCategory === 'Hair Polishing' ? styles.active : ''
-          }`}
-          onClick={() => setSelectedCategory('Hair Polishing')}
-        >
-          {t('gallery.polishing')}
-        </button>
+      <div className={styles.filters}>
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            className={`${styles.filterButton} ${
+              selectedCategory === cat ? styles.active : ''
+            }`}
+            onClick={() => setSelectedCategory(cat)}
+          >
+            {t(`gallery.${cat}`)}
+          </button>
+        ))}
       </div>
 
       <div className={styles.galleryGrid}>

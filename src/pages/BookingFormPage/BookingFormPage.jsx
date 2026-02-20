@@ -13,12 +13,12 @@ function BookingFormPage() {
   const { t } = useTranslation()
 
   const services = [
-    { title: 'haircuts', duration: 60 },
+    { title: 'womenHaircuts', duration: 60 },
     { title: 'menHaircuts', duration: 30 },
-    { title: 'keratin', duration: 90 },
-    { title: 'hotBotox', duration: 60 },
-    { title: 'coldRestoration', duration: 90 },
-    { title: 'coldBotox', duration: 60 },
+    { title: 'rootColoring', duration: 90 },
+    { title: 'fullColoring', duration: 120 },
+    { title: 'toning', duration: 60 },
+    { title: 'balayage', duration: 150 },
     { title: 'polishing', duration: 30 },
   ]
 
@@ -100,7 +100,7 @@ function BookingFormPage() {
 
     const day = d.getDay()
     if (d < today) return false
-    if (day === 0 || day === 6) return false
+    if (day === 0 || day === 2 || day === 4 || day === 6) return false
     return true
   }
 
