@@ -123,3 +123,50 @@ form button:hover {
   color: #16a34a;
   font-weight: 500;
 }
+.loadingBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+
+  background: conic-gradient(
+    #ff6ec4 0%,
+    #7873f5 33%,
+    #4ade80 66%,
+    #ff6ec4 100%
+  );
+
+  mask: radial-gradient(farthest-side, transparent 70%, black 71%);
+  -webkit-mask: radial-gradient(farthest-side, transparent 70%, black 71%);
+
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.loadingText {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards 0.1s;
+}

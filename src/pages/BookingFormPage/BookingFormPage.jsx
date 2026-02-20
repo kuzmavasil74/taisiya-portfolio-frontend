@@ -192,7 +192,10 @@ function BookingFormPage() {
           <h3>Select Time</h3>
 
           {loadingSlots ? (
-            <p>{t('bookingForm.loading')}</p>
+            <div className={styles.loadingBox}>
+              <div className={styles.spinner}></div>
+              <p className={styles.loadingText}>{t('bookingForm.loading')}</p>
+            </div>
           ) : (
             <div className={styles.buttonContainer}>
               {availableSlots.map((slot) => {
