@@ -181,8 +181,8 @@ function BookingFormPage() {
           selected={selectedDate}
           onChange={setSelectedDate}
           dateFormat="yyyy-MM-dd"
-          dayClassName={getDayClassName}
-          filterDate={isDateSelectable} // 🔒 блокування минулих та вихідних
+          // dayClassName={getDayClassName}
+          // filterDate={isDateSelectable} // 🔒 блокування минулих та вихідних
           placeholderText="Select a date"
         />
       </div>
