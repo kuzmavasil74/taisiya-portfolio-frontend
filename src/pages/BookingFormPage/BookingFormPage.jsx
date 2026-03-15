@@ -184,14 +184,7 @@ function BookingFormPage() {
           calendarStartDay={1}
           // dayClassName={getDayClassName}
           // filterDate={isDateSelectable} // 🔒 блокування минулих та вихідних
-          popperModifiers={[
-            {
-              name: 'offset',
-              options: {
-                offset: [50, 10],
-              },
-            },
-          ]}
+          popperPlacement="bottom-end"
           placeholderText="Select a date"
         />
       </div>
