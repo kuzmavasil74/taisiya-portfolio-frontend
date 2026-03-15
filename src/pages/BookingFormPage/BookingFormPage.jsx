@@ -105,7 +105,7 @@ function BookingFormPage() {
 
     const day = d.getDay()
     if (d < today) return false
-    if (day === 0 || day === 2 || day === 4 || day === 6) return false
+    // if (day === 0 || day === 2 || day === 4 || day === 6) return false
     return true
   }
   const getDayClassName = (date) => {
