@@ -110,7 +110,8 @@ function BookingFormPage() {
   }
   const getDayClassName = (date) => {
     const day = date.getDay()
-    if (day === 0 || day === 2 || day === 4 || day === 6) {
+    // if (day === 0 || day === 2 || day === 4 || day === 6)
+    {
       return styles.disabledDay
     }
     return ''
