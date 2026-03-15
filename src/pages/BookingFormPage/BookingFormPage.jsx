@@ -96,26 +96,26 @@ function BookingFormPage() {
   const selectedBlocks = getSelectedBlocks(selectedSlots)
 
   /* === Disable past and weekend dates === */
-  const isDateSelectable = (date) => {
-    const today = new Date()
-    today.setHours(0, 0, 0, 0)
+  // const isDateSelectable = (date) => {
+  //   const today = new Date()
+  //   today.setHours(0, 0, 0, 0)
 
-    const d = new Date(date)
-    d.setHours(0, 0, 0, 0)
+  //   const d = new Date(date)
+  //   d.setHours(0, 0, 0, 0)
 
-    const day = d.getDay()
-    if (d < today) return false
-    // if (day === 0 || day === 2 || day === 4 || day === 6) return false
-    return true
-  }
-  const getDayClassName = (date) => {
-    const day = date.getDay()
-    // if (day === 0 || day === 2 || day === 4 || day === 6)
-    {
-      return styles.disabledDay
-    }
-    return ''
-  }
+  //   const day = d.getDay()
+  //   if (d < today) return false
+  //   // if (day === 0 || day === 2 || day === 4 || day === 6) return false
+  //   return true
+  // }
+  // const getDayClassName = (date) => {
+  //   const day = date.getDay()
+  //   if (day === 0 || day === 2 || day === 4 || day === 6)
+  //   {
+  //     return styles.disabledDay
+  //   }
+  //   return ''
+  // }
   /* === Submit === */
   const handleSubmit = async (e) => {
     e.preventDefault()
