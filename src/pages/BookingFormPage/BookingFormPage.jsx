@@ -122,14 +122,14 @@ function BookingFormPage() {
     if (!selectedService || !selectedDate || !selectedSlots.length) return
 
     const sortedSlots = [...selectedSlots].sort()
-    const bookingDate = `${selectedDate.toISOString().split('T')[0]}T${
-      sortedSlots[0]
-    }:00`
+    const [hour, minute] = sortedSlots[0].split(':').map(Number)
+    const bookingDate = new Date(selectedDate)
+    bookingDate.setHours(hour, minute, 0, 0)
 
     try {
       const res = await axios.post(`${API_URL}/bookings`, {
         service: selectedService.title,
-        date: bookingDate,
+        date: bookingDate.toISOString(),
         duration: selectedSlots.length * SLOT_INTERVAL,
         name,
         phone,
