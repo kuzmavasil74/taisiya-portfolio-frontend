@@ -95,27 +95,27 @@ function BookingFormPage() {
 
   const selectedBlocks = getSelectedBlocks(selectedSlots)
 
-  /* === Disable past and weekend dates === */
-  // const isDateSelectable = (date) => {
-  //   const today = new Date()
-  //   today.setHours(0, 0, 0, 0)
+  // === Datepicker ===
+  const isDateSelectable = (date) => {
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
 
-  //   const d = new Date(date)
-  //   d.setHours(0, 0, 0, 0)
+    const d = new Date(date)
+    d.setHours(0, 0, 0, 0)
 
-  //   const day = d.getDay()
-  //   if (d < today) return false
-  //   // if (day === 0 || day === 2 || day === 4 || day === 6) return false
-  //   return true
-  // }
-  // const getDayClassName = (date) => {
-  //   const day = date.getDay()
-  //   if (day === 0 || day === 2 || day === 4 || day === 6)
-  //   {
-  //     return styles.disabledDay
-  //   }
-  //   return ''
-  // }
+    const day = d.getDay()
+    if (d < today) return false
+    if (day === 0 || day === 2 || day === 4 || day === 6) return false
+    return true
+  }
+  const getDayClassName = (date) => {
+    const day = date.getDay()
+    if (day === 0 || day === 2 || day === 4 || day === 6) {
+      return styles.disabledDay
+    }
+    return ''
+  } // End
+
   /* === Submit === */
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -182,8 +182,8 @@ function BookingFormPage() {
           onChange={setSelectedDate}
           dateFormat="yyyy-MM-dd"
           calendarStartDay={1}
-          // dayClassName={getDayClassName}
-          // filterDate={isDateSelectable} // 🔒 блокування минулих та вихідних
+          dayClassName={getDayClassName} // 🔒 блокування минулих та вихідних
+          filterDate={isDateSelectable} // 🔒 блокування минулих та вихідних
           popperPlacement="bottom-end"
           placeholderText="Select a date"
         />
