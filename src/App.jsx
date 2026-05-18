@@ -29,16 +29,17 @@ import AdminStats from './pages/AdminPanel/components/AdminStats/AdminStats.jsx'
 import BookingTable from './pages/AdminPanel/components/BookingsTable/BookingsTable.jsx'
 import { useEffect } from 'react'
 import API_URL from './utills/config.js'
+import RegisterPage from './pages/RegisterPage/RegisterPage'
 function App() {
-  const { i18 } = useTranslation()
+  const { i18n } = useTranslation()
 
   const changeLanguage = (lang) => {
-    i18.changeLanguage(lang)
+    i18n.changeLanguage(lang)
   }
 
   return (
     <Router>
-      <Header changeLanguage={changeLanguage} />
+      <Header />
       <div className="App">
         <Routes>
           <Route path="/" element={<MainPage />} />
@@ -55,6 +56,7 @@ function App() {
             element={<Terms_and_Conditions />}
           />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route
             path="/dashboard"
             element={

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styles from './DashboardBookingList.module.css'
 import { useTranslation } from 'react-i18next'
 import API_URL from '../../../../utills/config.js'
+import apiFetch from '../../../../utills/api.js'
 
 const DashboardBookingList = () => {
   const { t } = useTranslation()
@@ -18,9 +19,7 @@ const DashboardBookingList = () => {
       try {
         if (!token) throw new Error('No token')
 
-        const res = await fetch(`${API_URL}/bookings/all`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        const res = await apiFetch('/bookings/all')
 
         if (!res.ok) {
           const data = await res.json()

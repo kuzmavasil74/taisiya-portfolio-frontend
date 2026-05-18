@@ -7,7 +7,7 @@ const PrivateRoute = ({ children, role }) => {
   const user = JSON.parse(localStorage.getItem('user'))
 
   if (!token) {
-    return <Navigate to="/admin" replace />
+    return <Navigate to="/login" replace />
   }
 
   if (role && user.role !== role) {

@@ -13,12 +13,12 @@ function BookingFormPage() {
   const { t } = useTranslation()
 
   const services = [
-    { title: 'womenHaircuts', duration: 60 },
+    { title: 'haircuts', duration: 60 },
     { title: 'menHaircuts', duration: 30 },
-    { title: 'rootColoring', duration: 90 },
-    { title: 'fullColoring', duration: 120 },
-    { title: 'toning', duration: 60 },
-    { title: 'balayage', duration: 150 },
+    { title: 'keratin', duration: 90 },
+    { title: 'hotBotox', duration: 60 },
+    { title: 'coldRestoration', duration: 90 },
+    { title: 'coldBotox', duration: 60 },
     { title: 'polishing', duration: 30 },
   ]
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import styles from './AdminUsersList.module.css'
 import API_URL from '../../../../utills/config.js'
-
+import apiFetch from '../../../../utills/api.js'
 const AdminUsersList = () => {
   const [users, setUsers] = useState([])
   const [search, setSearch] = useState('')
@@ -16,9 +16,7 @@ const AdminUsersList = () => {
     const fetchUsers = async () => {
       try {
         setLoading(true)
-        const res = await fetch(`${API_URL}/users`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        const res = await apiFetch('/users')
 
         if (!res.ok) {
           const data = await res.json()

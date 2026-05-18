@@ -25,6 +25,12 @@ const DashboardProfile = () => {
         <span className={styles.label}>{t('dashboard.profile.role')}:</span>
         <span>{t(`dashboard.role-names.${user.role}`)}</span>
       </div>
+      {user.phone && (
+        <div className={styles.row}>
+          <span className={styles.label}>{t('dashboard.profile.phone')}:</span>
+          <span>{user.phone}</span>
+        </div>
+      )}
     </div>
   )
 }

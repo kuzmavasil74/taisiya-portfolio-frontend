@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import styles from './LoginPage.module.css'
 import API_URL from '../../utills/config.js'
+import { useNavigate, Link } from 'react-router-dom'
 
 const LoginPage = () => {
   const { t } = useTranslation()
@@ -82,6 +82,9 @@ const LoginPage = () => {
           {loading ? t('loginPage.loading') : t('loginPage.login')}
         </button>
       </form>
+      <p style={{ marginTop: 16, fontSize: 14 }}>
+        Немає акаунту? <Link to="/register">Зареєструватися</Link>
+      </p>
     </div>
   )
 }
