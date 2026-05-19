@@ -15,7 +15,7 @@ function BookingFormPage() {
   const services = [
     { title: 'womenHaircut', duration: 60 },
     { title: 'menHaircut', duration: 30 },
-    { title: 'menHaircutBeard', duration: 45 },
+    { title: 'menHaircutBeard', duration: 60 },
     { title: 'balayage', duration: 180 },
     { title: 'airtouch', duration: 240 },
     { title: 'exitBlack', duration: 240 },
