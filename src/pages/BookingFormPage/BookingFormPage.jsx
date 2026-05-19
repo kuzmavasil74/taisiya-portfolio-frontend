@@ -168,7 +168,7 @@ function BookingFormPage() {
                 .filter(Boolean)
                 .join(' ')}
             >
-              {t(`bookingTable.${service.title}`)} ({service.duration} min)
+              {t(`bookingForm.${service.title}`)} ({service.duration} min)
             </button>
           ))}
         </div>
