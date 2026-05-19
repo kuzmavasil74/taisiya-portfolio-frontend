@@ -134,14 +134,20 @@
   "bookingForm": {
     "title": "Rezervujte si termín",
     "loading": "Server se probouzí, první požadavek může trvat až 20 sekund",
-
-    "womenHaircuts": "Dámský střih",
-    "menHaircuts": "Pánský střih",
-    "rootColoring": "Barvení odrostů",
-    "fullColoring": "Celkové barvení",
+    "womenHaircut": "Dámský střih",
+    "menHaircut": "Pánský střih",
+    "menHaircutBeard": "Pánský střih + vousy",
+    "balayage": "Melíry / Balayage",
+    "airtouch": "Airtouch",
+    "exitBlack": "Odchod z černé",
+    "brazilianColoring": "Brazilské barvení",
     "toning": "Tónování",
-    "balayage": "Balayage",
-    "polishing": "Leštění vlasů"
+    "restorationShort": "Obnova (po ramena)",
+    "restorationMedium": "Obnova (po lopatky)",
+    "restorationLong": "Obnova (po pas)",
+    "curlingShort": "Ondulace (po ramena)",
+    "curlingMedium": "Ondulace (po lopatky)",
+    "curlingLong": "Ondulace (po pas)"
   },
   "specialOffers": {
     "title": "Speciální nabídky",

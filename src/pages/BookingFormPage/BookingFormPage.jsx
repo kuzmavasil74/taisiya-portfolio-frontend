@@ -13,13 +13,20 @@ function BookingFormPage() {
   const { t } = useTranslation()
 
   const services = [
-    { title: 'haircuts', duration: 60 },
-    { title: 'menHaircuts', duration: 30 },
-    { title: 'keratin', duration: 90 },
-    { title: 'hotBotox', duration: 60 },
-    { title: 'coldRestoration', duration: 90 },
-    { title: 'coldBotox', duration: 60 },
-    { title: 'polishing', duration: 30 },
+    { title: 'womenHaircut', duration: 60 },
+    { title: 'menHaircut', duration: 30 },
+    { title: 'menHaircutBeard', duration: 45 },
+    { title: 'balayage', duration: 180 },
+    { title: 'airtouch', duration: 240 },
+    { title: 'exitBlack', duration: 240 },
+    { title: 'brazilianColoring', duration: 180 },
+    { title: 'toning', duration: 60 },
+    { title: 'restorationShort', duration: 120 },
+    { title: 'restorationMedium', duration: 150 },
+    { title: 'restorationLong', duration: 180 },
+    { title: 'curlingShort', duration: 120 },
+    { title: 'curlingMedium', duration: 150 },
+    { title: 'curlingLong', duration: 180 },
   ]
 
   const [selectedService, setSelectedService] = useState(null)

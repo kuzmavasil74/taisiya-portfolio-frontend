@@ -140,14 +140,20 @@
   "bookingForm": {
     "title": "Book Your Appointment",
     "loading": "Server is waking up, first request may take up to 20 seconds",
-
-    "womenHaircuts": "Women's Haircut",
-    "menHaircuts": "Men's Haircut",
-    "rootColoring": "Root Coloring",
-    "fullColoring": "Full Coloring",
+    "womenHaircut": "Women's Haircut",
+    "menHaircut": "Men's Haircut",
+    "menHaircutBeard": "Men's Haircut + Beard",
+    "balayage": "Balayage / Highlights",
+    "airtouch": "Airtouch",
+    "exitBlack": "Exit from Black",
+    "brazilianColoring": "Brazilian Coloring",
     "toning": "Toning",
-    "balayage": "Balayage",
-    "polishing": "Hair Polishing"
+    "restorationShort": "Restoration (shoulders)",
+    "restorationMedium": "Restoration (mid-back)",
+    "restorationLong": "Restoration (waist)",
+    "curlingShort": "Curling (shoulders)",
+    "curlingMedium": "Curling (mid-back)",
+    "curlingLong": "Curling (waist)"
   },
   "specialOffers": {
     "title": "Special Offers",
