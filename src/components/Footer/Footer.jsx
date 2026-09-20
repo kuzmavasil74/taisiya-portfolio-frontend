@@ -22,7 +22,7 @@ function Footer() {
           </a>
           <a
             className={styles['social-media-link']}
-            href="https://facebook.com"
+            href="https://www.facebook.com/taja.khudyn.7"
             target="_blank"
             rel="noreferrer"
           >
