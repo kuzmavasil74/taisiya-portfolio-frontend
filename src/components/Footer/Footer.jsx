@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import styles from './Footer.module.css'
 import { Link } from 'react-router-dom'
 import { FaInstagram, FaFacebook } from 'react-icons/fa'
-import { MdEmail, MdPhone } from 'react-icons/md'
+import { MdPhone } from 'react-icons/md'
 
 function Footer() {
   const { t } = useTranslation()
@@ -30,12 +30,6 @@ function Footer() {
           </a>
           <a className={styles['social-media-link']} href="tel:+420608039692">
             <MdPhone />
-          </a>
-          <a
-            className={styles['social-media-link']}
-            href="mailto:taisiyastyle@example.com"
-          >
-            <MdEmail />
           </a>
         </div>
 
