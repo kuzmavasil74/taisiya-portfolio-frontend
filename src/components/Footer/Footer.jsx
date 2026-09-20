@@ -14,7 +14,7 @@ function Footer() {
         <div className={styles['social-media']}>
           <a
             className={styles['social-media-link']}
-            href="https://instagram.com"
+            href="https://www.instagram.com/glossy.bytais/"
             target="_blank"
             rel="noreferrer"
           >
