@@ -64,7 +64,13 @@
     "toning": "Tónování",
     "balayage": "Balayage",
     "polishing": "Leštění vlasů",
-    "bookNow": "Rezervovat nyní"
+    "bookNow": "Rezervovat nyní",
+    "airtouch": "Airtouch",
+    "exitBlack": "Odbarvení z černé",
+    "brazilianColoring": "Brazilské barvení",
+    "restoration": "Obnova vlasů",
+    "curling": "Kadeření",
+    "styleExample": "Ukázka stylu"
   },
   "galleryItems": {
     "womenHaircuts": "Různé stylové dámské střihy pro všechny typy vlasů",
@@ -73,7 +79,13 @@
     "fullColoring": "Celkové barvení vlasů pro jasný a výrazný výsledek",
     "toning": "Tónování vlasů pro požadovaný odstín a lesk",
     "balayage": "Balayage pro přirozený přechod barvy a objem",
-    "polishing": "Odstranění rozštípených konečků pro hladké a upravené vlasy"
+    "polishing": "Odstranění rozštípených konečků pro hladké a upravené vlasy",
+    "menHaircutBeard": "Přesný pánský střih s upravenou bradkou",
+    "airtouch": "Technika Airtouch pro jemné, přirozeně vypadající melíry",
+    "exitBlack": "Šetrné odbarvení z tmavé barvy pro světlejší, rovnoměrný podklad",
+    "brazilianColoring": "Výrazné, sytobarevné barvení pro odvážný vzhled",
+    "restoration": "Hluboká obnova poškozených, křehkých vlasů",
+    "curling": "Dlouhotrvající lokny pro objem a texturu"
   },
   "main": {
     "greeting": "Viětajte v TaisiyaStyle - kde všechny střihy budou vlastně vlastně!",

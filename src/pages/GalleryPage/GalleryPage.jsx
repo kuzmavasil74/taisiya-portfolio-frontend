@@ -72,6 +72,50 @@ const galleryItems = [
     image: '/images/gallery/Hair-Care_4.jpg',
     description: 'polishing',
   },
+  {
+    id: 12,
+    category: 'menHaircuts',
+    image: '/images/gallery/stock-beard.jpg',
+    description: 'menHaircutBeard',
+    isStock: true,
+  },
+  // Для цих послуг у нас ще немає власних фото робіт — це ілюстративні
+  // стокові фото, позначені як приклад стилю, а не наша реальна робота.
+  {
+    id: 13,
+    category: 'airtouch',
+    image: '/images/gallery/stock-airtouch.jpg',
+    description: 'airtouch',
+    isStock: true,
+  },
+  {
+    id: 14,
+    category: 'exitBlack',
+    image: '/images/gallery/stock-exit-black.jpg',
+    description: 'exitBlack',
+    isStock: true,
+  },
+  {
+    id: 15,
+    category: 'brazilianColoring',
+    image: '/images/gallery/stock-brazilian-coloring.jpg',
+    description: 'brazilianColoring',
+    isStock: true,
+  },
+  {
+    id: 16,
+    category: 'restoration',
+    image: '/images/gallery/stock-restoration.jpg',
+    description: 'restoration',
+    isStock: true,
+  },
+  {
+    id: 17,
+    category: 'curling',
+    image: '/images/gallery/stock-curling.jpg',
+    description: 'curling',
+    isStock: true,
+  },
 ]
 
 const categories = [
@@ -82,6 +126,11 @@ const categories = [
   'toning',
   'balayage',
   'polishing',
+  'airtouch',
+  'exitBlack',
+  'brazilianColoring',
+  'restoration',
+  'curling',
 ]
 
 function GalleryPage() {
@@ -137,6 +186,11 @@ function GalleryPage() {
                   className={styles.singleImage}
                   loading="lazy"
                 />
+              )}
+              {item.isStock && (
+                <span className={styles.stockBadge}>
+                  {t('gallery.styleExample')}
+                </span>
               )}
             </div>
             <p className={styles.description}>

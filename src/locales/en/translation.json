@@ -58,7 +58,13 @@
     "toning": "Toning",
     "balayage": "Balayage",
     "polishing": "Hair Polishing",
-    "bookNow": "Book Now"
+    "bookNow": "Book Now",
+    "airtouch": "Airtouch",
+    "exitBlack": "Exit from Black",
+    "brazilianColoring": "Brazilian Coloring",
+    "restoration": "Restoration",
+    "curling": "Curling",
+    "styleExample": "Style example"
   },
   "galleryItems": {
     "womenHaircuts": "Various stylish women haircuts for all hair types",
@@ -67,7 +73,13 @@
     "fullColoring": "Full hair coloring for a bright and vivid result",
     "toning": "Hair toning for the desired shade and shine",
     "balayage": "Balayage for a natural color transition and volume",
-    "polishing": "Removing split ends for smooth and well-groomed hair"
+    "polishing": "Removing split ends for smooth and well-groomed hair",
+    "menHaircutBeard": "Precision men’s haircut with a groomed beard trim",
+    "airtouch": "Airtouch technique for soft, natural-looking highlights",
+    "exitBlack": "Gently lifting out dark box-dye for a lighter, even base",
+    "brazilianColoring": "Bold, vivid color for a striking statement look",
+    "restoration": "Deep restoration treatment for damaged, brittle hair",
+    "curling": "Long-lasting curls for volume and texture"
   },
   "footer": {
     "instagram": "Instagram",
