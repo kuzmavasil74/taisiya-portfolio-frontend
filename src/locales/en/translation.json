@@ -353,5 +353,10 @@
     "installPrompt": "Install Taisiya Style for quick booking access",
     "install": "Install",
     "dismiss": "Not now"
+  },
+  "adminFeedback": {
+    "delete": "Delete",
+    "deleteError": "Failed to delete feedback",
+    "confirmDelete": "Are you sure you want to delete the feedback from {{name}}?"
   }
 }

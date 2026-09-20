@@ -11,6 +11,11 @@
     'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.error {
+  color: #ff3b30;
+  font-weight: 500;
+}
+
 /* =====================
    TABS
 ===================== */

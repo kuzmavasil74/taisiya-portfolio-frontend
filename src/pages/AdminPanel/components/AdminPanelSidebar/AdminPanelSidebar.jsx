@@ -28,6 +28,12 @@ const AdminPanelSidebar = () => {
       >
         Bookings confirmation
       </NavLink>
+      <NavLink
+        to="feedback"
+        className={({ isActive }) => (isActive ? 'active' : '')}
+      >
+        Feedback
+      </NavLink>
     </nav>
   )
 }

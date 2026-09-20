@@ -332,5 +332,10 @@
     "installPrompt": "Встановіть Taisiya Style для швидкого доступу до бронювання",
     "install": "Встановити",
     "dismiss": "Не зараз"
+  },
+  "adminFeedback": {
+    "delete": "Видалити",
+    "deleteError": "Не вдалося видалити відгук",
+    "confirmDelete": "Ви впевнені, що хочете видалити відгук від {{name}}?"
   }
 }

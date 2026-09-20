@@ -326,5 +326,10 @@
     "installPrompt": "Nainstalujte si Taisiya Style pro rychlý přístup k rezervacím",
     "install": "Instalovat",
     "dismiss": "Teď ne"
+  },
+  "adminFeedback": {
+    "delete": "Smazat",
+    "deleteError": "Smazání recenze se nezdařilo",
+    "confirmDelete": "Opravdu chcete smazat recenzi od {{name}}?"
   }
 }

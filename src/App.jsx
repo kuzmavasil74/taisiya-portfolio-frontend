@@ -27,6 +27,7 @@ import AdminUsersList from './pages/AdminPanel/components/AdminUsersList/AdminUs
 import AdminBookingList from './pages/AdminPanel/components/AdminBookingList/AdminBookingList.jsx'
 import AdminStats from './pages/AdminPanel/components/AdminStats/AdminStats.jsx'
 import BookingTable from './pages/AdminPanel/components/BookingsTable/BookingsTable.jsx'
+import AdminFeedbackList from './pages/AdminPanel/components/AdminFeedbackList/AdminFeedbackList.jsx'
 import { useEffect } from 'react'
 import API_URL from './utills/config.js'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
@@ -85,6 +86,7 @@ function App() {
             <Route path="bookings" element={<AdminBookingList />} />
             <Route path="statistics" element={<AdminStats />} />
             <Route path="table" element={<BookingTable />} />
+            <Route path="feedback" element={<AdminFeedbackList />} />
           </Route>
           <Route path="/forbidden" element={<ForbiddenPage />} />
           <Route path="*" element={<MainPage />} />
