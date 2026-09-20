@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './GalleryPage.module.css'
 
+// Реальні фото робіт. Для жіночої стрижки є справжня пара до/після — решта
+// показані як окремі фото результату (окремих "до" знімків для них немає).
 const galleryItems = [
   {
     id: 1,
@@ -13,43 +15,61 @@ const galleryItems = [
   {
     id: 2,
     category: 'menHaircuts',
-    beforeImage: '/images/gallery/male-haircut_1.jpg',
-    afterImage: '/images/gallery/male-haircut_1.jpg',
+    image: '/images/gallery/male-haircut_1.jpg',
     description: 'menHaircuts',
   },
   {
     id: 3,
-    category: 'rootColoring',
-    beforeImage: '/images/gallery/root-coloring_1.jpg',
-    afterImage: '/images/gallery/root-coloring_1.jpg',
-    description: 'rootColoring',
+    category: 'menHaircuts',
+    image: '/images/gallery/male-haircut_2.jpg',
+    description: 'menHaircuts',
   },
   {
     id: 4,
-    category: 'fullColoring',
-    beforeImage: '/images/gallery/full-coloring_1.jpg',
-    afterImage: '/images/gallery/full-coloring_1.jpg',
-    description: 'fullColoring',
+    category: 'menHaircuts',
+    image: '/images/gallery/male-haircut_3.jpg',
+    description: 'menHaircuts',
   },
   {
     id: 5,
-    category: 'toning',
-    beforeImage: '/images/gallery/toning_1.jpg',
-    afterImage: '/images/gallery/toning_1.jpg',
-    description: 'toning',
+    category: 'menHaircuts',
+    image: '/images/gallery/male-haircut_4.jpg',
+    description: 'menHaircuts',
   },
   {
     id: 6,
-    category: 'balayage',
-    beforeImage: '/images/gallery/balayage_1.jpg',
-    afterImage: '/images/gallery/balayage_1.jpg',
-    description: 'balayage',
+    category: 'menHaircuts',
+    image: '/images/gallery/male-haircut_5.jpg',
+    description: 'menHaircuts',
   },
   {
     id: 7,
+    category: 'menHaircuts',
+    image: '/images/gallery/male-haircut_6.jpg',
+    description: 'menHaircuts',
+  },
+  {
+    id: 8,
+    category: 'toning',
+    image: '/images/gallery/Hair-Care_1.jpg',
+    description: 'toning',
+  },
+  {
+    id: 9,
+    category: 'rootColoring',
+    image: '/images/gallery/Hair-Care_2.jpg',
+    description: 'rootColoring',
+  },
+  {
+    id: 10,
+    category: 'balayage',
+    image: '/images/gallery/Hair-Care_3.jpg',
+    description: 'balayage',
+  },
+  {
+    id: 11,
     category: 'polishing',
-    beforeImage: '/images/gallery/polishing_1.jpg',
-    afterImage: '/images/gallery/polishing_1.jpg',
+    image: '/images/gallery/Hair-Care_4.jpg',
     description: 'polishing',
   },
 ]
@@ -59,7 +79,6 @@ const categories = [
   'womenHaircuts',
   'menHaircuts',
   'rootColoring',
-  'fullColoring',
   'toning',
   'balayage',
   'polishing',
@@ -96,16 +115,29 @@ function GalleryPage() {
         {filteredItems.map((item) => (
           <div key={item.id} className={styles.galleryItem}>
             <div className={styles.imageContainer}>
-              <img
-                src={item.beforeImage}
-                alt={`Before - ${item.category}`}
-                className={styles.beforeImage}
-              />
-              <img
-                src={item.afterImage}
-                alt={`After - ${item.category}`}
-                className={styles.afterImage}
-              />
+              {item.beforeImage ? (
+                <>
+                  <img
+                    src={item.beforeImage}
+                    alt={`Before - ${item.category}`}
+                    className={styles.beforeImage}
+                    loading="lazy"
+                  />
+                  <img
+                    src={item.afterImage}
+                    alt={`After - ${item.category}`}
+                    className={styles.afterImage}
+                    loading="lazy"
+                  />
+                </>
+              ) : (
+                <img
+                  src={item.image}
+                  alt={item.category}
+                  className={styles.singleImage}
+                  loading="lazy"
+                />
+              )}
             </div>
             <p className={styles.description}>
               {t(`galleryItems.${item.description}`)}
