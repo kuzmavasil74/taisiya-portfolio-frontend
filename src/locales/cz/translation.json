@@ -89,7 +89,9 @@
   },
   "main": {
     "greeting": "Viětajte v TaisiyaStyle - kde všechny střihy budou vlastně vlastně!",
-    "services": "Prohlečte si nasé sluzby"
+    "services": "Prohlečte si nasé sluzby",
+    "qrAlt": "QR kód na stránku online rezervace",
+    "qrCaption": "Naskenujte a zarezervujte si termín"
   },
   "bookingForm": {
     "title": "Rezervujte si termín",

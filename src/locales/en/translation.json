@@ -92,7 +92,9 @@
   },
   "main": {
     "greeting": "Welcome to TaisiyaStyle - where every haircut becomes a masterpiece!",
-    "services": "Explore Our Services"
+    "services": "Explore Our Services",
+    "qrAlt": "QR code linking to the online booking page",
+    "qrCaption": "Scan to book your appointment"
   },
   "bookingForm": {
     "title": "Book Your Appointment",

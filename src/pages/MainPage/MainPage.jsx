@@ -99,6 +99,15 @@ function Main() {
         </div>
       </div>
       <SpecialOffers />
+      <div className={styles.qrSection}>
+        <img
+          className={styles.qrImage}
+          src="/images/booking-qr.png"
+          alt={t('main.qrAlt')}
+          loading="lazy"
+        />
+        <p className={styles.qrCaption}>{t('main.qrCaption')}</p>
+      </div>
       {/* <FeedbackList /> */}
     </>
   )
