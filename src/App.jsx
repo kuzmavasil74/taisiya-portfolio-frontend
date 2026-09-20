@@ -30,6 +30,7 @@ import BookingTable from './pages/AdminPanel/components/BookingsTable/BookingsTa
 import { useEffect } from 'react'
 import API_URL from './utills/config.js'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
+import InstallPrompt from './components/InstallPrompt/InstallPrompt.jsx'
 function App() {
   const { i18n } = useTranslation()
 
@@ -90,6 +91,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
+      <InstallPrompt />
     </Router>
   )
 }

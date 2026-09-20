@@ -28,3 +28,18 @@
   color: white;
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  .nav {
+    height: auto;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 12px;
+  }
+
+  .nav a {
+    margin-bottom: 0;
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+}

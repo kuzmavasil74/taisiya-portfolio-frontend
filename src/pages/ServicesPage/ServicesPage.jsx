@@ -16,6 +16,11 @@ function ServicesPage() {
           <div className={styles.category} key={service.key}>
             <h3 className={styles.subheading}>
               {t(`bookingForm.${service.key}`)}
+              {service.isPackage && (
+                <span className={styles.packageBadge}>
+                  {t('bookingForm.packageBadge')}
+                </span>
+              )}
             </h3>
             <p className={styles.features}>
               <strong>{t('services.duration')}</strong>{' '}

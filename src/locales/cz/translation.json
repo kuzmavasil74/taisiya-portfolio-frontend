@@ -111,7 +111,21 @@
     "telegramReminder": "Dostávat připomínky v Telegramu",
     "durationMinutes_one": "{{count}} minuta",
     "durationMinutes_few": "{{count}} minuty",
-    "durationMinutes_other": "{{count}} minut"
+    "durationMinutes_other": "{{count}} minut",
+    "cutAndToning": "Kombo: Dámský střih + Tónování",
+    "balayageAndToning": "Kombo: Balayage + Tónování",
+    "packageBadge": "Kombo nabídka",
+    "noAvailability": "Na tuto službu tento den nejsou volné termíny. Zanechte kontakt a ozveme se, jakmile se termín uvolní.",
+    "joinWaitlist": "Přidat se na čekací listinu",
+    "waitlistJoined": "Jste na čekací listině — ozveme se, jakmile se termín uvolní!",
+    "allFailed": "Žádné z vybraných dat se nepodařilo rezervovat. Zkuste jiná data.",
+    "confirmedSeries": "Rezervováno {{success}} z {{total}} termínů série!",
+    "repeat": "Opakovat tuto rezervaci",
+    "everyNWeeks_one": "Každý týden",
+    "everyNWeeks_few": "Každé {{count}} týdny",
+    "everyNWeeks_other": "Každých {{count}} týdnů",
+    "nTimes_one": "{{count}}krát",
+    "nTimes_other": "{{count}}krát"
   },
   "specialOffers": {
     "title": "Speciální nabídky",
@@ -126,7 +140,9 @@
     "offer3": {
       "title": "Bonus za doporučení",
       "description": "Přiveďte přítele a získejte bonus na příští návštěvu!"
-    }
+    },
+    "signUp": "Zaregistrujte se a začněte sbírat body",
+    "viewMyPoints": "Zobrazit mé body"
   },
   "pricesList": {
     "title": "Ceny",
@@ -138,7 +154,15 @@
     "name": "Jmeno",
     "email": "Email",
     "message": "Zprava",
-    "send": "Odeslat"
+    "send": "Odeslat",
+    "error": "Nepodařilo se načíst recenze",
+    "empty": "Zatím žádné recenze — buďte první!",
+    "leaveTitle": "Zanechat recenzi",
+    "placeholder": "Řekněte nám o své návštěvě...",
+    "submit": "Odeslat",
+    "sending": "Odesílání...",
+    "thankYou": "Děkujeme za vaši recenzi!",
+    "submitError": "Odeslání recenze se nezdařilo, zkuste to znovu."
   },
   "adminPanel": {
     "title": "Admin Panel",
@@ -173,6 +197,26 @@
       "email": "E-mail",
       "role": "Role",
       "notFound": "Uživatelské údaje nebyly nalezeny"
+    },
+    "loyalty": {
+      "title": "Věrnostní body",
+      "points_one": "Máte {{count}} bod",
+      "points_few": "Máte {{count}} body",
+      "points_other": "Máte {{count}} bodů",
+      "hint": "500 bodů = stříhání zdarma. Body se připisují za každou rezervaci (1 bod za 100 CZK) — kontaktujte nás pro uplatnění."
+    },
+    "referral": {
+      "title": "Doporučovací program",
+      "hint": "Sdílejte svůj kód — vy i váš přítel získáte po 50 bodech po jeho registraci.",
+      "copy": "Kopírovat",
+      "copied": "Zkopírováno!"
+    },
+    "deleteAccount": {
+      "title": "Smazat účet",
+      "hint": "Trvale smaže váš účet. Vaše dřívější rezervace zůstanou uchovány pro účetní účely, ale anonymizovány.",
+      "button": "Smazat můj účet",
+      "confirm": "Opravdu chcete trvale smazat svůj účet? Tuto akci nelze vrátit zpět.",
+      "confirmButton": "Ano, smazat"
     }
   },
   "admin-panel": {
@@ -260,6 +304,13 @@
     "loading": "Nahrávam...",
     "submit": "Zaregistrovat se",
     "haveAccount": "Již máte účet?",
-    "loginLink": "Přihlásit se"
+    "loginLink": "Přihlásit se",
+    "referralCode": "Doporučující kód (nepovinné)",
+    "marketingConsent": "Souhlasím s příležitostným zasíláním nabídek a novinek e-mailem/Telegramem (nepovinné, kdykoliv lze odhlásit)."
+  },
+  "pwa": {
+    "installPrompt": "Nainstalujte si Taisiya Style pro rychlý přístup k rezervacím",
+    "install": "Instalovat",
+    "dismiss": "Teď ne"
   }
 }

@@ -9,6 +9,11 @@ import useServices from '../../utills/useServices.js'
 import TelegramReminderButton from '../TelegramReminderButton/TelegramReminderButton.jsx'
 
 const SLOT_INTERVAL = 30
+const REPEAT_WEEK_OPTIONS = [1, 2, 4]
+const REPEAT_COUNT_OPTIONS = [2, 3, 4, 6, 8]
+
+const generateGroupId = () =>
+  (window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random()}`).toString()
 
 function BookingFormPage() {
   const { t } = useTranslation()
@@ -16,6 +21,7 @@ function BookingFormPage() {
   const services = serviceList.map((s) => ({
     title: s.key,
     duration: s.duration,
+    isPackage: s.isPackage,
   }))
 
   const [selectedService, setSelectedService] = useState(null)
@@ -28,6 +34,12 @@ function BookingFormPage() {
   const [slotError, setSlotError] = useState('')
   const [loadingSlots, setLoadingSlots] = useState(false)
   const [bookingId, setBookingId] = useState(null)
+  const [repeatEnabled, setRepeatEnabled] = useState(false)
+  const [repeatWeeks, setRepeatWeeks] = useState(REPEAT_WEEK_OPTIONS[0])
+  const [repeatCount, setRepeatCount] = useState(REPEAT_COUNT_OPTIONS[0])
+  const [submitting, setSubmitting] = useState(false)
+  const [waitlistJoined, setWaitlistJoined] = useState(false)
+  const [waitlistSubmitting, setWaitlistSubmitting] = useState(false)
 
   /* === Reset slot selection when the service changes === */
   useEffect(() => {
@@ -37,6 +49,7 @@ function BookingFormPage() {
 
   /* === Load slots === */
   useEffect(() => {
+    setWaitlistJoined(false)
     if (!selectedDate) {
       setAvailableSlots([])
       setSelectedSlots([])
@@ -55,7 +68,6 @@ function BookingFormPage() {
         params: { date: dateStr },
       })
       .then((res) => {
-        console.log('Slots from backend:', res.data)
         setAvailableSlots(res.data)
         setSelectedSlots([])
       })
@@ -119,12 +131,77 @@ function BookingFormPage() {
     return ''
   } // End
 
+  /* === Availability check (for the "join waitlist" fallback) === */
+  const requiredSlots = selectedService
+    ? selectedService.duration / SLOT_INTERVAL
+    : 0
+
+  const getUsableSlotTimes = () => {
+    const MINUTES_AHEAD = 5
+    const now = new Date()
+    const minAvailableTime = new Date(now.getTime() + MINUTES_AHEAD * 60000)
+
+    return availableSlots
+      .filter((slot) => {
+        if (!slot.available) return false
+        const [hour, minute] = slot.time.split(':').map(Number)
+        const slotDate = new Date(selectedDate)
+        slotDate.setHours(hour, minute, 0, 0)
+        return slotDate.getTime() >= minAvailableTime.getTime()
+      })
+      .map((slot) => slot.time)
+  }
+
+  const hasContiguousBlock = (times, count) => {
+    if (!count) return false
+    const sorted = [...times].sort()
+    let run = 0
+    let prev = null
+    for (const time of sorted) {
+      if (prev === null) {
+        run = 1
+      } else {
+        const [ph, pm] = prev.split(':').map(Number)
+        const [ch, cm] = time.split(':').map(Number)
+        run = ch * 60 + cm - (ph * 60 + pm) === SLOT_INTERVAL ? run + 1 : 1
+      }
+      if (run >= count) return true
+      prev = time
+    }
+    return false
+  }
+
+  const noAvailability =
+    selectedService &&
+    selectedDate &&
+    !loadingSlots &&
+    availableSlots.length > 0 &&
+    !hasContiguousBlock(getUsableSlotTimes(), requiredSlots)
+
+  /* === Join waitlist === */
+  const handleJoinWaitlist = async () => {
+    if (!name || !phone) return
+    setWaitlistSubmitting(true)
+    try {
+      await axios.post(`${API_URL}/bookings/waitlist`, {
+        service: selectedService.title,
+        date: selectedDate.toISOString(),
+        name,
+        phone,
+      })
+      setWaitlistJoined(true)
+    } catch (err) {
+      alert(err.message)
+    } finally {
+      setWaitlistSubmitting(false)
+    }
+  }
+
   /* === Submit === */
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!selectedService || !selectedDate || !selectedSlots.length) return
 
-    const requiredSlots = selectedService.duration / SLOT_INTERVAL
     if (
       selectedBlocks.length !== 1 ||
       selectedBlocks[0].length !== requiredSlots
@@ -138,29 +215,64 @@ function BookingFormPage() {
 
     const sortedSlots = [...selectedSlots].sort()
     const [hour, minute] = sortedSlots[0].split(':').map(Number)
-    const bookingDate = new Date(selectedDate)
-    bookingDate.setHours(hour, minute, 0, 0)
+    const firstBookingDate = new Date(selectedDate)
+    firstBookingDate.setHours(hour, minute, 0, 0)
 
-    try {
-      const res = await axios.post(`${API_URL}/bookings`, {
-        service: selectedService.title,
-        date: bookingDate.toISOString(),
-        duration: selectedSlots.length * SLOT_INTERVAL,
-        name,
-        phone,
-      })
-
-      setBookingId(res.data._id)
-      setSubmitMessage(t('bookingForm.confirmed'))
-      setSelectedService(null)
-      setSelectedDate(null)
-      setSelectedSlots([])
-      setAvailableSlots([])
-      setName('')
-      setPhone('')
-    } catch (err) {
-      alert(err.message)
+    const occurrenceDates = [firstBookingDate]
+    if (repeatEnabled) {
+      for (let i = 1; i < repeatCount; i++) {
+        const next = new Date(firstBookingDate)
+        next.setDate(next.getDate() + i * repeatWeeks * 7)
+        occurrenceDates.push(next)
+      }
     }
+
+    const recurringGroupId =
+      repeatEnabled && occurrenceDates.length > 1 ? generateGroupId() : null
+
+    setSubmitting(true)
+    let successCount = 0
+    let firstBookingId = null
+
+    for (const occurrenceDate of occurrenceDates) {
+      try {
+        const res = await axios.post(`${API_URL}/bookings`, {
+          service: selectedService.title,
+          date: occurrenceDate.toISOString(),
+          duration: selectedSlots.length * SLOT_INTERVAL,
+          name,
+          phone,
+          recurringGroupId,
+        })
+        successCount++
+        if (!firstBookingId) firstBookingId = res.data._id
+      } catch (err) {
+        // продовжуємо намагатись забронювати решту дат серії
+      }
+    }
+    setSubmitting(false)
+
+    if (successCount === 0) {
+      alert(t('bookingForm.allFailed'))
+      return
+    }
+
+    setBookingId(firstBookingId)
+    setSubmitMessage(
+      occurrenceDates.length > 1
+        ? t('bookingForm.confirmedSeries', {
+            success: successCount,
+            total: occurrenceDates.length,
+          })
+        : t('bookingForm.confirmed')
+    )
+    setSelectedService(null)
+    setSelectedDate(null)
+    setSelectedSlots([])
+    setAvailableSlots([])
+    setName('')
+    setPhone('')
+    setRepeatEnabled(false)
   }
 
   return (
@@ -184,6 +296,11 @@ function BookingFormPage() {
                 .join(' ')}
             >
               {t(`bookingForm.${service.title}`)} ({service.duration} min)
+              {service.isPackage && (
+                <span className={styles.packageBadge}>
+                  {t('bookingForm.packageBadge')}
+                </span>
+              )}
             </button>
           ))}
         </div>
@@ -219,6 +336,37 @@ function BookingFormPage() {
             <div className={styles.loadingBox}>
               <div className={styles.spinner}></div>
               <p className={styles.loadingText}>{t('bookingForm.loading')}</p>
+            </div>
+          ) : noAvailability ? (
+            <div className={styles.waitlistBox}>
+              <p>{t('bookingForm.noAvailability')}</p>
+              {waitlistJoined ? (
+                <p className={styles.submitMessage}>
+                  {t('bookingForm.waitlistJoined')}
+                </p>
+              ) : (
+                <>
+                  <input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder={t('bookingForm.name')}
+                  />
+                  <input
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder={t('bookingForm.phone')}
+                  />
+                  <button
+                    type="button"
+                    disabled={!name || !phone || waitlistSubmitting}
+                    onClick={handleJoinWaitlist}
+                  >
+                    {waitlistSubmitting
+                      ? t('bookingForm.loading')
+                      : t('bookingForm.joinWaitlist')}
+                  </button>
+                </>
+              )}
             </div>
           ) : (
             <div className={styles.buttonContainer}>
@@ -284,9 +432,45 @@ function BookingFormPage() {
             required
           />
 
+          <label className={styles.repeatLabel}>
+            <input
+              type="checkbox"
+              checked={repeatEnabled}
+              onChange={(e) => setRepeatEnabled(e.target.checked)}
+            />
+            {t('bookingForm.repeat')}
+          </label>
+
+          {repeatEnabled && (
+            <div className={styles.repeatOptions}>
+              <select
+                value={repeatWeeks}
+                onChange={(e) => setRepeatWeeks(Number(e.target.value))}
+              >
+                {REPEAT_WEEK_OPTIONS.map((w) => (
+                  <option key={w} value={w}>
+                    {t('bookingForm.everyNWeeks', { count: w })}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={repeatCount}
+                onChange={(e) => setRepeatCount(Number(e.target.value))}
+              >
+                {REPEAT_COUNT_OPTIONS.map((c) => (
+                  <option key={c} value={c}>
+                    {t('bookingForm.nTimes', { count: c })}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+
           {slotError && <p className={styles.submitMessage}>{slotError}</p>}
 
-          <button type="submit">{t('bookingForm.book')}</button>
+          <button type="submit" disabled={submitting}>
+            {submitting ? t('bookingForm.loading') : t('bookingForm.book')}
+          </button>
         </form>
       )}
 

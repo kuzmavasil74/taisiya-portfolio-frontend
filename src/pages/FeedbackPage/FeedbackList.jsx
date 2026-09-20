@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-// import axios from 'axios'
+import axios from 'axios'
 import FeedbackItem from './FeedbackItem'
+import FeedbackForm from './FeedbackForm.jsx'
+import API_URL from '../../utills/config.js'
 import styles from './FeedbackList.module.css'
 
 const FeedbackList = () => {
@@ -9,63 +11,44 @@ const FeedbackList = () => {
   const [feedbacks, setFeedbacks] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const isLoggedIn = Boolean(localStorage.getItem('token'))
 
-  const fakeFeedbacks = [
-    {
-      name: 'Анна',
-      rating: 5,
-      text: 'Дуже задоволена якістю обслуговування!',
-    },
-    {
-      name: 'Олег',
-      rating: 4,
-      text: 'Гарна атмосфера і професіоналізм!',
-    },
-    {
-      name: 'Марія',
-      rating: 5,
-      text: 'Відмінна стрижка, обов’язково прийду ще!',
-    },
-  ]
-  // useEffect(() => {
-  //   const fetchFeedbacks = async () => {
-  //     try {
-  //       const { data } = await axios.get(
-  //         'https://your-backend-api.com/feedbacks'
-  //       )
-  //       setFeedbacks(data)
-  //     } catch (err) {
-  //       setError(t('feedback.error'))
-  //     } finally {
-  //       setLoading(false)
-  //     }
-  //   }
-
-  //   fetchFeedbacks()
-  // }, [t]) // if you have a backend
-  useEffect(() => {
-    setFeedbacks(fakeFeedbacks)
-    setLoading(false)
-  }, []) // if you haven't a backend
-
-  if (loading) return <p className={styles.loading}>{t('loading')}</p>
-  if (error) {
-    setError(t('feedback.error'))
-    return <p className={styles.error}>{error}</p>
+  const fetchFeedbacks = async () => {
+    try {
+      const { data } = await axios.get(`${API_URL}/feedback`)
+      setFeedbacks(data)
+    } catch (err) {
+      setError(t('feedback.error'))
+    } finally {
+      setLoading(false)
+    }
   }
+
+  useEffect(() => {
+    fetchFeedbacks()
+  }, [])
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{t('feedback.title')}</h1>
-      <div className={styles.list}>
-        {feedbacks.map((feedback) => (
-          <FeedbackItem
-            key={feedback._id || feedback.name}
-            feedback={feedback}
-          /> // if you haven't a backend
-          // <FeedbackItem key={feedback._id} feedback={feedback} /> // if you have a backend
-        ))}
-      </div>
+
+      {isLoggedIn && (
+        <FeedbackForm onSubmitted={fetchFeedbacks} />
+      )}
+
+      {loading ? (
+        <p className={styles.loading}>{t('loading')}</p>
+      ) : error ? (
+        <p className={styles.error}>{error}</p>
+      ) : feedbacks.length === 0 ? (
+        <p className={styles.loading}>{t('feedback.empty')}</p>
+      ) : (
+        <div className={styles.list}>
+          {feedbacks.map((feedback) => (
+            <FeedbackItem key={feedback._id} feedback={feedback} />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

@@ -19,6 +19,8 @@ const FALLBACK_SERVICES = [
   { key: 'curlingShort', duration: 120, price: 2100 },
   { key: 'curlingMedium', duration: 150, price: 2200 },
   { key: 'curlingLong', duration: 180, price: 2400 },
+  { key: 'cutAndToning', duration: 120, price: 1400, isPackage: true },
+  { key: 'balayageAndToning', duration: 240, price: 3400, isPackage: true },
 ]
 
 // Єдине джерело правди для списку послуг (назва/тривалість/ціна) —

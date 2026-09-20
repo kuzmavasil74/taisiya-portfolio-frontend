@@ -6,10 +6,12 @@
 .sidebar {
   width: 240px;
   border-right: 1px solid #ccc;
+  flex-shrink: 0;
 }
 
 .dashboardContent {
   flex: 1;
+  min-width: 0;
   padding: 24px;
 }
 
@@ -23,4 +25,21 @@
 .nav a.active {
   font-weight: bold;
   color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .dashboardContent {
+    padding: 16px;
+  }
 }

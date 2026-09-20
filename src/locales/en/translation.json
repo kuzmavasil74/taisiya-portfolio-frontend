@@ -112,7 +112,20 @@
     "selectContiguousSlots": "Please select {{count}} consecutive time slots for this service.",
     "telegramReminder": "Get reminders in Telegram",
     "durationMinutes_one": "{{count}} min",
-    "durationMinutes_other": "{{count}} min"
+    "durationMinutes_other": "{{count}} min",
+    "cutAndToning": "Combo: Women's Haircut + Toning",
+    "balayageAndToning": "Combo: Balayage + Toning",
+    "packageBadge": "Combo deal",
+    "noAvailability": "No free slots for this service on this day. Leave your contact and we will reach out if a spot opens up.",
+    "joinWaitlist": "Join waitlist",
+    "waitlistJoined": "You're on the waitlist — we'll contact you if a slot frees up!",
+    "allFailed": "None of the selected dates could be booked. Please try different dates.",
+    "confirmedSeries": "Booked {{success}} of {{total}} appointments in the series!",
+    "repeat": "Repeat this booking",
+    "everyNWeeks_one": "Every week",
+    "everyNWeeks_other": "Every {{count}} weeks",
+    "nTimes_one": "{{count}} time",
+    "nTimes_other": "{{count}} times"
   },
   "specialOffers": {
     "title": "Special Offers",
@@ -127,7 +140,9 @@
     "offer3": {
       "title": "Referral Bonus",
       "description": "Bring a friend and get a bonus for your next visit!"
-    }
+    },
+    "signUp": "Sign up and start earning points",
+    "viewMyPoints": "View my points"
   },
   "pricesList": {
     "title": "Prices",
@@ -139,7 +154,15 @@
     "name": "Name",
     "email": "Email",
     "message": "Message",
-    "send": "Send"
+    "send": "Send",
+    "error": "Failed to load feedback",
+    "empty": "No feedback yet — be the first to leave one!",
+    "leaveTitle": "Leave feedback",
+    "placeholder": "Tell us about your visit...",
+    "submit": "Submit",
+    "sending": "Sending...",
+    "thankYou": "Thank you for your feedback!",
+    "submitError": "Failed to submit feedback, please try again."
   },
   "adminPanel": {
     "title": "Admin Panel",
@@ -175,6 +198,25 @@
       "email": "Email",
       "role": "Role",
       "notFound": "User data not found"
+    },
+    "loyalty": {
+      "title": "Loyalty points",
+      "points_one": "You have {{count}} point",
+      "points_other": "You have {{count}} points",
+      "hint": "500 points = a free haircut. Points are earned on every booking (1 point per 100 CZK spent) — contact us to redeem."
+    },
+    "referral": {
+      "title": "Referral program",
+      "hint": "Share your code — you and your friend both get 50 points when they sign up.",
+      "copy": "Copy",
+      "copied": "Copied!"
+    },
+    "deleteAccount": {
+      "title": "Delete account",
+      "hint": "Permanently delete your account. Your past bookings are kept for business records but anonymized.",
+      "button": "Delete my account",
+      "confirm": "Are you sure you want to permanently delete your account? This cannot be undone.",
+      "confirmButton": "Yes, delete"
     }
   },
   "admin-panel": {
@@ -289,6 +331,13 @@
     "loading": "Loading...",
     "submit": "Register",
     "haveAccount": "Already have an account?",
-    "loginLink": "Login"
+    "loginLink": "Login",
+    "referralCode": "Referral code (optional)",
+    "marketingConsent": "I agree to receive occasional offers and news by email/Telegram (optional, you can unsubscribe anytime)."
+  },
+  "pwa": {
+    "installPrompt": "Install Taisiya Style for quick booking access",
+    "install": "Install",
+    "dismiss": "Not now"
   }
 }

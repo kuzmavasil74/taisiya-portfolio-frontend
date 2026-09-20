@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import API_URL from '../../utills/config.js'
 
 const RegisterPage = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [referralCode, setReferralCode] = useState(
+    searchParams.get('ref') || ''
+  )
+  const [marketingConsent, setMarketingConsent] = useState(false)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -30,7 +35,13 @@ const RegisterPage = () => {
       const res = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          referralCode: referralCode || undefined,
+          marketingConsent,
+        }),
       })
 
       const data = await res.json()
@@ -74,6 +85,21 @@ const RegisterPage = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <input
+          type="text"
+          placeholder={t('registerPage.referralCode')}
+          value={referralCode}
+          onChange={(e) => setReferralCode(e.target.value)}
+        />
+        <label style={{ display: 'flex', gap: 8, fontSize: 13, alignItems: 'flex-start' }}>
+          <input
+            type="checkbox"
+            checked={marketingConsent}
+            onChange={(e) => setMarketingConsent(e.target.checked)}
+            style={{ marginTop: 3 }}
+          />
+          <span>{t('registerPage.marketingConsent')}</span>
+        </label>
         {error && <p style={{ color: 'red', margin: 0 }}>{error}</p>}
         <button type="submit" disabled={loading}>
           {loading ? t('registerPage.loading') : t('registerPage.submit')}
