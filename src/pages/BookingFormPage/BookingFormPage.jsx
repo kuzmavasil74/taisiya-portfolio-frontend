@@ -258,14 +258,13 @@ function BookingFormPage() {
     }
 
     setBookingId(firstBookingId)
-    setSubmitMessage(
-      occurrenceDates.length > 1
-        ? t('bookingForm.confirmedSeries', {
-            success: successCount,
-            total: occurrenceDates.length,
-          })
-        : t('bookingForm.confirmed')
-    )
+    const seriesMessage = t('bookingForm.confirmedSeries', {
+      success: successCount,
+      total: occurrenceDates.length,
+    })
+    const message =
+      occurrenceDates.length > 1 ? seriesMessage : t('bookingForm.confirmed')
+    setSubmitMessage(message)
     setSelectedService(null)
     setSelectedDate(null)
     setSelectedSlots([])
