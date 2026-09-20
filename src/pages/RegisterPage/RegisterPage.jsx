@@ -15,11 +15,11 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!name || !email || !password) {
-      setError('Заповніть всі поля')
+      setError(t('registerPage.fillAllFields'))
       return
     }
     if (password.length < 6) {
-      setError('Пароль мінімум 6 символів')
+      setError(t('registerPage.passwordMinLength'))
       return
     }
 
@@ -40,10 +40,10 @@ const RegisterPage = () => {
         localStorage.setItem('user', JSON.stringify(data.user))
         navigate('/dashboard')
       } else {
-        setError(data.message || 'Помилка реєстрації')
+        setError(data.message || t('registerPage.registrationError'))
       }
     } catch (err) {
-      setError('Сервер недоступний')
+      setError(t('registerPage.serverUnavailable'))
     } finally {
       setLoading(false)
     }
@@ -51,36 +51,36 @@ const RegisterPage = () => {
 
   return (
     <div style={{ maxWidth: 400, margin: '80px auto', padding: '0 1rem' }}>
-      <h2>Реєстрація</h2>
+      <h2>{t('registerPage.title')}</h2>
       <form
         onSubmit={handleSubmit}
         style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
       >
         <input
           type="text"
-          placeholder="Ім'я"
+          placeholder={t('registerPage.name')}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="email"
-          placeholder="Email"
+          placeholder={t('registerPage.email')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
-          placeholder="Пароль (мін. 6 символів)"
+          placeholder={t('registerPage.password')}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         {error && <p style={{ color: 'red', margin: 0 }}>{error}</p>}
         <button type="submit" disabled={loading}>
-          {loading ? 'Завантаження...' : 'Зареєструватися'}
+          {loading ? t('registerPage.loading') : t('registerPage.submit')}
         </button>
       </form>
       <p style={{ marginTop: 16, fontSize: 14 }}>
-        Вже є акаунт? <Link to="/login">Увійти</Link>
+        {t('registerPage.haveAccount')} <Link to="/login">{t('registerPage.loginLink')}</Link>
       </p>
     </div>
   )

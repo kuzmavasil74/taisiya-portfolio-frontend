@@ -16,7 +16,7 @@
     "facebook": "Facebook",
     "phone": "Telefon:",
     "email": "Email:",
-    "copyright": "&copy; 2026 TaisiyaStyle. Všechna práva vyhrazena."
+    "copyright": "© 2026 TaisiyaStyle. Všechna práva vyhrazena."
   },
   "form": {
     "name": "Jméno",
@@ -36,63 +36,11 @@
   "services": {
     "heading": "Naše Služby",
     "duration": "Délka",
-
-    "womenHaircuts": {
-      "title": "Dámské střihy",
-      "description": "Oživte svůj vzhled individuálním dámským střihem, který zdůrazní vaše rysy a typ vlasů. Chcete trendy účes nebo jen úpravu konečků — garantujeme vám sebevědomí a lesk.",
-      "features": "Dámské střihy, úprava konečků, individuální konzultace, rady ohledně stylu.",
-      "duration": "60"
-    },
-
-    "menHaircuts": {
-      "title": "Pánské střihy",
-      "description": "Zažijte přesnost a styl s našimi pánskými střihy, vytvořenými podle vaší osobnosti a životního stylu. Klasika nebo moderní vzhled — zajišťujeme svěží a upravený vzhled.",
-      "features": "Přesné zakončení, stříhání strojkem nebo nůžkami, volitelně úprava vousů.",
-      "duration": "30"
-    },
-
-    "rootColoring": {
-      "title": "Barvení kořenů",
-      "description": "Zvýrazněte svůj styl barvením kořenů vlasů. Ideální pro udržení přirozené nebo obnovené barvy.",
-      "features": "Barvení kořenů, výběr odstínu, péče po barvení.",
-      "duration": "90"
-    },
-
-    "fullColoring": {
-      "title": "Celé barvení vlasů",
-      "description": "Změňte vzhled kompletně s naším celkovým barvením vlasů. Vysoce kvalitní barva a profesionální aplikace zaručují jasnou a sytou barvu.",
-      "features": "Celé barvení, individuální odstín, ochrana struktury vlasů.",
-      "duration": "120"
-    },
-
-    "toning": {
-      "title": "Tónování vlasů",
-      "description": "Vyrovnejte odstín vlasů po barvení nebo melíru. Tónování dodává vlasům lesk a intenzitu barvy.",
-      "features": "Vyrovnání odstínu, zesílení barvy, lesk a zářivost.",
-      "duration": "60"
-    },
-
-    "balayage": {
-      "title": "Melíry / Balayage",
-      "description": "Vytvořte přirozené přechody barev technikou balayage. Vlasy vypadají objemně a leskle.",
-      "features": "Přirozené přechody barev, objem, lesk, stylový efekt.",
-      "duration": "150"
-    },
-
-    "polishing": {
-      "title": "Leštění vlasů",
-      "description": "Oživte své vlasy bez ztráty délky! Leštění odstraňuje roztřepené konečky po celé délce, dodává vlasům neuvěřitelnou hladkost a upravený vzhled.",
-      "features": "Odstranění roztřepených konečků, zvýšení lesku, prevence lámavosti, dokonalá hladkost.",
-      "duration": "30"
-    },
-
     "booking": {
       "title": "Rezervace služby",
       "button": "Rezervujte nyní!"
     },
-
-    "features": "Vlastnosti:",
-    "promotions": "Akce:"
+    "price": "Cena:"
   },
   "contactForm": {
     "openingHours": "Otevírací hodiny",
@@ -147,7 +95,23 @@
     "restorationLong": "Obnova (po pas)",
     "curlingShort": "Ondulace (po ramena)",
     "curlingMedium": "Ondulace (po lopatky)",
-    "curlingLong": "Ondulace (po pas)"
+    "curlingLong": "Ondulace (po pas)",
+    "confirmed": "Rezervace potvrzena!",
+    "selectService": "Vyberte službu",
+    "selectDate": "Vyberte datum",
+    "selectDatePlaceholder": "Vyberte datum",
+    "selectTime_one": "Vyberte {{count}} časový slot",
+    "selectTime_few": "Vyberte {{count}} časové sloty",
+    "selectTime_other": "Vyberte {{count}} časových slotů",
+    "contact": "Kontakt",
+    "name": "Jméno",
+    "phone": "Telefon",
+    "book": "Rezervovat",
+    "selectContiguousSlots": "Vyberte prosím {{count}} po sobě jdoucích slotů pro tuto službu.",
+    "telegramReminder": "Dostávat připomínky v Telegramu",
+    "durationMinutes_one": "{{count}} minuta",
+    "durationMinutes_few": "{{count}} minuty",
+    "durationMinutes_other": "{{count}} minut"
   },
   "specialOffers": {
     "title": "Speciální nabídky",
@@ -167,23 +131,7 @@
   "pricesList": {
     "title": "Ceny",
     "service": "Služba",
-    "price": "Cena",
-
-    "womenHaircuts": "Dámský střih",
-    "menHaircuts": "Pánský střih",
-    "rootColoring": "Barvení odrostů",
-    "fullColoring": "Celkové barvení",
-    "toning": "Tónování",
-    "balayage": "Balayage",
-    "polishing": "Leštění vlasů",
-
-    "priceWomenHaircut": "350 CZK",
-    "priceMenHaircut": "250 CZK",
-    "priceRootColoring": "600 CZK",
-    "priceFullColoring": "1200 CZK",
-    "priceToning": "500 CZK",
-    "priceBalayage": "1500 CZK",
-    "pricePolishing": "400 CZK"
+    "price": "Cena"
   },
   "feedback": {
     "title": "Zpětné vazby",
@@ -205,7 +153,9 @@
     "enterPassword": "Zadejte heslo",
     "invalidEmailOrPassword": "Neplatná e-mailová adresa nebo heslo",
     "loading": "Nahrávam...",
-    "serverUnavailable": "Server je nedostupný"
+    "serverUnavailable": "Server je nedostupný",
+    "noAccount": "Nemáte účet?",
+    "register": "Zaregistrovat se"
   },
   "dashboard": {
     "title": "Administrace",
@@ -261,7 +211,9 @@
     "confirm": "Potvrdit",
     "cancel": "Zrušit",
     "fetchError": "Nepodařilo se načíst rezervace",
-    "deleteError": "Nepodařilo se smazat rezervaci"
+    "deleteError": "Nepodařilo se smazat rezervaci",
+    "cancelBooking": "Zrušit rezervaci",
+    "confirmCancel": "Opravdu chcete zrušit rezervaci na \"{{service}}\"?"
   },
   "bookingTable": {
     "loading": "Načítání...",
@@ -295,5 +247,19 @@
     "actions": "Akce",
     "editBooking": "Upravit rezervaci",
     "minutes": "minut"
+  },
+  "registerPage": {
+    "title": "Registrace",
+    "name": "Jméno",
+    "email": "E-mail",
+    "password": "Heslo (min. 6 znaků)",
+    "fillAllFields": "Vyplňte všechna pole",
+    "passwordMinLength": "Heslo musí mít alespoň 6 znaků",
+    "registrationError": "Registrace se nezdařila",
+    "serverUnavailable": "Server je nedostupný. Zkuste to později.",
+    "loading": "Nahrávam...",
+    "submit": "Zaregistrovat se",
+    "haveAccount": "Již máte účet?",
+    "loginLink": "Přihlásit se"
   }
 }

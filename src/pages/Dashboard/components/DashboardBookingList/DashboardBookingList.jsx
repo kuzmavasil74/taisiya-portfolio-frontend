@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from './DashboardBookingList.module.css'
 import { useTranslation } from 'react-i18next'
-import API_URL from '../../../../utills/config.js'
 import apiFetch from '../../../../utills/api.js'
 
 const DashboardBookingList = () => {
@@ -12,6 +11,8 @@ const DashboardBookingList = () => {
   const [bookings, setBookings] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [bookingToCancel, setBookingToCancel] = useState(null)
+  const [canceling, setCanceling] = useState(false)
 
   // 🔹 FETCH BOOKINGS
   useEffect(() => {
@@ -40,11 +41,28 @@ const DashboardBookingList = () => {
 
   // 🔹 Фільтруємо бронювання
   const upcomingBookings = bookings.filter(
-    (b) => new Date(b.date) >= new Date()
+    (b) => new Date(b.date) >= new Date() && b.status !== 'canceled'
   )
-  const archiveBookings = bookings.filter((b) => new Date(b.date) < new Date())
+  const archiveBookings = bookings.filter(
+    (b) => new Date(b.date) < new Date() || b.status === 'canceled'
+  )
   const displayedBookings =
     tab === 'upcoming' ? upcomingBookings : archiveBookings
+
+  const handleCancel = async (id) => {
+    setCanceling(true)
+    try {
+      const res = await apiFetch(`/bookings/${id}`, { method: 'DELETE' })
+      if (!res.ok) throw new Error(t('bookings.deleteError'))
+
+      setBookings((prev) => prev.filter((b) => b._id !== id))
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setCanceling(false)
+      setBookingToCancel(null)
+    }
+  }
 
   return (
     <div className={styles.container}>
@@ -82,9 +100,50 @@ const DashboardBookingList = () => {
               </p>
               <p>{new Date(b.date).toLocaleString()}</p>
               <p>{b.service}</p>
+              {tab === 'upcoming' && (
+                <button
+                  className={styles.cancelBtn}
+                  onClick={() => setBookingToCancel(b)}
+                >
+                  {t('bookings.cancelBooking')}
+                </button>
+              )}
             </li>
           ))}
         </ul>
+      )}
+
+      {/* 🔹 Confirm Modal */}
+      {bookingToCancel && (
+        <div
+          className={styles.confirmModal}
+          onClick={() => !canceling && setBookingToCancel(null)}
+        >
+          <div
+            className={styles.confirmContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <p className={styles.modalText}>
+              {t('bookings.confirmCancel', { service: bookingToCancel.service })}
+            </p>
+            <div className={styles.confirmBtns}>
+              <button
+                className={styles.confirmBtn}
+                disabled={canceling}
+                onClick={() => handleCancel(bookingToCancel._id)}
+              >
+                {t('bookings.confirm')}
+              </button>
+              <button
+                className={styles.modalCancelBtn}
+                disabled={canceling}
+                onClick={() => setBookingToCancel(null)}
+              >
+                {t('bookings.cancel')}
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   )

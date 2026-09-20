@@ -1,19 +1,11 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './PricesList.module.css'
+import useServices from '../../utills/useServices.js'
 
 const PricesList = () => {
   const { t } = useTranslation()
-
-  const priceItems = [
-    { key: 'womenHaircuts', price: 'priceWomenHaircut' },
-    { key: 'menHaircuts', price: 'priceMenHaircut' },
-    { key: 'rootColoring', price: 'priceRootColoring' },
-    { key: 'fullColoring', price: 'priceFullColoring' },
-    { key: 'toning', price: 'priceToning' },
-    { key: 'balayage', price: 'priceBalayage' },
-    { key: 'polishing', price: 'pricePolishing' },
-  ]
+  const { services } = useServices()
 
   return (
     <div className={styles.pricesList}>
@@ -26,10 +18,10 @@ const PricesList = () => {
           </tr>
         </thead>
         <tbody>
-          {priceItems.map((item, index) => (
-            <tr key={index}>
-              <td>{t(`pricesList.${item.key}`)}</td>
-              <td>{t(`pricesList.${item.price}`)}</td>
+          {services.map((service) => (
+            <tr key={service.key}>
+              <td>{t(`bookingForm.${service.key}`)}</td>
+              <td>{service.price} CZK</td>
             </tr>
           ))}
         </tbody>

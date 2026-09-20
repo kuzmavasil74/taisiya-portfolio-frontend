@@ -5,29 +5,18 @@ import axios from 'axios'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import API_URL from '../../utills/config.js'
+import useServices from '../../utills/useServices.js'
 import TelegramReminderButton from '../TelegramReminderButton/TelegramReminderButton.jsx'
 
 const SLOT_INTERVAL = 30
 
 function BookingFormPage() {
   const { t } = useTranslation()
-
-  const services = [
-    { title: 'womenHaircut', duration: 60 },
-    { title: 'menHaircut', duration: 30 },
-    { title: 'menHaircutBeard', duration: 60 },
-    { title: 'balayage', duration: 180 },
-    { title: 'airtouch', duration: 240 },
-    { title: 'exitBlack', duration: 240 },
-    { title: 'brazilianColoring', duration: 180 },
-    { title: 'toning', duration: 60 },
-    { title: 'restorationShort', duration: 120 },
-    { title: 'restorationMedium', duration: 150 },
-    { title: 'restorationLong', duration: 180 },
-    { title: 'curlingShort', duration: 120 },
-    { title: 'curlingMedium', duration: 150 },
-    { title: 'curlingLong', duration: 180 },
-  ]
+  const { services: serviceList } = useServices()
+  const services = serviceList.map((s) => ({
+    title: s.key,
+    duration: s.duration,
+  }))
 
   const [selectedService, setSelectedService] = useState(null)
   const [selectedDate, setSelectedDate] = useState(null)
@@ -36,8 +25,15 @@ function BookingFormPage() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [submitMessage, setSubmitMessage] = useState('')
+  const [slotError, setSlotError] = useState('')
   const [loadingSlots, setLoadingSlots] = useState(false)
   const [bookingId, setBookingId] = useState(null)
+
+  /* === Reset slot selection when the service changes === */
+  useEffect(() => {
+    setSelectedSlots([])
+    setSlotError('')
+  }, [selectedService])
 
   /* === Load slots === */
   useEffect(() => {
@@ -128,6 +124,18 @@ function BookingFormPage() {
     e.preventDefault()
     if (!selectedService || !selectedDate || !selectedSlots.length) return
 
+    const requiredSlots = selectedService.duration / SLOT_INTERVAL
+    if (
+      selectedBlocks.length !== 1 ||
+      selectedBlocks[0].length !== requiredSlots
+    ) {
+      setSlotError(
+        t('bookingForm.selectContiguousSlots', { count: requiredSlots })
+      )
+      return
+    }
+    setSlotError('')
+
     const sortedSlots = [...selectedSlots].sort()
     const [hour, minute] = sortedSlots[0].split(':').map(Number)
     const bookingDate = new Date(selectedDate)
@@ -143,7 +151,7 @@ function BookingFormPage() {
       })
 
       setBookingId(res.data._id)
-      setSubmitMessage('Booking confirmed!')
+      setSubmitMessage(t('bookingForm.confirmed'))
       setSelectedService(null)
       setSelectedDate(null)
       setSelectedSlots([])
@@ -161,7 +169,7 @@ function BookingFormPage() {
 
       {/* === Services === */}
       <div className={styles.section}>
-        <h3>Select Service</h3>
+        <h3>{t('bookingForm.selectService')}</h3>
         <div className={styles.buttonContainer}>
           {services.map((service) => (
             <button
@@ -183,7 +191,7 @@ function BookingFormPage() {
 
       {/* === Date === */}
       <div className={styles.section}>
-        <h3>Select Date</h3>
+        <h3>{t('bookingForm.selectDate')}</h3>
         <DatePicker
           selected={selectedDate}
           onChange={setSelectedDate}
@@ -192,14 +200,20 @@ function BookingFormPage() {
           dayClassName={getDayClassName} // 🔒 блокування минулих та вихідних
           filterDate={isDateSelectable} // 🔒 блокування минулих та вихідних
           popperPlacement="bottom-end"
-          placeholderText="Select a date"
+          placeholderText={t('bookingForm.selectDatePlaceholder')}
         />
       </div>
 
       {/* === Slots === */}
       {selectedDate && (
         <div className={styles.section}>
-          <h3>Select Time</h3>
+          <h3>
+            {t('bookingForm.selectTime', {
+              count: selectedService
+                ? selectedService.duration / SLOT_INTERVAL
+                : 0,
+            })}
+          </h3>
 
           {loadingSlots ? (
             <div className={styles.loadingBox}>
@@ -255,22 +269,24 @@ function BookingFormPage() {
       {/* === Contact === */}
       {selectedSlots.length > 0 && (
         <form className={styles.section} onSubmit={handleSubmit}>
-          <h3>Contact</h3>
+          <h3>{t('bookingForm.contact')}</h3>
 
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Name"
+            placeholder={t('bookingForm.name')}
             required
           />
           <input
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            placeholder="Phone"
+            placeholder={t('bookingForm.phone')}
             required
           />
 
-          <button type="submit">Book</button>
+          {slotError && <p className={styles.submitMessage}>{slotError}</p>}
+
+          <button type="submit">{t('bookingForm.book')}</button>
         </form>
       )}
 

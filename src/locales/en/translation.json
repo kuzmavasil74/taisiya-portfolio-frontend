@@ -7,20 +7,17 @@
     "privacy": "Privacy Policy",
     "prices": "Prices",
     "feedback": "Feedback",
-
     "login": "Login",
     "dashboard": "Dashboard",
     "admin": "Admin panel",
     "logout": "Logout"
   },
-
   "form": {
     "name": "Name",
     "email": "Email",
     "message": "Message",
     "submit": "Submit"
   },
-
   "about": {
     "photoAlt": "Taisiya - professional hairdresser",
     "heading": "About Taisiya",
@@ -33,63 +30,11 @@
   "services": {
     "heading": "Our Services",
     "duration": "Duration",
-
-    "womenHaircuts": {
-      "title": "Women's Haircuts",
-      "description": "Refresh your look with a personalized haircut designed to highlight your features and hair type. Whether you want a trendy style or a simple trim — we guarantee confidence and shine.",
-      "features": "Women's haircuts, trimming ends, individual consultation, style advice.",
-      "duration": "60"
-    },
-
-    "menHaircuts": {
-      "title": "Men's Haircuts",
-      "description": "Experience precision and style with our men's haircuts, crafted according to your personality and lifestyle. Classic or modern — we ensure a fresh, neat appearance.",
-      "features": "Precise edging, clipper or scissor haircut, optional beard trim.",
-      "duration": "30"
-    },
-
-    "rootColoring": {
-      "title": "Root Coloring",
-      "description": "Enhance your style with root coloring. Perfect for maintaining natural or refreshed hair color.",
-      "features": "Root coloring, shade selection, post-color care.",
-      "duration": "90"
-    },
-
-    "fullColoring": {
-      "title": "Full Hair Coloring",
-      "description": "Transform your look completely with full hair coloring. High-quality dye and professional application guarantee a vibrant, rich color.",
-      "features": "Full hair coloring, custom shade, hair structure protection.",
-      "duration": "120"
-    },
-
-    "toning": {
-      "title": "Hair Toning",
-      "description": "Balance the hair color after coloring or highlighting. Toning adds shine and intensity to the color.",
-      "features": "Color balance, enhance tone, shine and brightness.",
-      "duration": "60"
-    },
-
-    "balayage": {
-      "title": "Balayage / Highlights",
-      "description": "Create natural color transitions with balayage. Hair looks voluminous and shiny.",
-      "features": "Natural color transitions, volume, shine, stylish effect.",
-      "duration": "150"
-    },
-
-    "polishing": {
-      "title": "Hair Polishing",
-      "description": "Refresh your hair without losing length! Polishing removes split ends along the entire length, giving hair incredible smoothness and care.",
-      "features": "Split end removal, shine enhancement, breakage prevention, perfect smoothness.",
-      "duration": "30"
-    },
-
     "booking": {
       "title": "Book a Service",
       "button": "Book Now!"
     },
-
-    "features": "Features:",
-    "promotions": "Promotions:"
+    "price": "Price"
   },
   "contactForm": {
     "openingHours": "Opening Hours",
@@ -129,7 +74,7 @@
     "facebook": "Facebook",
     "phone": "Phone:",
     "email": "Email:",
-    "copyright": "&copy; 2026 TaisiyaStyle. All rights reserved.",
+    "copyright": "© 2026 TaisiyaStyle. All rights reserved.",
     "privacy-policy": "Privacy Policy",
     "terms-and-conditions": "Terms and Conditions"
   },
@@ -153,7 +98,21 @@
     "restorationLong": "Restoration (waist)",
     "curlingShort": "Curling (shoulders)",
     "curlingMedium": "Curling (mid-back)",
-    "curlingLong": "Curling (waist)"
+    "curlingLong": "Curling (waist)",
+    "confirmed": "Booking confirmed!",
+    "selectService": "Select Service",
+    "selectDate": "Select Date",
+    "selectDatePlaceholder": "Select a date",
+    "selectTime_one": "Select {{count}} time slot",
+    "selectTime_other": "Select {{count}} time slots",
+    "contact": "Contact",
+    "name": "Name",
+    "phone": "Phone",
+    "book": "Book",
+    "selectContiguousSlots": "Please select {{count}} consecutive time slots for this service.",
+    "telegramReminder": "Get reminders in Telegram",
+    "durationMinutes_one": "{{count}} min",
+    "durationMinutes_other": "{{count}} min"
   },
   "specialOffers": {
     "title": "Special Offers",
@@ -170,25 +129,10 @@
       "description": "Bring a friend and get a bonus for your next visit!"
     }
   },
-
   "pricesList": {
     "title": "Prices",
     "service": "Service",
-    "price": "Price",
-    "womenHaircuts": "Women's Haircut",
-    "menHaircuts": "Men's Haircut",
-    "rootColoring": "Root Coloring",
-    "fullColoring": "Full Coloring",
-    "toning": "Toning",
-    "balayage": "Balayage",
-    "polishing": "Hair Polishing",
-    "priceWomenHaircut": "350 CZK",
-    "priceMenHaircut": "250 CZK",
-    "priceRootColoring": "600 CZK",
-    "priceFullColoring": "1200 CZK",
-    "priceToning": "500 CZK",
-    "priceBalayage": "1500 CZK",
-    "pricePolishing": "400 CZK"
+    "price": "Price"
   },
   "feedback": {
     "title": "Feedback",
@@ -201,7 +145,6 @@
     "title": "Admin Panel",
     "description": "Welcome to the admin panel! Here you can manage your website's content and settings."
   },
-
   "loginPage": {
     "login": "Login",
     "email": "Email",
@@ -211,7 +154,9 @@
     "enterPassword": "Enter password",
     "invalidEmailOrPassword": "Invalid email or password",
     "loading": "Loading...",
-    "serverUnavailable": "Server is not available. Try later."
+    "serverUnavailable": "Server is not available. Try later.",
+    "noAccount": "Don't have an account?",
+    "register": "Register"
   },
   "dashboard": {
     "title": "Dashboard",
@@ -268,7 +213,9 @@
     "confirm": "Confirm",
     "cancel": "Cancel",
     "fetchError": "Failed to fetch bookings",
-    "deleteError": "Failed to delete booking"
+    "deleteError": "Failed to delete booking",
+    "cancelBooking": "Cancel booking",
+    "confirmCancel": "Are you sure you want to cancel your booking for {{service}}?"
   },
   "booking": {
     "loading": "Loading...",
@@ -329,5 +276,19 @@
     "actions": "Actions",
     "editBooking": "Edit booking",
     "minutes": "minutes"
+  },
+  "registerPage": {
+    "title": "Register",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password (min. 6 characters)",
+    "fillAllFields": "Please fill in all fields",
+    "passwordMinLength": "Password must be at least 6 characters",
+    "registrationError": "Registration failed",
+    "serverUnavailable": "Server is not available. Try later.",
+    "loading": "Loading...",
+    "submit": "Register",
+    "haveAccount": "Already have an account?",
+    "loginLink": "Login"
   }
 }

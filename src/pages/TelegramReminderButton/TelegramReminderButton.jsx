@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next'
 import styles from './TelegramReminderButton.module.css'
 const TELEGRAM_BOT_USERNAME = 'TaisiStyleBot'
 
 function TelegramReminderButton({ bookingId }) {
+  const { t } = useTranslation()
+
   if (!bookingId) {
     return null
   }
@@ -15,7 +18,7 @@ function TelegramReminderButton({ bookingId }) {
       rel="noopener noreferrer"
       className={styles.telegramReminderButton}
     >
-      🔔 Отримувати нагадування в Telegram
+      🔔 {t('bookingForm.telegramReminder')}
     </a>
   )
 }

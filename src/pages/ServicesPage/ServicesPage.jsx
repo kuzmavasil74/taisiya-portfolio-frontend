@@ -1,54 +1,11 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './ServicesPage.module.css'
+import useServices from '../../utills/useServices.js'
 
 function ServicesPage() {
   const { t } = useTranslation()
-
-  const services = [
-    {
-      title: 'womenHaircuts',
-      description: 'description',
-      features: 'features',
-      duration: 'duration',
-    },
-    {
-      title: 'menHaircuts',
-      description: 'description',
-      features: 'features',
-      duration: 'duration',
-    },
-    {
-      title: 'rootColoring',
-      description: 'description',
-      features: 'features',
-      duration: 'duration',
-    },
-    {
-      title: 'fullColoring',
-      description: 'description',
-      features: 'features',
-      duration: 'duration',
-    },
-    {
-      title: 'toning',
-      description: 'description',
-      features: 'features',
-      duration: 'duration',
-    },
-    {
-      title: 'balayage',
-      description: 'description',
-      features: 'features',
-      duration: 'duration',
-    },
-    {
-      title: 'polishing',
-      description: 'description',
-      features: 'features',
-      duration: 'duration',
-    },
-  ]
+  const { services } = useServices()
 
   return (
     <section className={styles.services}>
@@ -56,20 +13,16 @@ function ServicesPage() {
         <h2 className={styles.heading}>{t('services.heading')}</h2>
 
         {services.map((service) => (
-          <div className={styles.category} key={service.title}>
+          <div className={styles.category} key={service.key}>
             <h3 className={styles.subheading}>
-              {t(`services.${service.title}.title`)}
+              {t(`bookingForm.${service.key}`)}
             </h3>
-            <p className={styles.description}>
-              {t(`services.${service.title}.${service.description}`)}
-            </p>
-            <p className={styles.features}>
-              <strong>{t('services.features')}</strong>{' '}
-              {t(`services.${service.title}.${service.features}`)}
-            </p>
             <p className={styles.features}>
               <strong>{t('services.duration')}</strong>{' '}
-              {t(`services.${service.title}.${service.duration}`)}
+              {t('bookingForm.durationMinutes', { count: service.duration })}
+            </p>
+            <p className={styles.features}>
+              <strong>{t('services.price')}</strong> {service.price} CZK
             </p>
           </div>
         ))}

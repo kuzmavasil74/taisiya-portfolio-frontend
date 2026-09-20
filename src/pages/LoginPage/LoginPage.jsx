@@ -83,7 +83,7 @@ const LoginPage = () => {
         </button>
       </form>
       <p style={{ marginTop: 16, fontSize: 14 }}>
-        Немає акаунту? <Link to="/register">Зареєструватися</Link>
+        {t('loginPage.noAccount')} <Link to="/register">{t('loginPage.register')}</Link>
       </p>
     </div>
   )
