@@ -39,7 +39,7 @@
   transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
 }
 
-.button:hover:not(:disabled) {
+.button:hover:not(:disabled):not(.selected):not(.selectedSlot) {
   background: #f2f2f7;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transform: translateY(-1px);
@@ -50,6 +50,10 @@
   background: var(--color-burgundy);
   color: #ffffff;
   border-color: var(--color-burgundy);
+}
+
+.selected:hover {
+  background: var(--color-burgundy-dark);
 }
 
 /* === Busy slot === */
@@ -71,6 +75,10 @@
   color: #ffffff;
   border-color: #111827;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.selectedSlot:hover {
+  background: var(--color-burgundy-dark);
 }
 
 /* === Slot grouping (Apple style) === */
