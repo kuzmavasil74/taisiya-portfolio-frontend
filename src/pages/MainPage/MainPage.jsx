@@ -13,10 +13,10 @@ function Main() {
   // Реальні фото з нашого салону (Instagram @glossy.bytais та галерея робіт)
   // замість попередніх стокових фото чужих закладів.
   const images = [
-    { src: '/images/gallery/ig-menhaircut-process.jpg' },
     { src: '/images/gallery/haircut-after.jpg' },
-    { src: '/images/gallery/Hair-Care_1.jpg' },
-    { src: '/images/gallery/ig-restoration.jpg' },
+    { src: '/images/gallery/haircut-before.jpg' },
+    { src: '/images/gallery/male-haircut_5.jpg' },
+    { src: '/images/gallery/Hair-Care_3.jpg' },
   ]
   const settings = {
     dots: true,
@@ -33,7 +33,7 @@ function Main() {
       <div className={styles.sliderContainer}>
         <Slider {...settings}>
           {images.map((image, index) => (
-            <div key={index}>
+            <div key={index} className={styles.slideWrapper}>
               <img
                 className={styles.sliderImg}
                 src={image.src}
