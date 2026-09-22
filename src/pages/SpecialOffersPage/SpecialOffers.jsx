@@ -1,11 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styles from './SpecialOffers.module.css'
 import { useTranslation } from 'react-i18next'
 
 const SpecialOffers = () => {
   const { t } = useTranslation()
-  const isLoggedIn = Boolean(localStorage.getItem('token'))
 
   return (
     <div className={styles.specialOffers}>
@@ -24,14 +22,6 @@ const SpecialOffers = () => {
           <p>{t('specialOffers.offer3.description')}</p>
         </div>
       </div>
-      <Link
-        className={styles.ctaLink}
-        to={isLoggedIn ? '/dashboard' : '/register'}
-      >
-        {isLoggedIn
-          ? t('specialOffers.viewMyPoints')
-          : t('specialOffers.signUp')}
-      </Link>
     </div>
   )
 }

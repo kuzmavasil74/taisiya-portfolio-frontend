@@ -55,17 +55,6 @@
   margin-top: 0.5rem;
 }
 
-.ctaLink {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.7rem 1.8rem;
-  border-radius: 999px;
-  background: var(--color-burgundy);
-  color: var(--color-white);
-  font-weight: 600;
-  text-decoration: none;
-}
-
 /* 📲 Планшет */
 @media (min-width: 768px) and (max-width: 1024px) {
   .specialOffers {
