@@ -2,8 +2,6 @@
   padding: 32px 24px;
   max-width: 1000px;
   margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
-    'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

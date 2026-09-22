@@ -5,8 +5,6 @@
   max-width: 320px;
   width: 100%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
-    'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 

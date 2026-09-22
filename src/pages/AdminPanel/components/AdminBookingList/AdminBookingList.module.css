@@ -7,8 +7,6 @@
   background-color: #f5f5f7;
   border-radius: 12px;
   min-height: 80vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
-    'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .error {
@@ -43,7 +41,7 @@
 }
 
 .activeTab {
-  background-color: #007aff;
+  background-color: var(--color-burgundy);
   color: #fff;
   font-weight: 600;
 }
@@ -112,7 +110,7 @@
 
 .pagination button {
   padding: 6px 14px;
-  background-color: #007aff;
+  background-color: var(--color-burgundy);
   color: #fff;
   border: none;
   border-radius: 999px;
@@ -122,7 +120,7 @@
 }
 
 .pagination button:disabled {
-  background-color: #b9d7ff;
+  background-color: #e0b3c0;
   cursor: not-allowed;
 }
 

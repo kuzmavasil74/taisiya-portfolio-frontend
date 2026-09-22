@@ -106,8 +106,9 @@ code {
   --color-black: #000000;
   --color-white: #ffffff;
   --color-burgundy: #800020;
-  --color-blue: #1e90ff;
-  --color-red: #ff6347;
+  --color-burgundy-dark: #5c0017;
+  --color-burgundy-bright: #c2185b;
+  --color-burgundy-tint: rgba(128, 0, 32, 0.12);
 }
 
 /* Set box-sizing globally to border-box */

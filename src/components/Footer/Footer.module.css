@@ -6,8 +6,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    sans-serif;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -44,7 +42,7 @@
 
 .social-media-link:hover,
 .contact-info-link:hover {
-  color: #5ac8fa; /* світло-блакитний акцент Apple-style */
+  color: var(--color-burgundy-bright);
   transform: translateY(-2px);
 }
 

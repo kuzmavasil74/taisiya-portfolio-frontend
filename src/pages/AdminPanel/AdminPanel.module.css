@@ -4,8 +4,6 @@
 .container {
   display: flex;
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
-    'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #1c1c1e;
   background-color: #f2f2f7;
   transition: all 0.3s ease;
@@ -39,10 +37,10 @@
   transform: translateX(2px);
 }
 .nav a.active {
-  background-color: #007aff;
+  background-color: var(--color-burgundy);
   color: #fff;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
+  box-shadow: 0 2px 8px rgba(128, 0, 32, 0.25);
 }
 
 /* =====================

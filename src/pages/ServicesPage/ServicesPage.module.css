@@ -128,7 +128,7 @@
 /* Hover only desktop */
 @media (hover: hover) {
   .bookButton:hover {
-    background-color: var(--color-blue);
+    background-color: var(--color-burgundy-dark);
     transform: translateY(-2px);
   }
 }
