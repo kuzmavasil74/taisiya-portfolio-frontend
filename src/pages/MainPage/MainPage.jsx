@@ -6,6 +6,7 @@ import SpecialOffers from '../SpecialOffersPage/SpecialOffers.jsx'
 import styles from './Main.module.css'
 import { useTranslation } from 'react-i18next'
 import FeedbackList from '../FeedbackPage/FeedbackList'
+import { FaCalendarCheck } from 'react-icons/fa'
 
 function Main() {
   const { t } = useTranslation()
@@ -94,6 +95,7 @@ function Main() {
             {t('main.services')}
           </a> */}
           <a href="/booking" className={styles.bookButton}>
+            <FaCalendarCheck />
             {t('services.booking.button')}
           </a>
         </div>
