@@ -5,12 +5,12 @@
   margin: 0 auto;
   overflow: hidden;
   background-color: var(--color-black);
-  padding-bottom: 35%;
+  padding-bottom: 50%;
 }
 .sliderImg {
   width: 100%;
   height: auto;
-  object-position: center;
+  object-position: center 20%;
   object-fit: cover;
   display: block;
 }

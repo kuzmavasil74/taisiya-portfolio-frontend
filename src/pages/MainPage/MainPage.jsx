@@ -10,57 +10,13 @@ import { FaCalendarCheck } from 'react-icons/fa'
 
 function Main() {
   const { t } = useTranslation()
+  // Реальні фото з нашого салону (Instagram @glossy.bytais та галерея робіт)
+  // замість попередніх стокових фото чужих закладів.
   const images = [
-    {
-      small: '/images/slider/slideer_img_1_mob.jpg',
-      medium: '/images/slider/slideer_img_1_tablet.jpg',
-      large: '/images/slider/slideer_img_1_desc.jpg',
-    },
-    {
-      small: '/images/slider/slideer_img_3_mob.jpg',
-      medium: '/images/slider/slideer_img_3_tablet.jpg',
-      large: '/images/slider/slideer_img_3_desc.jpg',
-    },
-    {
-      small: '/images/slider/slideer_img_5_mob.jpg',
-      medium: '/images/slider/slideer_img_5_tablet.jpg',
-      large: '/images/slider/slideer_img_5_desc.jpg',
-    },
-    {
-      small: '/images/slider/slideer_img_6_mob.jpg',
-      medium: '/images/slider/slideer_img_6_tablet.jpg',
-      large: '/images/slider/slideer_img_6_desc.jpg',
-    },
-    {
-      small: '/images/slider/slideer_img_7_mob.jpg',
-      medium: '/images/slider/slideer_img_7_tablet.jpg',
-      large: '/images/slider/slideer_img_7_desc.jpg',
-    },
-    {
-      small: '/images/slider/slideer_img_8_mob.jpg',
-      medium: '/images/slider/slideer_img_8_tablet.jpg',
-      large: '/images/slider/slideer_img_8_desc.jpg',
-    },
-    {
-      small: '/images/slider/slideer_img_9_mob.jpg',
-      medium: '/images/slider/slideer_img_9_tablet.jpg',
-      large: '/images/slider/slideer_img_9_desc.jpg',
-    },
-    {
-      small: '/images/slider/slideer_img_10_mob.jpg',
-      medium: '/images/slider/slideer_img_10_tablet.jpg',
-      large: '/images/slider/slideer_img_10_desc.jpg',
-    },
-    {
-      small: '/images/slider/slideer_img_11_mob.jpg',
-      medium: '/images/slider/slideer_img_11_tablet.jpg',
-      large: '/images/slider/slideer_img_11_desc.jpg',
-    },
-    {
-      small: '/images/slider/slideer_img_12_mob.jpg',
-      medium: '/images/slider/slideer_img_12_tablet.jpg',
-      large: '/images/slider/slideer_img_12_desc.jpg',
-    },
+    { src: '/images/gallery/ig-menhaircut-process.jpg' },
+    { src: '/images/gallery/haircut-after.jpg' },
+    { src: '/images/gallery/Hair-Care_1.jpg' },
+    { src: '/images/gallery/ig-restoration.jpg' },
   ]
   const settings = {
     dots: true,
@@ -80,10 +36,8 @@ function Main() {
             <div key={index}>
               <img
                 className={styles.sliderImg}
-                src={image.small}
-                srcSet={`${image.small} 768w, ${image.medium} 1024w, ${image.large} 1440w`}
-                sizes="(max-width: 768px) 768px, (max-width: 1024px) 1024px, 1440px"
-                alt={`Slide ${index}`}
+                src={image.src}
+                alt={`Taisiya Style ${index + 1}`}
                 loading="lazy"
               />
             </div>
