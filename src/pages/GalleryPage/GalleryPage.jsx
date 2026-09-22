@@ -79,6 +79,18 @@ const galleryItems = [
     description: 'menHaircutBeard',
     isStock: true,
   },
+  {
+    id: 18,
+    category: 'menHaircuts',
+    image: '/images/gallery/ig-menhaircut-process.jpg',
+    description: 'menHaircuts',
+  },
+  {
+    id: 16,
+    category: 'restoration',
+    image: '/images/gallery/ig-restoration.jpg',
+    description: 'restoration',
+  },
   // Для цих послуг у нас ще немає власних фото робіт — це ілюстративні
   // стокові фото, позначені як приклад стилю, а не наша реальна робота.
   {
@@ -100,13 +112,6 @@ const galleryItems = [
     category: 'brazilianColoring',
     image: '/images/gallery/stock-brazilian-coloring.jpg',
     description: 'brazilianColoring',
-    isStock: true,
-  },
-  {
-    id: 16,
-    category: 'restoration',
-    image: '/images/gallery/stock-restoration.jpg',
-    description: 'restoration',
     isStock: true,
   },
   {
