@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from '../AdminBookingList/AdminBookingList.module.css'
 import API_URL from '../../../../utills/config.js'
+import ConfirmModal from '../../../../components/ConfirmModal/ConfirmModal.jsx'
 
 const AdminFeedbackList = () => {
   const { t } = useTranslation()
@@ -10,9 +11,7 @@ const AdminFeedbackList = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  const [showConfirm, setShowConfirm] = useState(false)
   const [feedbackToDelete, setFeedbackToDelete] = useState(null)
-  const [fadeOut, setFadeOut] = useState(false)
 
   const token = localStorage.getItem('token')
 
@@ -52,15 +51,6 @@ const AdminFeedbackList = () => {
     }
   }
 
-  const closeModal = () => {
-    setFadeOut(true)
-    setTimeout(() => {
-      setShowConfirm(false)
-      setFeedbackToDelete(null)
-      setFadeOut(false)
-    }, 200)
-  }
-
   return (
     <div className={styles.container}>
       {loading ? (
@@ -84,10 +74,7 @@ const AdminFeedbackList = () => {
 
               <button
                 className={styles.deleteBtn}
-                onClick={() => {
-                  setFeedbackToDelete(f)
-                  setShowConfirm(true)
-                }}
+                onClick={() => setFeedbackToDelete(f)}
               >
                 {t('adminFeedback.delete')}
               </button>
@@ -96,34 +83,19 @@ const AdminFeedbackList = () => {
         </ul>
       )}
 
-      {showConfirm && feedbackToDelete && (
-        <div
-          className={`${styles.confirmModal} ${fadeOut ? styles.fadeOut : ''}`}
-          onClick={closeModal}
-        >
-          <div
-            className={styles.confirmContent}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <p className={styles.modalText}>
-              {t('adminFeedback.confirmDelete', { name: feedbackToDelete.name })}
-            </p>
-            <div className={styles.confirmBtns}>
-              <button
-                className={styles.confirmBtn}
-                onClick={() => {
-                  handleDelete(feedbackToDelete._id)
-                  closeModal()
-                }}
-              >
-                {t('bookings.confirm')}
-              </button>
-              <button className={styles.cancelBtn} onClick={closeModal}>
-                {t('bookings.cancel')}
-              </button>
-            </div>
-          </div>
-        </div>
+      {feedbackToDelete && (
+        <ConfirmModal
+          message={t('adminFeedback.confirmDelete', {
+            name: feedbackToDelete.name,
+          })}
+          confirmLabel={t('bookings.confirm')}
+          cancelLabel={t('bookings.cancel')}
+          onConfirm={() => {
+            handleDelete(feedbackToDelete._id)
+            setFeedbackToDelete(null)
+          }}
+          onCancel={() => setFeedbackToDelete(null)}
+        />
       )}
     </div>
   )

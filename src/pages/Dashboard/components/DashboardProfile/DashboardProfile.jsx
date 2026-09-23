@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import styles from './DashboardProfile.module.css'
 import apiFetch from '../../../../utills/api.js'
+import ConfirmModal from '../../../../components/ConfirmModal/ConfirmModal.jsx'
 
 const DashboardProfile = () => {
   const { t } = useTranslation()
@@ -109,33 +110,14 @@ const DashboardProfile = () => {
       </div>
 
       {showConfirmDelete && (
-        <div
-          className={styles.confirmModal}
-          onClick={() => !deleting && setShowConfirmDelete(false)}
-        >
-          <div
-            className={styles.confirmContent}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <p>{t('dashboard.deleteAccount.confirm')}</p>
-            <div className={styles.confirmBtns}>
-              <button
-                className={styles.deleteBtn}
-                disabled={deleting}
-                onClick={handleDeleteAccount}
-              >
-                {t('dashboard.deleteAccount.confirmButton')}
-              </button>
-              <button
-                className={styles.cancelBtn}
-                disabled={deleting}
-                onClick={() => setShowConfirmDelete(false)}
-              >
-                {t('bookings.cancel')}
-              </button>
-            </div>
-          </div>
-        </div>
+        <ConfirmModal
+          message={t('dashboard.deleteAccount.confirm')}
+          confirmLabel={t('dashboard.deleteAccount.confirmButton')}
+          cancelLabel={t('bookings.cancel')}
+          confirmDisabled={deleting}
+          onConfirm={handleDeleteAccount}
+          onCancel={() => !deleting && setShowConfirmDelete(false)}
+        />
       )}
     </div>
   )

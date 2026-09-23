@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './BookingsTable.module.css'
 import API_URL from '../../../../utills/config.js'
+import Modal from '../../../../components/Modal/Modal.jsx'
 
 const BookingsTable = () => {
   const { t } = useTranslation()
@@ -260,74 +261,72 @@ const BookingsTable = () => {
 
       {/* Модальне вікно редагування */}
       {modalOpen && (
-        <div className={styles.confirmModal}>
-          <div className={styles.confirmContent}>
-            <h3>{t('bookingTable.editBooking')}</h3>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 10,
-                marginTop: 12,
-              }}
+        <Modal onClose={handleCloseModal}>
+          <h3>{t('bookingTable.editBooking')}</h3>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 10,
+              marginTop: 12,
+            }}
+          >
+            <select
+              name="service"
+              value={formData.service}
+              onChange={handleFormChange}
             >
-              <select
-                name="service"
-                value={formData.service}
-                onChange={handleFormChange}
-              >
-                <option value="Haircut">
-                  {t('bookingTable.Haircut')} 60{t('bookingTable.minutes')}
-                </option>
-                <option value="menHaircuts">
-                  {t('bookingTable.menHaircuts')} 30{t('bookingTable.minutes')}
-                </option>
-                <option value="coldRestoration">
-                  {t('bookingTable.coldRestoration')} 90{' '}
-                  {t('bookingTable.minutes')}
-                </option>
-                <option value="polishing">
-                  {t('bookingTable.polishing')} 30 {t('bookingTable.minutes')}
-                </option>
-              </select>
-              <input
-                type="datetime-local"
-                name="date"
-                value={formData.date}
-                onChange={handleFormChange}
-              />
-              <input
-                type="number"
-                name="duration"
-                value={formData.duration}
-                onChange={handleFormChange}
-                placeholder={t('bookingTable.duration')}
-              />
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleFormChange}
-                placeholder={t('bookingTable.name')}
-              />
-              <input
-                type="text"
-                name="phone"
-                value={formData.phone}
-                onChange={handleFormChange}
-                placeholder={t('bookingTable.phone')}
-              />
-            </div>
-            <div className={styles.confirmBtns}>
-              <button className={styles.confirmBtn} onClick={handleSave}>
-                {t('bookingTable.save')}
-              </button>
-              <button className={styles.cancelBtn} onClick={handleCloseModal}>
-                {t('bookingTable.cancel')}
-              </button>
-            </div>
+              <option value="Haircut">
+                {t('bookingTable.Haircut')} 60{t('bookingTable.minutes')}
+              </option>
+              <option value="menHaircuts">
+                {t('bookingTable.menHaircuts')} 30{t('bookingTable.minutes')}
+              </option>
+              <option value="coldRestoration">
+                {t('bookingTable.coldRestoration')} 90{' '}
+                {t('bookingTable.minutes')}
+              </option>
+              <option value="polishing">
+                {t('bookingTable.polishing')} 30 {t('bookingTable.minutes')}
+              </option>
+            </select>
+            <input
+              type="datetime-local"
+              name="date"
+              value={formData.date}
+              onChange={handleFormChange}
+            />
+            <input
+              type="number"
+              name="duration"
+              value={formData.duration}
+              onChange={handleFormChange}
+              placeholder={t('bookingTable.duration')}
+            />
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleFormChange}
+              placeholder={t('bookingTable.name')}
+            />
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleFormChange}
+              placeholder={t('bookingTable.phone')}
+            />
           </div>
-        </div>
+          <div className={styles.confirmBtns}>
+            <button className={styles.confirmBtn} onClick={handleSave}>
+              {t('bookingTable.save')}
+            </button>
+            <button className={styles.cancelBtn} onClick={handleCloseModal}>
+              {t('bookingTable.cancel')}
+            </button>
+          </div>
+        </Modal>
       )}
     </div>
   )

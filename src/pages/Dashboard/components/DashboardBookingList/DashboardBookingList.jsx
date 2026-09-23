@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styles from './DashboardBookingList.module.css'
 import { useTranslation } from 'react-i18next'
 import apiFetch from '../../../../utills/api.js'
+import ConfirmModal from '../../../../components/ConfirmModal/ConfirmModal.jsx'
 
 const DashboardBookingList = () => {
   const { t } = useTranslation()
@@ -115,35 +116,16 @@ const DashboardBookingList = () => {
 
       {/* 🔹 Confirm Modal */}
       {bookingToCancel && (
-        <div
-          className={styles.confirmModal}
-          onClick={() => !canceling && setBookingToCancel(null)}
-        >
-          <div
-            className={styles.confirmContent}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <p className={styles.modalText}>
-              {t('bookings.confirmCancel', { service: bookingToCancel.service })}
-            </p>
-            <div className={styles.confirmBtns}>
-              <button
-                className={styles.confirmBtn}
-                disabled={canceling}
-                onClick={() => handleCancel(bookingToCancel._id)}
-              >
-                {t('bookings.confirm')}
-              </button>
-              <button
-                className={styles.modalCancelBtn}
-                disabled={canceling}
-                onClick={() => setBookingToCancel(null)}
-              >
-                {t('bookings.cancel')}
-              </button>
-            </div>
-          </div>
-        </div>
+        <ConfirmModal
+          message={t('bookings.confirmCancel', {
+            service: bookingToCancel.service,
+          })}
+          confirmLabel={t('bookings.confirm')}
+          cancelLabel={t('bookings.cancel')}
+          confirmDisabled={canceling}
+          onConfirm={() => handleCancel(bookingToCancel._id)}
+          onCancel={() => !canceling && setBookingToCancel(null)}
+        />
       )}
     </div>
   )

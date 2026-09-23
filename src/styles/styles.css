@@ -109,6 +109,17 @@ code {
   --color-burgundy-dark: #5c0017;
   --color-burgundy-bright: #c2185b;
   --color-burgundy-tint: rgba(128, 0, 32, 0.12);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
 }
 
 /* Set box-sizing globally to border-box */

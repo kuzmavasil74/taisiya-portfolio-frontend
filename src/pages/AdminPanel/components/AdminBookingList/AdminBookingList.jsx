@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import styles from './AdminBookingList.module.css'
 import API_URL from '../../../../utills/config.js'
+import ConfirmModal from '../../../../components/ConfirmModal/ConfirmModal.jsx'
 
 const AdminBookingList = () => {
   const { t } = useTranslation()
@@ -14,9 +15,7 @@ const AdminBookingList = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  const [showConfirm, setShowConfirm] = useState(false)
   const [bookingToDelete, setBookingToDelete] = useState(null)
-  const [fadeOut, setFadeOut] = useState(false)
 
   const token = localStorage.getItem('token')
   const { userId } = useParams()
@@ -75,15 +74,6 @@ const AdminBookingList = () => {
     }
   }
 
-  const closeModal = () => {
-    setFadeOut(true)
-    setTimeout(() => {
-      setShowConfirm(false)
-      setBookingToDelete(null)
-      setFadeOut(false)
-    }, 200)
-  }
-
   return (
     <div className={styles.container}>
       {/* 🔹 Tabs */}
@@ -130,10 +120,7 @@ const AdminBookingList = () => {
               {tab === 'upcoming' && (
                 <button
                   className={styles.deleteBtn}
-                  onClick={() => {
-                    setBookingToDelete(b)
-                    setShowConfirm(true)
-                  }}
+                  onClick={() => setBookingToDelete(b)}
                 >
                   {t('bookings.delete')}
                 </button>
@@ -162,34 +149,17 @@ const AdminBookingList = () => {
       )}
 
       {/* 🔹 Confirm Modal */}
-      {showConfirm && bookingToDelete && (
-        <div
-          className={`${styles.confirmModal} ${fadeOut ? styles.fadeOut : ''}`}
-          onClick={closeModal}
-        >
-          <div
-            className={styles.confirmContent}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <p className={styles.modalText}>
-              {t('bookings.confirmDelete', { name: bookingToDelete.name })}
-            </p>
-            <div className={styles.confirmBtns}>
-              <button
-                className={styles.confirmBtn}
-                onClick={() => {
-                  handleDelete(bookingToDelete._id)
-                  closeModal()
-                }}
-              >
-                {t('bookings.confirm')}
-              </button>
-              <button className={styles.cancelBtn} onClick={closeModal}>
-                {t('bookings.cancel')}
-              </button>
-            </div>
-          </div>
-        </div>
+      {bookingToDelete && (
+        <ConfirmModal
+          message={t('bookings.confirmDelete', { name: bookingToDelete.name })}
+          confirmLabel={t('bookings.confirm')}
+          cancelLabel={t('bookings.cancel')}
+          onConfirm={() => {
+            handleDelete(bookingToDelete._id)
+            setBookingToDelete(null)
+          }}
+          onCancel={() => setBookingToDelete(null)}
+        />
       )}
     </div>
   )

@@ -116,38 +116,6 @@ button:disabled {
 /* =====================
    МОДАЛЬНЕ ВІКНО
 ===================== */
-.confirmModal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(28, 28, 30, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  opacity: 0;
-  animation: fadeIn 0.25s forwards;
-}
-.confirmModal.fadeOut {
-  animation: fadeOut 0.25s forwards;
-}
-
-.confirmContent {
-  background: #fff;
-  padding: 28px 32px;
-  border-radius: 16px;
-  text-align: center;
-  max-width: 420px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.05);
-  transform: scale(0.9);
-  animation: scaleIn 0.25s forwards;
-}
-.confirmModal.fadeOut .confirmContent {
-  animation: scaleOut 0.25s forwards;
-}
-
 .confirmBtns {
   display: flex;
   justify-content: space-around;
