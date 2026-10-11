@@ -9,14 +9,17 @@
     "login": "Prihlasit se",
     "dashboard": "Panel administrace",
     "admin": "Admin panel",
-    "logout": "Odhlasit se"
+    "logout": "Odhlasit se",
+    "privacy": "Zásady ochrany osobních údajů"
   },
   "footer": {
     "instagram": "Instagram",
     "facebook": "Facebook",
     "phone": "Telefon:",
     "email": "Email:",
-    "copyright": "© 2026 TaisiyaStyle. Všechna práva vyhrazena."
+    "copyright": "© 2026 TaisiyaStyle. Všechna práva vyhrazena.",
+    "privacy-policy": "Zásady ochrany osobních údajů",
+    "terms-and-conditions": "Obchodní podmínky"
   },
   "form": {
     "name": "Jméno",
@@ -221,7 +224,7 @@
     },
     "referral": {
       "title": "Doporučovací program",
-      "hint": "Sdílejte svůj kód — vy i váš přítel získáte po 50 bodech po jeho registraci.",
+      "hint": "Sdílejte svůj kód — vy i váš přítel získáte po 50 bodech po jeho první rezervaci.",
       "copy": "Kopírovat",
       "copied": "Zkopírováno!"
     },
@@ -231,7 +234,8 @@
       "button": "Smazat můj účet",
       "confirm": "Opravdu chcete trvale smazat svůj účet? Tuto akci nelze vrátit zpět.",
       "confirmButton": "Ano, smazat"
-    }
+    },
+    "logout": "Odhlásit se"
   },
   "admin-panel": {
     "profile-name": "Jméno profilu",

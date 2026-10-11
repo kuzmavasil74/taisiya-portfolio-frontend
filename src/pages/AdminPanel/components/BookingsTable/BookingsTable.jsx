@@ -3,9 +3,18 @@ import { useTranslation } from 'react-i18next'
 import styles from './BookingsTable.module.css'
 import API_URL from '../../../../utills/config.js'
 import Modal from '../../../../components/Modal/Modal.jsx'
+import useServices from '../../../../utills/useServices.js'
+
+// ISO-дата -> значення для <input type="datetime-local"> у локальній зоні
+const toLocalInput = (iso) => {
+  const d = new Date(iso)
+  const pad = (n) => String(n).padStart(2, '0')
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`
+}
 
 const BookingsTable = () => {
   const { t } = useTranslation()
+  const { services } = useServices()
 
   const [bookings, setBookings] = useState([])
   const [loading, setLoading] = useState(true)
@@ -22,7 +31,6 @@ const BookingsTable = () => {
   const [formData, setFormData] = useState({
     service: '',
     date: '',
-    duration: '',
     name: '',
     phone: '',
   })
@@ -95,6 +103,7 @@ const BookingsTable = () => {
       })
 
       const data = await res.json()
+      if (!res.ok) throw new Error(data.message || `Error ${res.status}`)
       setBookings((prev) =>
         prev.map((b) => (b._id === id ? { ...b, status: data.status } : b))
       )
@@ -109,8 +118,7 @@ const BookingsTable = () => {
     setEditBooking(booking)
     setFormData({
       service: booking.service,
-      date: booking.date.slice(0, 16),
-      duration: booking.duration,
+      date: toLocalInput(booking.date),
       name: booking.name,
       phone: booking.phone,
     })
@@ -124,15 +132,25 @@ const BookingsTable = () => {
   const handleSave = async () => {
     try {
       const token = localStorage.getItem('token')
+      const payload = {
+        service: formData.service,
+        name: formData.name,
+        phone: formData.phone,
+      }
+      // Дату шлемо лише якщо її змінили — сервер перевіряє слоти й робочий час
+      if (formData.date !== toLocalInput(editBooking.date)) {
+        payload.date = new Date(formData.date).toISOString()
+      }
       const res = await fetch(`${API_URL}/bookings/${editBooking._id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       })
       const updated = await res.json()
+      if (!res.ok) throw new Error(updated.message || `Error ${res.status}`)
       setBookings((prev) =>
         prev.map((b) => (b._id === updated._id ? updated : b))
       )
@@ -162,14 +180,11 @@ const BookingsTable = () => {
             onChange={(e) => setFilterService(e.target.value)}
           >
             <option value="">{t('bookingTable.all')}</option>
-            <option value="Haircut">{t('bookingTable.haircut')}</option>
-            <option value="menHaircuts">{t('bookingTable.menhaircuts')}</option>
-
-            <option value="coldRestoration">
-              {t('bookingTable.coldrestoration')}
-            </option>
-
-            <option value="polishing">{t('bookingTable.polishing')}</option>
+            {services.map((svc) => (
+              <option key={svc.key} value={svc.key}>
+                {t(`bookingForm.${svc.key}`)}
+              </option>
+            ))}
           </select>
         </label>
 
@@ -220,7 +235,7 @@ const BookingsTable = () => {
         <tbody>
           {sortedBookings.map((booking) => (
             <tr key={booking._id}>
-              <td>{t(`bookingTable.${booking.service}`) || booking.service}</td>
+              <td>{t(`bookingForm.${booking.service}`, booking.service)}</td>
               <td>{new Date(booking.date).toLocaleString()}</td>
               <td>{booking.duration || '-'}</td>
               <td>{booking.name}</td>
@@ -276,32 +291,18 @@ const BookingsTable = () => {
               value={formData.service}
               onChange={handleFormChange}
             >
-              <option value="Haircut">
-                {t('bookingTable.Haircut')} 60{t('bookingTable.minutes')}
-              </option>
-              <option value="menHaircuts">
-                {t('bookingTable.menHaircuts')} 30{t('bookingTable.minutes')}
-              </option>
-              <option value="coldRestoration">
-                {t('bookingTable.coldRestoration')} 90{' '}
-                {t('bookingTable.minutes')}
-              </option>
-              <option value="polishing">
-                {t('bookingTable.polishing')} 30 {t('bookingTable.minutes')}
-              </option>
+              {services.map((svc) => (
+                <option key={svc.key} value={svc.key}>
+                  {t(`bookingForm.${svc.key}`)} {svc.duration}{' '}
+                  {t('bookingTable.minutes')}
+                </option>
+              ))}
             </select>
             <input
               type="datetime-local"
               name="date"
               value={formData.date}
               onChange={handleFormChange}
-            />
-            <input
-              type="number"
-              name="duration"
-              value={formData.duration}
-              onChange={handleFormChange}
-              placeholder={t('bookingTable.duration')}
             />
             <input
               type="text"

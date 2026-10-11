@@ -221,7 +221,7 @@
     },
     "referral": {
       "title": "Referral program",
-      "hint": "Share your code — you and your friend both get 50 points when they sign up.",
+      "hint": "Share your code — you and your friend both get 50 points after their first booking.",
       "copy": "Copy",
       "copied": "Copied!"
     },
@@ -272,33 +272,6 @@
     "deleteError": "Failed to delete booking",
     "cancelBooking": "Cancel booking",
     "confirmCancel": "Are you sure you want to cancel your booking for {{service}}?"
-  },
-  "booking": {
-    "loading": "Loading...",
-    "noBookings": "No bookings",
-    "all": "All",
-    "confirm": "Confirm",
-    "cancel": "Cancel",
-    "edit": "Edit",
-    "save": "Save",
-    "filterByService": "Filter by service",
-    "filterByDate": "Filter by date",
-    "sortBy": "Sort by",
-    "asc": "Ascending",
-    "desc": "Descending",
-    "date": "Date",
-    "service": "Service",
-    "duration": "Duration",
-    "name": "Name",
-    "phone": "Phone",
-    "status": "Status",
-    "confirmed": "Confirmed",
-    "canceled": "Canceled",
-    "pending": "Pending",
-    "haircut": "Haircut",
-    "menHaircuts": "Men haircuts",
-    "coldRestoration": "Cold Restoration",
-    "polishing": "Polishing"
   },
   "bookingTable": {
     "loading": "Loading...",

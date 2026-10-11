@@ -178,17 +178,27 @@ function BookingFormPage() {
     availableSlots.length > 0 &&
     !hasContiguousBlock(getUsableSlotTimes(), requiredSlots)
 
+  // Токен (якщо клієнт залогінений) — щоб запис і бали прив'язались до акаунта
+  const authConfig = () => {
+    const token = localStorage.getItem('token')
+    return token ? { headers: { Authorization: `Bearer ${token}` } } : {}
+  }
+
   /* === Join waitlist === */
   const handleJoinWaitlist = async () => {
     if (!name || !phone) return
     setWaitlistSubmitting(true)
     try {
-      await axios.post(`${API_URL}/bookings/waitlist`, {
-        service: selectedService.title,
-        date: selectedDate.toISOString(),
-        name,
-        phone,
-      })
+      await axios.post(
+        `${API_URL}/bookings/waitlist`,
+        {
+          service: selectedService.title,
+          date: selectedDate.toISOString(),
+          name,
+          phone,
+        },
+        authConfig()
+      )
       setWaitlistJoined(true)
     } catch (err) {
       alert(err.message)
@@ -236,14 +246,18 @@ function BookingFormPage() {
 
     for (const occurrenceDate of occurrenceDates) {
       try {
-        const res = await axios.post(`${API_URL}/bookings`, {
-          service: selectedService.title,
-          date: occurrenceDate.toISOString(),
-          duration: selectedSlots.length * SLOT_INTERVAL,
-          name,
-          phone,
-          recurringGroupId,
-        })
+        const res = await axios.post(
+          `${API_URL}/bookings`,
+          {
+            service: selectedService.title,
+            date: occurrenceDate.toISOString(),
+            duration: selectedSlots.length * SLOT_INTERVAL,
+            name,
+            phone,
+            recurringGroupId,
+          },
+          authConfig()
+        )
         successCount++
         if (!firstBookingId) firstBookingId = res.data._id
       } catch (err) {
