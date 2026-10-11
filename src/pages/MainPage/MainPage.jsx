@@ -10,13 +10,14 @@ import { FaCalendarCheck } from 'react-icons/fa'
 
 function Main() {
   const { t } = useTranslation()
-  // Реальні фото з нашого салону (Instagram @glossy.bytais та галерея робіт)
-  // замість попередніх стокових фото чужих закладів.
+  // Ліцензійні стокові фото з Pexels (вільна комерційна ліцензія, атрибуція
+  // не обов'язкова): широкі кадри, що добре обрізаються під слайдер.
+  // Реальні роботи салону — у галереї.
   const images = [
-    { src: '/images/gallery/haircut-after.jpg' },
-    { src: '/images/gallery/haircut-before.jpg' },
-    { src: '/images/gallery/male-haircut_5.jpg' },
-    { src: '/images/gallery/Hair-Care_3.jpg' },
+    { src: '/images/hero/slide-1.jpg', alt: 'Haircut in a bright salon' },
+    { src: '/images/hero/slide-2.jpg', alt: 'Hair coloring in a modern salon' },
+    { src: '/images/hero/slide-3.jpg', alt: 'Hairstylist at her station' },
+    { src: '/images/hero/slide-4.jpg', alt: 'Blow-dry styling with a round brush' },
   ]
   const settings = {
     dots: true,
@@ -37,8 +38,8 @@ function Main() {
               <img
                 className={styles.sliderImg}
                 src={image.src}
-                alt={`Taisiya Style ${index + 1}`}
-                loading="lazy"
+                alt={image.alt}
+                loading={index === 0 ? 'eager' : 'lazy'}
               />
             </div>
           ))}
