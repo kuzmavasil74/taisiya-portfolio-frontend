@@ -16,8 +16,7 @@ function Main() {
   const images = [
     { src: '/images/hero/slide-1.jpg', alt: 'Haircut in a bright salon' },
     { src: '/images/hero/slide-2.jpg', alt: 'Hair coloring in a modern salon' },
-    { src: '/images/hero/slide-3.jpg', alt: 'Hairstylist at her station' },
-    { src: '/images/hero/slide-4.jpg', alt: 'Blow-dry styling with a round brush' },
+    { src: '/images/hero/slide-3.jpg', alt: 'Blow-dry styling with a round brush' },
   ]
   const settings = {
     dots: true,
