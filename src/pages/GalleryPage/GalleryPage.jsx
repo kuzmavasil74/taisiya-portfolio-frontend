@@ -91,6 +91,22 @@ const galleryItems = [
     image: '/images/gallery/ig-restoration.jpg',
     description: 'restoration',
   },
+  // Стокові фото з Pexels (безкоштовна ліцензія, атрибуція не обов'язкова):
+  // cottonbro studio (3993447) та Nadezhda Moryak (6503329).
+  {
+    id: 19,
+    category: 'womenHaircuts',
+    image: '/images/gallery/stock-womens-haircut-1.jpg',
+    description: 'womenHaircuts',
+    isStock: true,
+  },
+  {
+    id: 20,
+    category: 'womenHaircuts',
+    image: '/images/gallery/stock-womens-haircut-2.jpg',
+    description: 'womenHaircuts',
+    isStock: true,
+  },
   // Для цих послуг у нас ще немає власних фото робіт — це ілюстративні
   // стокові фото, позначені як приклад стилю, а не наша реальна робота.
   {
