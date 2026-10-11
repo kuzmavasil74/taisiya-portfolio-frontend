@@ -19,8 +19,7 @@ function Main() {
     { src: '/images/hero/slide-2.jpg', alt: 'Hair coloring in a modern salon' },
     { src: '/images/hero/slide-5.jpg', alt: 'Haircut with comb and scissors' },
     { src: '/images/hero/slide-3.jpg', alt: 'Blow-dry styling with a round brush' },
-    { src: '/images/hero/slide-6.jpg', alt: 'Cutting wet hair with a comb' },
-    { src: '/images/hero/slide-7.jpg', alt: 'Precision trimming with a comb' },
+    { src: '/images/hero/slide-6.jpg', alt: 'Precision trimming with a comb' },
   ]
   const settings = {
     dots: true,
