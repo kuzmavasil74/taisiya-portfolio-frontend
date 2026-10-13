@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Taisiya Style — website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Online booking site for a hair salon in Prague (Smíchov): services and prices, gallery, client accounts with loyalty points, and an admin panel. Installable as a PWA, available in English, Ukrainian and Czech.
 
-## Available Scripts
+**Live:** https://www.taisiiastyle.cz  
+**Backend repository:** [taisiya-portfolio-backend](https://github.com/kuzmavasil74/taisiya-portfolio-backend)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+**For clients**
+- Online booking with live availability: 30-minute slots, working days Mon/Wed/Fri 9:00–20:00 (Europe/Prague); a service must fit into consecutive free slots
+- 16 services plus package deals (e.g. cut + toning); prices and durations are loaded from the API
+- Recurring bookings (every 1/2/4 weeks) and a waitlist when a day is fully booked
+- Accounts: sign up / log in, a personal dashboard with upcoming and past bookings, cancel a booking
+- Loyalty points (1 point per 100 CZK) and a referral program (both sides get a bonus after the friend's first booking)
+- Telegram reminders (a day and an hour before the visit) through a per-booking link
+- Reviews with ratings and a gallery with a before/after example
+- GDPR: privacy policy, terms, marketing consent and self-service account deletion
 
-Runs the app in the development mode.\
-Open [http://taisiya-portfolio-backend.onrender.com](http://taisiya-portfolio-backend.onrender.com) to view it in your browser.
+**For the salon**
+- Admin panel: users, all bookings (confirm / cancel / reschedule), statistics charts, review moderation
+- A Telegram notification about every new booking in a group chat, with confirm/cancel buttons
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Platform**
+- PWA: installable, offline fallback through a service worker, install prompt
+- i18n: EN / UK / CZ (a test checks that the locale files have the same keys)
+- Responsive, mobile-first layout; the burgundy brand palette and spacing live in one design-token file (`src/styles/styles.css`)
 
-### `npm test`
+## Tech stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+React 18 · React Router 6 · i18next · CSS Modules · axios · react-datepicker · react-slick · Recharts · Create React App 5 · Jest + Testing Library
 
-### `npm run build`
+## Getting started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Requires Node.js 24 (see `engines` in `package.json`).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+npm start          # http://localhost:3000
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+By default the app talks to the production API. To use a local backend, create `.env.local`:
 
-### `npm run eject`
+```bash
+REACT_APP_API_URL=http://localhost:4000
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The backend already allows `http://localhost:3000` in CORS.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Scripts
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Command | What it does |
+| --- | --- |
+| `npm start` | dev server with hot reload |
+| `npm test` | unit tests (`npm test -- --watchAll=false` for a single run) |
+| `npm run build` | production build into `build/` |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Project structure
 
-## Learn More
+```
+src/
+  components/     Header, Footer, Modal, ConfirmModal, InstallPrompt
+  pages/          one folder per route (Main, Booking, Gallery, Dashboard, AdminPanel, …)
+  locales/        en / uk / cz translation.json
+  styles/         global styles and design tokens
+  utills/         API client (auth header, 401 handling), API URL config, useServices hook
+public/
+  sw.js           service worker
+  manifest.json   PWA manifest
+  images/         gallery photos, hero slider, social preview, printable booking QR code
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Photos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Gallery photos marked "Style example" are licensed stock images (Pexels), not the salon's own work. The hero slider also uses Pexels photos (free commercial licence).
 
-### Code Splitting
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Frontend:** Vercel, deployed on every push to `main` (Node 24; `.npmrc` sets `legacy-peer-deps=true`).
+- **Backend:** Railway, see the backend repository.
+- **CI:** GitHub Actions runs the tests and a production build on every push and pull request.
+- `railway.json` is included in case the frontend has to be served from Railway (`serve -s build`).
