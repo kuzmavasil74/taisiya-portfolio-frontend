@@ -32,6 +32,16 @@ import { useEffect } from 'react'
 import API_URL from './utills/config.js'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
 import InstallPrompt from './components/InstallPrompt/InstallPrompt.jsx'
+import BackButton from './components/BackButton/BackButton.jsx'
+
+// Сторінка з кнопкою «Назад» в окремому рядку зверху
+const withBack = (page) => (
+  <>
+    <BackButton standalone />
+    {page}
+  </>
+)
+
 function App() {
   const { i18n } = useTranslation()
 
@@ -45,12 +55,12 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/contact" element={<ContactFormPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/about" element={withBack(<AboutPage />)} />
+          <Route path="/services" element={withBack(<ServicesPage />)} />
+          <Route path="/contact" element={withBack(<ContactFormPage />)} />
+          <Route path="/gallery" element={withBack(<GalleryPage />)} />
           <Route path="/booking" element={<BookingFormPage />} />
-          <Route path="/prices" element={<PricesList />} />
+          <Route path="/prices" element={withBack(<PricesList />)} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/feedback" element={<FeedbackList />} />
           <Route

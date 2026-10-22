@@ -32,3 +32,16 @@ test('without browser history it goes to a custom fallback', () => {
   fireEvent.click(screen.getByRole('button'))
   expect(screen.getByText('Prices page')).toBeInTheDocument()
 })
+
+test('standalone mode renders the same working button in its own row', () => {
+  render(
+    <MemoryRouter initialEntries={['/privacy']}>
+      <Routes>
+        <Route path="/" element={<p>Home page</p>} />
+        <Route path="/privacy" element={<BackButton standalone />} />
+      </Routes>
+    </MemoryRouter>
+  )
+  fireEvent.click(screen.getByRole('button'))
+  expect(screen.getByText('Home page')).toBeInTheDocument()
+})

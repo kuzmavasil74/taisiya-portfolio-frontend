@@ -25,3 +25,13 @@
   outline: 2px solid var(--color-burgundy-bright);
   outline-offset: 2px;
 }
+
+.pageRow {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-md) 0;
+}
+
+.pageRow .backButton {
+  margin-bottom: 0;
+}

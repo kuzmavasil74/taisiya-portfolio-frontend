@@ -6,7 +6,9 @@ import styles from './BackButton.module.css'
 
 // Повертає на попередню сторінку історії. Якщо користувач відкрив сторінку
 // напряму (за посиланням чи QR-кодом) і історії немає — веде на `fallback`.
-const BackButton = ({ fallback = '/' }) => {
+// standalone — кнопка в окремому рядку над сторінкою (для сторінок без власної
+// «картки», де її нікуди вставити всередину).
+const BackButton = ({ fallback = '/', standalone = false }) => {
   const { t } = useTranslation()
   const navigate = useNavigate()
 
@@ -19,12 +21,14 @@ const BackButton = ({ fallback = '/' }) => {
     }
   }
 
-  return (
+  const button = (
     <button type="button" className={styles.backButton} onClick={handleClick}>
       <FaArrowLeft aria-hidden="true" />
       <span>{t('common.back')}</span>
     </button>
   )
+
+  return standalone ? <div className={styles.pageRow}>{button}</div> : button
 }
 
 export default BackButton
