@@ -1,9 +1,11 @@
 import React from 'react'
 import styles from './PrivacyPolicy.module.css'
+import BackButton from '../../components/BackButton/BackButton.jsx'
 
 const PrivacyPolicy = () => {
   return (
     <div className={styles.privacyPolicy}>
+      <BackButton />
       <h1 className={styles.privacyHeading}>Privacy Policy</h1>
       <div className={styles.privacyContent}>
         <p>

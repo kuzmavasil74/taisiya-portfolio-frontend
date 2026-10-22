@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from './BookingFormPage.module.css'
+import BackButton from '../../components/BackButton/BackButton.jsx'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
 import DatePicker from 'react-datepicker'
@@ -290,6 +291,7 @@ function BookingFormPage() {
 
   return (
     <div className={styles.container}>
+      <BackButton />
       <h2 className={styles.title}>{t('bookingForm.title')}</h2>
 
       {/* === Services === */}

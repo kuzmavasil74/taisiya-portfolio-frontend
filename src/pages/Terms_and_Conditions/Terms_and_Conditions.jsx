@@ -1,9 +1,11 @@
 import React from 'react'
 import styles from './Terms_and_Conditions.module.css'
+import BackButton from '../../components/BackButton/BackButton.jsx'
 
 const Terms_and_Conditions = () => {
   return (
     <div className={styles.container}>
+      <BackButton />
       <h1 className={styles.heading}>Terms and Conditions</h1>
 
       <p>

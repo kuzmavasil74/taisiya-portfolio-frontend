@@ -335,5 +335,8 @@
     "delete": "Smazat",
     "deleteError": "Smazání recenze se nezdařilo",
     "confirmDelete": "Opravdu chcete smazat recenzi od {{name}}?"
+  },
+  "common": {
+    "back": "Zpět"
   }
 }

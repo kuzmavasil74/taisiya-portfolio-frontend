@@ -5,6 +5,7 @@ import FeedbackItem from './FeedbackItem'
 import FeedbackForm from './FeedbackForm.jsx'
 import API_URL from '../../utills/config.js'
 import styles from './FeedbackList.module.css'
+import BackButton from '../../components/BackButton/BackButton.jsx'
 
 const FeedbackList = () => {
   const { t } = useTranslation()
@@ -30,6 +31,7 @@ const FeedbackList = () => {
 
   return (
     <div className={styles.container}>
+      <BackButton />
       <h1 className={styles.title}>{t('feedback.title')}</h1>
 
       {isLoggedIn && (

@@ -331,5 +331,8 @@
     "delete": "Delete",
     "deleteError": "Failed to delete feedback",
     "confirmDelete": "Are you sure you want to delete the feedback from {{name}}?"
+  },
+  "common": {
+    "back": "Back"
   }
 }

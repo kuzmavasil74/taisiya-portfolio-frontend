@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import API_URL from '../../utills/config.js'
+import BackButton from '../../components/BackButton/BackButton.jsx'
 
 const RegisterPage = () => {
   const { t } = useTranslation()
@@ -62,6 +63,7 @@ const RegisterPage = () => {
 
   return (
     <div style={{ maxWidth: 400, margin: '80px auto', padding: '0 1rem' }}>
+      <BackButton />
       <h2>{t('registerPage.title')}</h2>
       <form
         onSubmit={handleSubmit}

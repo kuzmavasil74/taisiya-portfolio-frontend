@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './LoginPage.module.css'
+import BackButton from '../../components/BackButton/BackButton.jsx'
 import API_URL from '../../utills/config.js'
 import { useNavigate, Link } from 'react-router-dom'
 
@@ -61,6 +62,7 @@ const LoginPage = () => {
 
   return (
     <div className={styles.loginContainer}>
+      <BackButton />
       <h2 className={styles.title}>{t('loginPage.login')}</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
