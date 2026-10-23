@@ -69,26 +69,55 @@ const RegisterPage = () => {
         onSubmit={handleSubmit}
         style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
       >
+        <label htmlFor="name" className="sr-only">
+          {t('registerPage.name')}
+        </label>
         <input
           type="text"
+          id="name"
+          name="name"
+          autoComplete="name"
           placeholder={t('registerPage.name')}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        <label htmlFor="username" className="sr-only">
+          {t('registerPage.email')}
+        </label>
         <input
           type="email"
+          id="username"
+          name="username"
+          autoComplete="username"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck="false"
           placeholder={t('registerPage.email')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <label htmlFor="password" className="sr-only">
+          {t('registerPage.password')}
+        </label>
         <input
           type="password"
+          id="password"
+          name="password"
+          autoComplete="new-password"
           placeholder={t('registerPage.password')}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <label htmlFor="referralCode" className="sr-only">
+          {t('registerPage.referralCode')}
+        </label>
         <input
           type="text"
+          id="referralCode"
+          name="referralCode"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck="false"
           placeholder={t('registerPage.referralCode')}
           value={referralCode}
           onChange={(e) => setReferralCode(e.target.value)}

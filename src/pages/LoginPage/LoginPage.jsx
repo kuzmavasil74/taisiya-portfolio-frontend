@@ -65,15 +65,30 @@ const LoginPage = () => {
       <BackButton />
       <h2 className={styles.title}>{t('loginPage.login')}</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
+        <label htmlFor="username" className="sr-only">
+          {t('loginPage.email')}
+        </label>
         <input
           type="email"
+          id="username"
+          name="username"
+          autoComplete="username"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck="false"
           placeholder={t('loginPage.email')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className={styles.input}
         />
+        <label htmlFor="password" className="sr-only">
+          {t('loginPage.password')}
+        </label>
         <input
           type="password"
+          id="password"
+          name="password"
+          autoComplete="current-password"
           placeholder={t('loginPage.password')}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
